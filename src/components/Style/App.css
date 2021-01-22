@@ -1,0 +1,189 @@
+/*
+COLOR PALETTE FROM DISCORD:
+    (outside-to-inside)
+
+    * side bar/search bar background-color : #202225
+        - search bar placeholder text color/icon color: #72767E
+        - icon background-color: #36393F
+        - icon content color: #36393F
+
+    * channel/member bars background-color : #2F3136
+        - text/icon color: #36393F
+        - demarcation line color: #232527
+        * (active) channel background color: #393C43
+            - text color: #FFF
+            - icon color: #B9BBBE
+            - # color: #72767E
+        * user block background-color: #292B2F
+            - username text color: #FFF
+            - secondary font/icon color: #B9BBBE
+
+    * chat background-color: #36393F
+        - primary demarcation line color: #2C2E32
+        - primary text color: #FAFAFA
+        - secondary text color: #72767E
+        - tertiary text color: #41A3DF
+        - profile icon color: #FFF
+        - primary icon color: #B9BBBE
+        - special icon color: #5AB682
+        - secondary demarcation line and text color: #72767E
+        * card background-color: #2F3136
+            - primary text color: #DCDDDE
+            - secondary text color: #44AAEA
+        * user chatbox background-color: #2E3339
+            - chatbox placeholder text color: #72767E
+            - icon color: #B9BBBE
+        * scroll bar
+            - primary color: #202225
+            - secondary color: #2E3339
+*/
+body {
+    background-color: #36393F !important;
+}
+body nav h4 {
+    color: #FFF;
+}
+h1 {
+    color: #FAFAFA;
+}
+h6, p {
+    color: #72767E;
+}
+
+/*card styling*/
+.card {
+    background-color: #2F3136 !important;
+}
+.card h2 {
+    color: #FEFEFE;
+}
+
+.grid-container {
+    display: grid;
+    justify-content: center;
+    grid-gap: 40px;
+    margin-top: 40px;
+}
+
+.grid-item {
+    display: flex;
+}
+
+.image-radius {
+    border-radius: 50%;
+    margin: 5px;
+}
+
+.image-radius img {
+    height: 150px;
+    border-radius: 100%;
+    border: 2px solid #a99a83;
+    padding: 10px;
+    background-color: #f9f7cf;
+}
+
+.left-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 2px solid #dac6a8;
+    border-right: 2px solid #a99a83;
+    border-bottom: 2px solid #dac6a8;
+    border-left: 2px solid #dac6a8;
+    border-radius: 10px 0 0 10px;
+    background-color: #f2dcbb;
+}
+
+.left-card p {
+    margin: 2px 0 5px 0!important;
+    color: #181613 !important;
+    border: 2px solid #a99a83;
+    border-radius: 10px;
+    padding: 2px;
+    background-color: #f9f7cf;
+}
+
+.right-card {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #dac6a8;
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+    padding: 10px;
+    background-color: #f9f7cf;
+}
+
+.right-card p {
+    margin: 7px 0 !important;
+    color: #181613 !important;
+    border: 2px solid #dac6a8;
+    border-radius: 10px;
+    padding: 2px;
+    background-color: #F2DCBB;
+}
+
+.right-card p span {
+    border: 2px solid #a99a83;
+    border-radius: 5px;
+    padding: 2px;
+    margin: 2px;
+}
+
+@media only screen and (min-width : 768px) and (max-width: 1023px) {
+    .grid-item:nth-child(odd) {
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+
+    .grid-item:nth-child(even) {
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-container {
+        grid-template-columns: auto auto auto;
+    }
+
+    .grid-item:nth-child(3n+1) {
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+
+    .grid-item:nth-child(3n+2) {
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+
+    .grid-item:nth-child(3n+3) {
+        grid-column-start: 3;
+        grid-column-end: 4;
+    }
+}
+
+@media (min-width: 1440px) {
+    .grid-container {
+        grid-template-columns: auto auto auto auto;
+    }
+
+    .grid-item:nth-child(4n+1) {
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+
+    .grid-item:nth-child(4n+2) {
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+
+    .grid-item:nth-child(4n+3) {
+        grid-column-start: 3;
+        grid-column-end: 4;
+    }
+
+    .grid-item:nth-child(4n+4) {
+        grid-column-start: 4;
+        grid-column-end: 5;
+    }
+}

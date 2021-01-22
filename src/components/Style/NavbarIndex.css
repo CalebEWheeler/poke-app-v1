@@ -1,0 +1,143 @@
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    background: #2F3136;
+    height: 70px;
+}
+.nav h4 {
+    color: #FFFFFF !important;
+}
+.nav .pokeball:focus {
+    outline: none;
+}
+.nav .buttonInner {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    outline:none
+}
+.nav .pokeball {
+    position: relative;
+    height: 44px;
+    width: 44px;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+.closedPokeball {
+    border: 3px solid lightskyblue;
+}
+
+.closedPokeball:hover {
+    border: 3px solid darkorange;
+}
+.openPokeball {
+    border: 3px solid darkorange;
+}
+
+.dropdown-toggle::after {
+    display: none !important;
+}
+
+.drop-icon {
+    display: inline-block;
+    position: relative;
+}
+.pokeball-menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    right: 0;
+    margin: 0;
+    width: 50px;
+    padding: 0;
+    z-index: 1500;
+}
+
+.dropdown-link {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    margin-top: 20px;
+}
+
+.search-hide {
+    display: none;
+}
+
+.search-show {
+    display: block;
+}
+
+.round-input {
+    border-radius: 16px;
+    width: 140px;
+    padding-left: 8px;
+    border: 3px solid lightskyblue;
+}
+
+.round-input:hover {
+    border-radius: 16px;
+    width: 140px;
+    padding-left: 8px;
+    border: 3px solid darkorange;
+}
+.round-input:focus {
+    outline: none;
+}
+
+.circular {
+    border-radius: 50%;
+}
+
+.all-types {
+    background-color: #101010;
+    border-radius: 50%;
+    border: 3px solid lightskyblue;
+    margin: 0;
+    padding: 0;
+    height: 36px;
+    width: 36px;
+}
+
+.all-types:hover, .all-types-active:hover, .hover {
+    cursor: pointer;
+}
+
+.all-types:hover {
+    border: 3px solid darkorange;
+}
+
+.hover:hover {
+    color: darkorange;
+}
+
+.all-types-active {
+    background-color: #101010;
+    border-radius: 50%;
+    border: 3px solid darkorange;
+    margin: 0;
+    padding: 0;
+    height: 36px;
+    width: 36px;
+}
+
+.center-icon {
+    margin-left: auto;
+    margin-right: auto;
+    height: 32px;
+}
+
+.profile-link {
+    border-radius: 50%;
+    color: lightskyblue;
+}
+
+.profile-link:hover {
+    color: darkorange;
+}
+
