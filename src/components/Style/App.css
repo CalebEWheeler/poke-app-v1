@@ -38,7 +38,7 @@ COLOR PALETTE FROM DISCORD:
             - secondary color: #2E3339
 */
 body {
-    background-color: #36393F !important;
+    background-color: #628395 !important;
 }
 body nav h4 {
     color: #FFF;
@@ -61,7 +61,7 @@ h6, p {
 .grid-container {
     display: grid;
     justify-content: center;
-    grid-gap: 40px;
+    grid-gap: 10px;
     margin-top: 40px;
 }
 
@@ -77,59 +77,61 @@ h6, p {
 .image-radius img {
     height: 150px;
     border-radius: 100%;
-    border: 2px solid #a99a83;
+    border: 2px solid #786e62;
     padding: 10px;
-    background-color: #f9f7cf;
+    background-color: #DFD5A5;
 }
 
 .left-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-top: 2px solid #dac6a8;
-    border-right: 2px solid #a99a83;
-    border-bottom: 2px solid #dac6a8;
-    border-left: 2px solid #dac6a8;
+    justify-content: space-evenly;
+    border-top: 2px solid #c9c095;
+    border-right: 2px solid #b2aa84;
+    border-bottom: 2px solid #c9c095;
+    border-left: 2px solid #c9c095;
     border-radius: 10px 0 0 10px;
-    background-color: #f2dcbb;
+    background-color: #CF995F;
 }
 
 .left-card p {
     margin: 2px 0 5px 0!important;
     color: #181613 !important;
-    border: 2px solid #a99a83;
+    border: 2px solid #877b6f;
     border-radius: 10px;
-    padding: 2px;
-    background-color: #f9f7cf;
+    padding: 2px 16px;
+    background-color: #c9c095;
 }
 
 .right-card {
     display: flex;
     flex-direction: column;
-    border: 2px solid #dac6a8;
+    border: 2px solid #c9c095;
     border-left: none;
     border-radius: 0 10px 10px 0;
     padding: 10px;
-    background-color: #f9f7cf;
+    background-color: #DFD5A5;
 }
 
 .right-card p {
     margin: 7px 0 !important;
     color: #181613 !important;
-    border: 2px solid #dac6a8;
+    border: 2px solid #e5ddb7;
     border-radius: 10px;
-    padding: 2px;
-    background-color: #F2DCBB;
+    padding: 6px;
+    background-color: #c9c095;
 }
 
 .right-card p span {
-    border: 2px solid #a99a83;
-    border-radius: 5px;
+    color: #302c25;
+    border: 2px solid #696056;
+    border-radius: 10px;
     padding: 2px;
     margin: 2px;
 }
 
-@media only screen and (min-width : 768px) and (max-width: 1023px) {
+@media only screen and (min-width : 768px) and (max-width: 1092px) {
     .grid-item:nth-child(odd) {
         grid-column-start: 1;
         grid-column-end: 2;
@@ -141,7 +143,7 @@ h6, p {
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1092px) {
     .grid-container {
         grid-template-columns: auto auto auto;
     }

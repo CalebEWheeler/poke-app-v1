@@ -1,13 +1,12 @@
 .nav {
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 0;
-    margin-bottom: 0;
-    background: #2F3136;
+    background: #96897b;
+    border-top: 2px solid #4b453e;
+    border-bottom: 2px solid #4b453e;
     height: 70px;
 }
 .nav h4 {
-    color: #FFFFFF !important;
+    color: #3c3731 !important;
+    margin: auto 0 auto 15px;
 }
 .nav .pokeball:focus {
     outline: none;
