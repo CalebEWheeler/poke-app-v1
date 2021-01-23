@@ -4,10 +4,10 @@
     border-bottom: 2px solid #4b453e;
     height: 70px;
 }
-.nav h4 {
-    color: #3c3731 !important;
-    margin: auto 0 auto 15px;
-}
+/*.nav h4 {*/
+/*    color: #3c3731 !important;*/
+/*    margin: auto 0 auto 15px;*/
+/*}*/
 .nav .pokeball:focus {
     outline: none;
 }

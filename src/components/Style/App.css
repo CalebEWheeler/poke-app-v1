@@ -1,3 +1,12 @@
+@import url("//db.onlinewebfonts.com/c/f4d1593471d222ddebd973210265762a?family=Pokemon");
+@font-face {font-family: "Pokemon";
+    src: url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.eot");
+    src: url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.eot?#iefix") format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.woff2") format("woff2"),
+    url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.woff") format("woff"),
+    url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.ttf") format("truetype"),
+    url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.svg#Pokemon") format("svg");
+}
 /*
 COLOR PALETTE FROM DISCORD:
     (outside-to-inside)
@@ -40,8 +49,12 @@ COLOR PALETTE FROM DISCORD:
 body {
     background-color: #628395 !important;
 }
-body nav h4 {
-    color: #FFF;
+.nav h4 {
+    color: #3c3731 !important;
+    margin: auto 0 auto 15px;
+    font-family: "Pokemon";
+    letter-spacing: 2px;
+    text-shadow: -1px 0 floralwhite, 0 1px floralwhite, 1px 0 floralwhite, 0 -1px floralwhite;
 }
 h1 {
     color: #FAFAFA;
@@ -61,12 +74,19 @@ h6, p {
 .grid-container {
     display: grid;
     justify-content: center;
-    grid-gap: 10px;
+    grid-gap: 30px;
     margin-top: 40px;
 }
 
 .grid-item {
     display: flex;
+    width: 360px;
+    transition: transform .2s;
+}
+
+.grid-item:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 .image-radius {
@@ -75,11 +95,11 @@ h6, p {
 }
 
 .image-radius img {
-    height: 150px;
+    height: 140px;
     border-radius: 100%;
     border: 2px solid #786e62;
     padding: 10px;
-    background-color: #DFD5A5;
+    background-image: radial-gradient(circle, #DFD5A5, #699562);
 }
 
 .left-card {
@@ -107,6 +127,7 @@ h6, p {
 .right-card {
     display: flex;
     flex-direction: column;
+    width: 100%;
     border: 2px solid #c9c095;
     border-left: none;
     border-radius: 0 10px 10px 0;
@@ -114,7 +135,7 @@ h6, p {
     background-color: #DFD5A5;
 }
 
-.right-card p {
+.right-card>p {
     margin: 7px 0 !important;
     color: #181613 !important;
     border: 2px solid #e5ddb7;
@@ -123,8 +144,32 @@ h6, p {
     background-color: #c9c095;
 }
 
-.right-card p span {
+.right-card>div {
+    display: flex;
+    width: 190px;
+    margin: 7px 0 !important;
+    color: #181613 !important;
+    border: 2px solid #e5ddb7;
+    border-radius: 10px;
+    padding: 6px;
+    background-color: #c9c095;
+}
+
+.right-card>div>div {
+    display: flex;
+    margin-left: 3px;
+}
+
+.right-card div p {
+    margin: auto 0 !important;
+    color: #181613 !important;
+}
+
+.right-card>div>div>div {
+    display: flex;
+    justify-content: center;
     color: #302c25;
+    width: 63px;
     border: 2px solid #696056;
     border-radius: 10px;
     padding: 2px;
@@ -164,28 +209,28 @@ h6, p {
     }
 }
 
-@media (min-width: 1440px) {
-    .grid-container {
-        grid-template-columns: auto auto auto auto;
-    }
+/*@media (min-width: 1440px) {*/
+/*    .grid-container {*/
+/*        grid-template-columns: auto auto auto auto;*/
+/*    }*/
 
-    .grid-item:nth-child(4n+1) {
-        grid-column-start: 1;
-        grid-column-end: 2;
-    }
+/*    .grid-item:nth-child(4n+1) {*/
+/*        grid-column-start: 1;*/
+/*        grid-column-end: 2;*/
+/*    }*/
 
-    .grid-item:nth-child(4n+2) {
-        grid-column-start: 2;
-        grid-column-end: 3;
-    }
+/*    .grid-item:nth-child(4n+2) {*/
+/*        grid-column-start: 2;*/
+/*        grid-column-end: 3;*/
+/*    }*/
 
-    .grid-item:nth-child(4n+3) {
-        grid-column-start: 3;
-        grid-column-end: 4;
-    }
+/*    .grid-item:nth-child(4n+3) {*/
+/*        grid-column-start: 3;*/
+/*        grid-column-end: 4;*/
+/*    }*/
 
-    .grid-item:nth-child(4n+4) {
-        grid-column-start: 4;
-        grid-column-end: 5;
-    }
-}
+/*    .grid-item:nth-child(4n+4) {*/
+/*        grid-column-start: 4;*/
+/*        grid-column-end: 5;*/
+/*    }*/
+/*}*/

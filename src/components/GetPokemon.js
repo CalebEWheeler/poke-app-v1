@@ -34,7 +34,7 @@ function GetPokemon() {
                 // "https://pokeapi.co/api/v2/pokemon?offset=809&limit=89",
             ];
             // for(let url of pokeUrls) {
-            let url = "https://pokeapi.co/api/v2/pokemon?limit=3";
+            let url = "https://pokeapi.co/api/v2/pokemon?limit=25";
                 let response = await getListByGen(url)
                 await renderPokemon(response.results);
                 // setIsLoaded(!isLoaded);
@@ -71,9 +71,17 @@ function GetPokemon() {
     } else if (isLoaded) {
         return <div>Loading...</div>;
     } else {
+
         return (
             <div className={"grid-container"}>
                 {AllPokemon.map((pokemon,index) => {
+                    let type2;
+                    if(pokemon.types[1] !== undefined) {
+                        type2 = <div className={pokemon.types[1].type.name}>
+                                            {pokemon.types[1].type.name.charAt(0).toUpperCase() + pokemon.types[1].type.name.substr(1)}
+                                        </div>
+                    }
+                    else {}
                     return  <div className={"grid-item"} key={index}>
                                 <div className={"left-card"}>
                                     <div className={"image-radius"}>
@@ -85,14 +93,15 @@ function GetPokemon() {
                                     <p>Dex Entry: {pokemon.id}</p>
                                     <p>Height: {pokemon.height}"</p>
                                     <p>Weight: {pokemon.weight}lbs</p>
-                                    <p>Type:
-                                        <span className={pokemon.types[0].type.name}>
-                                            {pokemon.types[0].type.name.charAt(0).toUpperCase() + pokemon.types[0].type.name.substr(1)}
-                                        </span>
-                                        <span className={pokemon.types[1].type.name}>
-                                            {pokemon.types[1].type.name.charAt(0).toUpperCase() + pokemon.types[1].type.name.substr(1)}
-                                        </span>
-                                    </p>
+                                    <div>
+                                        <p>Type:</p>
+                                        <div>
+                                            <div className={pokemon.types[0].type.name}>
+                                                {pokemon.types[0].type.name.charAt(0).toUpperCase() + pokemon.types[0].type.name.substr(1)}
+                                            </div>
+                                            {type2}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                 })}
