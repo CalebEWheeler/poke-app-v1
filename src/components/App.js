@@ -7,7 +7,10 @@ import "./Style/NavbarIndex.css"
 
 const App = () => {
 
-
+//TODO: in this container have it house the results of:
+// - all pokemon
+// - searched pokemon
+//TODO: have logic to hide and show results based on input value
 
     return (
         <div>

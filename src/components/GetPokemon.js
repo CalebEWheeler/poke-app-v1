@@ -1,8 +1,13 @@
 import React, {useState, useEffect} from 'react';
+import CreatePokeCards from "./CreatePokeCards";
+//TODO: refactor to only have method that gets all pokemon
+
+//Create loading icon
+//Create search functionality
+//Create favorite functionality
+//deploy with AWS
 
 function GetPokemon() {
-    //can refactor this method to take in params based on the position of the scroll to make another get for the next gen of pokemon...
-    // may need two seperate methods to persist the previous gen list
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [Gen1Pokemon, setGen1Pokemon] = useState([]);
@@ -13,10 +18,6 @@ function GetPokemon() {
     const [Gen6Pokemon, setGen6Pokemon] = useState([]);
     const [Gen7Pokemon, setGen7Pokemon] = useState([]);
     const [Gen8Pokemon, setGen8Pokemon] = useState([]);
-
-
-    //refactor to make a get by poke gen and probably change filter by type to filter by gen...
-
 
     const getListByGen = async url => {
         return new Promise((resolve, reject) => {
@@ -41,7 +42,6 @@ function GetPokemon() {
                 "https://pokeapi.co/api/v2/pokemon?offset=809&limit=89",
             ];
             for (let url of pokeUrls) {
-                // let url = "https://pokeapi.co/api/v2/pokemon?limit=151";
                 let response = await getListByGen(url)
                 await renderPokemon(response.results);
                 // setIsLoaded(!isLoaded);
@@ -66,7 +66,6 @@ function GetPokemon() {
 
     let counter = 0;
     const renderPokemon = async data => {
-        // console.log(data);
         let pokeList = await Promise.all(data.map(async pokemon => {
             let getPokemon = await getEachPokemon(byPokeUrl + pokemon.name)
             return getPokemon;
@@ -101,42 +100,6 @@ function GetPokemon() {
                 break;
         }
 
-    }
-
-    const CreatePokeCards = passedPokemon => {
-        return (
-            passedPokemon.map((pokemon, index) => {
-                let type2;
-                if (pokemon.types[1] !== undefined) {
-                    type2 = <div className={pokemon.types[1].type.name}>
-                        {pokemon.types[1].type.name.charAt(0).toUpperCase() + pokemon.types[1].type.name.substr(1)}
-                    </div>
-                } else {
-                }
-                return <div className={"grid-item"} key={index}>
-                    <div className={"left-card"}>
-                        <div className={"image-radius"}>
-                            <img src={pokemon.sprites.front_default} alt="pokeImg"/>
-                        </div>
-                        <p>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.substr(1)}</p>
-                    </div>
-                    <div className={"right-card"}>
-                        <p>Dex Entry: {pokemon.id}</p>
-                        <p>Height: {pokemon.height}"</p>
-                        <p>Weight: {pokemon.weight}lbs</p>
-                        <div>
-                            <p>Type:</p>
-                            <div>
-                                <div className={pokemon.types[0].type.name}>
-                                    {pokemon.types[0].type.name.charAt(0).toUpperCase() + pokemon.types[0].type.name.substr(1)}
-                                </div>
-                                {type2}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            })
-        )
     }
 
     if (error) {
