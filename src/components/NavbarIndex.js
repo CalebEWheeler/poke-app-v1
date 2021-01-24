@@ -11,6 +11,7 @@ const NavbarIndex = () => {
     const [showModal, setShowModal] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [searchStatus, setSearchStatus] = useState(false);
+    const [searchValue, setSearchValue] = useState("");
 
     const callback = (isOpen, showModal) => {
         setIsOpen(!isOpen);
@@ -36,7 +37,10 @@ const NavbarIndex = () => {
                             className={"nav-links circular align-self-center hover" + (searchStatus ? " search-hide" : " search-show")}></FontAwesomeIcon>
                             <div className={"search-container d-flex align-self-center" + (!searchStatus ? " search-hide" : " search-show")}>
                                 <FontAwesomeIcon icon={faCaretRight} size="2x" className={"align-self-center mr-1 hover " + (!searchStatus ? "search-hide" : "search-show")} onClick={() => {setSearchStatus(false)}}></FontAwesomeIcon>
-                                <input className={"nav-links round-input" + (!searchStatus ? " search-hide" : " search-show")} placeholder={"Search..."} type={"text"}/>
+                                <input autoFocus className={"nav-links round-input" + (!searchStatus ? " search-hide" : " search-show")} placeholder={"Search..."} type={"text"}
+                                       onChange={event => {setSearchValue(event.target.value)}}
+                                       value={searchValue}
+                                />
                             </div>
                         </div>
                         <div className={"dropdown-link align-self-center"}>

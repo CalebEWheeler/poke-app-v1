@@ -4,6 +4,7 @@ import NavbarIndex from "./NavbarIndex";
 import GetPokemon from "./GetPokemon";
 import "./Style/App.css"
 import "./Style/NavbarIndex.css"
+import SearchPokemon from "./SearchPokemon";
 
 const App = () => {
 
@@ -12,10 +13,13 @@ const App = () => {
 // - searched pokemon
 //TODO: have logic to hide and show results based on input value
 
+    console.log(document.getElementsByClassName("round-input"));
+
     return (
         <div>
            <NavbarIndex/>
            <GetPokemon/>
+           {/*<SearchPokemon/>*/}
         </div>
     )
 }
