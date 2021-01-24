@@ -7,11 +7,14 @@ import {faCaretRight} from '@fortawesome/free-solid-svg-icons'
 import Modal from "react-bootstrap/Modal";
 import TypeModal from "./TypeModal";
 //WILL NEED TO FIND A SOLUTION THAT WILL REDIRECT A USER TO THE SEARCHPOKEMON PAGE IF THE SEARCH INPUT FIELD IS NOT AN EMPTY STRING AND IF A TYPE IS CLICKED
-const NavbarIndex = () => {
+const NavbarIndex = ({ searchValue, onInputChange }) => {
     const [showModal, setShowModal] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [searchStatus, setSearchStatus] = useState(false);
-    const [searchValue, setSearchValue] = useState("");
+
+    const handleInputChange = (event) => {
+        onInputChange(event.target.value)
+    }
 
     const callback = (isOpen, showModal) => {
         setIsOpen(!isOpen);
@@ -38,7 +41,7 @@ const NavbarIndex = () => {
                             <div className={"search-container d-flex align-self-center" + (!searchStatus ? " search-hide" : " search-show")}>
                                 <FontAwesomeIcon icon={faCaretRight} size="2x" className={"align-self-center mr-1 hover " + (!searchStatus ? "search-hide" : "search-show")} onClick={() => {setSearchStatus(false)}}></FontAwesomeIcon>
                                 <input autoFocus className={"nav-links round-input" + (!searchStatus ? " search-hide" : " search-show")} placeholder={"Search..."} type={"text"}
-                                       onChange={event => {setSearchValue(event.target.value)}}
+                                       onChange={handleInputChange}
                                        value={searchValue}
                                 />
                             </div>
