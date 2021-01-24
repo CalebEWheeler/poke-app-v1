@@ -47,7 +47,7 @@ COLOR PALETTE FROM DISCORD:
             - secondary color: #2E3339
 */
 body {
-    background-color: #628395 !important;
+    background-color: #DFD5A5 !important;
 }
 .nav h4 {
     color: #3c3731 !important;
@@ -56,9 +56,20 @@ body {
     letter-spacing: 2px;
     text-shadow: -1px 0 floralwhite, 0 1px floralwhite, 1px 0 floralwhite, 0 -1px floralwhite;
 }
+
+main>h4 {
+    color: #3c3731 !important;
+    font-family: "Pokemon";
+    letter-spacing: 2px;
+    text-shadow: -1px 0 floralwhite, 0 1px floralwhite, 1px 0 floralwhite, 0 -1px floralwhite;
+    margin: 20px 0 20px 15px;
+}
+
 h1 {
     color: #FAFAFA;
 }
+
+
 h6, p {
     color: #72767E;
 }
@@ -75,7 +86,10 @@ h6, p {
     display: grid;
     justify-content: center;
     grid-gap: 30px;
-    margin-top: 40px;
+    border: 2px solid #4b453e;
+    background-color: #628395;
+    border-radius: 10px;
+    padding: 40px 0;
 }
 
 .grid-item {
