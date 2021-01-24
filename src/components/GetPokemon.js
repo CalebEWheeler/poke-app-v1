@@ -5,7 +5,7 @@ function GetPokemon() {
     // may need two seperate methods to persist the previous gen list
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [AllPokemon, setAllPokemon] = useState([]);
+    const [Gen1Pokemon, setGen1Pokemon] = useState([]);
     const [Gen2Pokemon, setGen2Pokemon] = useState([]);
     const [Gen3Pokemon, setGen3Pokemon] = useState([]);
     const [Gen4Pokemon, setGen4Pokemon] = useState([]);
@@ -74,35 +74,28 @@ function GetPokemon() {
         counter++;
         switch (counter) {
             case 1 :
-                setAllPokemon(pokeList);
+                setGen1Pokemon(pokeList);
                 break;
             case 2 :
                 setGen2Pokemon(pokeList);
-
                 break;
             case 3 :
                 setGen3Pokemon(pokeList);
-
                 break;
             case 4 :
                 setGen4Pokemon(pokeList);
-
                 break;
             case 5 :
                 setGen5Pokemon(pokeList);
-
                 break;
             case 6 :
                 setGen6Pokemon(pokeList);
-
                 break;
             case 7 :
                 setGen7Pokemon(pokeList);
-
                 break;
             case 8 :
                 setGen8Pokemon(pokeList);
-
                 break;
             default :
                 break;
@@ -156,7 +149,7 @@ function GetPokemon() {
             <main>
                 <h4>Generation 1</h4>
                 <section className={"grid-container"}>
-                    {CreatePokeCards(AllPokemon)}
+                    {CreatePokeCards(Gen1Pokemon)}
                 </section>
                 <h4>Generation 2</h4>
                 <section className={"grid-container"}>
