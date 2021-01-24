@@ -13,16 +13,19 @@ const App = () => {
 // - searched pokemon
 //TODO: have logic to hide and show results based on input value
 
-    console.log(searchValue);
     const inputValue = (searchValue) => {
         setSearchValue(searchValue);
+    }
+
+    const getOrSearchPokeBlock = () => {
+        if(searchValue === "") return (<GetPokemon/>);
+        else return (<SearchPokemon/>);
     }
 
     return (
         <div>
            <NavbarIndex searchValue={searchValue} onInputChange={inputValue}/>
-           <GetPokemon/>
-           {/*<SearchPokemon/>*/}
+           {getOrSearchPokeBlock()}
         </div>
     )
 }

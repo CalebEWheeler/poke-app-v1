@@ -7,7 +7,6 @@ import NavbarIndex from "./NavbarIndex";
 
 const SearchPokemon = () => {
 
-    console.log();
 
     return (
         <main>

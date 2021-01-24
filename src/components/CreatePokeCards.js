@@ -1,5 +1,3 @@
-//TODO: put the method that builds Pokemon Block
-//TODO: import method that gets all pokemon from PokeAPI
 import React from "react";
 
 const CreatePokeCards = passedPokemon => {
