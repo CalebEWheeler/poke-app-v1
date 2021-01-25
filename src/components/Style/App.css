@@ -86,6 +86,12 @@ h6, p {
     color: #FEFEFE;
 }
 
+.loader-container>img{
+    width: 360px;
+    border-radius: 10px;
+    border: 2px solid #4b453e;
+}
+
 .grid-container {
     display: grid;
     justify-content: center;
