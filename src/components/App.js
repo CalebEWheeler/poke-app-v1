@@ -8,10 +8,6 @@ import SearchPokemon from "./SearchPokemon";
 
 const App = () => {
     const [searchValue, setSearchValue] = useState("");
-//TODO: in this container have it house the results of:
-// - all pokemon
-// - searched pokemon
-//TODO: have logic to hide and show results based on input value
 
     const inputValue = (searchValue) => {
         setSearchValue(searchValue);
@@ -19,7 +15,7 @@ const App = () => {
 
     const getOrSearchPokeBlock = () => {
         if(searchValue === "") return (<GetPokemon/>);
-        else return (<SearchPokemon/>);
+        else return (<SearchPokemon searchValue={searchValue}/>);
     }
 
     return (
