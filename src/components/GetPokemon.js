@@ -1,54 +1,97 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState} from 'react';
 import CreatePokeCards from "./CreatePokeCards";
-import useLoader from "./Hooks/useLoader";
-//TODO: refactor to only have method that gets all pokemon
+import {faPlusSquare} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-//Create loading icon
-//Create search functionality
 //Create favorite functionality
 //deploy with AWS
 
 function GetPokemon({Gen1Pokemon, Gen2Pokemon, Gen3Pokemon, Gen4Pokemon, Gen5Pokemon, Gen6Pokemon, Gen7Pokemon, Gen8Pokemon}) {
-    const [error, setError] = useState(null);
-    const [loader, showLoader, hideLoader] = useLoader();
 
-        return (
-            <main>
-                {loader}
+
+    return (
+        <main>
+            <div className={"gen-header"}>
                 <h4>Generation 1</h4>
-                <section className={"grid-container"}>
-                    {CreatePokeCards(Gen1Pokemon)}
-                </section>
+                <div>
+                    <FontAwesomeIcon className={"toggle-gen"} icon={faPlusSquare}/>
+                </div>
+            </div>
+            <section className={"grid-container"}>
+                {CreatePokeCards(Gen1Pokemon)}
+            </section>
+
+            <div className={"gen-header"}>
                 <h4>Generation 2</h4>
-                <section className={"grid-container"}>
-                    {CreatePokeCards(Gen2Pokemon)}
-                </section>
+                <div>
+                    <FontAwesomeIcon className={"toggle-gen"} icon={faPlusSquare}/>
+                </div>
+            </div>
+            <section className={"grid-container"}>
+                {CreatePokeCards(Gen2Pokemon)}
+            </section>
+
+            <div className={"gen-header"}>
                 <h4>Generation 3</h4>
-                <section className={"grid-container"}>
-                    {CreatePokeCards(Gen3Pokemon)}
-                </section>
+                <div>
+                    <FontAwesomeIcon className={"toggle-gen"} icon={faPlusSquare}/>
+                </div>
+            </div>
+            <section className={"grid-container"}>
+                {CreatePokeCards(Gen3Pokemon)}
+            </section>
+
+            <div className={"gen-header"}>
                 <h4>Generation 4</h4>
-                <section className={"grid-container"}>
-                    {CreatePokeCards(Gen4Pokemon)}
-                </section>
+                <div>
+                    <FontAwesomeIcon className={"toggle-gen"} icon={faPlusSquare}/>
+                </div>
+            </div>
+            <section className={"grid-container"}>
+                {CreatePokeCards(Gen4Pokemon)}
+            </section>
+
+            <div className={"gen-header"}>
                 <h4>Generation 5</h4>
-                <section className={"grid-container"}>
-                    {CreatePokeCards(Gen5Pokemon)}
-                </section>
+                <div>
+                    <FontAwesomeIcon className={"toggle-gen"} icon={faPlusSquare}/>
+                </div>
+            </div>
+            <section className={"grid-container"}>
+                {CreatePokeCards(Gen5Pokemon)}
+            </section>
+
+            <div className={"gen-header"}>
                 <h4>Generation 6</h4>
-                <section className={"grid-container"}>
-                    {CreatePokeCards(Gen6Pokemon)}
-                </section>
+                <div>
+                    <FontAwesomeIcon className={"toggle-gen"} icon={faPlusSquare}/>
+                </div>
+            </div>
+            <section className={"grid-container"}>
+                {CreatePokeCards(Gen6Pokemon)}
+            </section>
+
+            <div className={"gen-header"}>
                 <h4>Generation 7</h4>
-                <section className={"grid-container"}>
-                    {CreatePokeCards(Gen7Pokemon)}
-                </section>
+                <div>
+                    <FontAwesomeIcon className={"toggle-gen"} icon={faPlusSquare}/>
+                </div>
+            </div>
+            <section className={"grid-container"}>
+                {CreatePokeCards(Gen7Pokemon)}
+            </section>
+
+            <div className={"gen-header"}>
                 <h4>Generation 8</h4>
-                <section className={"grid-container"}>
-                    {CreatePokeCards(Gen8Pokemon)}
-                </section>
-            </main>
-        )
+                <div>
+                    <FontAwesomeIcon className={"toggle-gen"} icon={faPlusSquare}/>
+                </div>
+            </div>
+            <section className={"grid-container"}>
+                {CreatePokeCards(Gen8Pokemon)}
+            </section>
+        </main>
+    )
 }
 
 export default GetPokemon;

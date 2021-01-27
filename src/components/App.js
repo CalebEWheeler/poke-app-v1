@@ -9,7 +9,6 @@ import useLoader from "./Hooks/useLoader";
 
 const App = () => {
     const [searchValue, setSearchValue] = useState("");
-    // const [allPokemon, setAllPokemon] = useState([]);
     const [Gen1Pokemon, setGen1Pokemon] = useState([]);
     const [Gen2Pokemon, setGen2Pokemon] = useState([]);
     const [Gen3Pokemon, setGen3Pokemon] = useState([]);

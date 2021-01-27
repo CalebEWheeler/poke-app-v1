@@ -61,7 +61,7 @@ main {
     padding: 10px;
 }
 
-main>h4 {
+main>h4, .gen-header>h4 {
     color: #3c3731 !important;
     font-family: "Pokemon";
     letter-spacing: 2px;
@@ -108,13 +108,36 @@ h6, p {
 
 .grid-item {
     display: flex;
-    width: 360px;
+    width: 370px;
     transition: transform .2s;
 }
 
 .grid-item:hover {
     cursor: pointer;
     transform: scale(1.1);
+}
+
+.gen-header {
+    display: flex;
+
+}
+
+.gen-header>div {
+    background-color: floralwhite;
+    border-radius: 4px;
+    width: 25px;
+    height: 25px;
+    margin: auto 0 auto 15px;
+}
+
+.gen-header>div:hover {
+    background-color: lightskyblue;
+}
+
+.gen-header>div>.toggle-gen {
+    color: #3c3731 !important;
+    width: 100%;
+    height: 100%;
 }
 
 .image-radius {
