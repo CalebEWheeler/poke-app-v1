@@ -17,7 +17,10 @@ const App = () => {
     // const [loader, showLoader, hideLoader] = useLoader();
 
     const getOrSearchPokeBlock = () => {
-        if(searchValue === "") return (<GetPokemon/>);
+        if(searchValue === "") {
+            // let mounted = true;
+            return (<GetPokemon/>);
+        }
         else return (<SearchPokemon searchValue={searchValue}/>);
     }
 

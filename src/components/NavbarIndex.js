@@ -6,11 +6,13 @@ import {faSearch} from '@fortawesome/free-solid-svg-icons'
 import {faCaretRight} from '@fortawesome/free-solid-svg-icons'
 import Modal from "react-bootstrap/Modal";
 import TypeModal from "./TypeModal";
+import useLoader from "./Hooks/useLoader";
 //WILL NEED TO FIND A SOLUTION THAT WILL REDIRECT A USER TO THE SEARCHPOKEMON PAGE IF THE SEARCH INPUT FIELD IS NOT AN EMPTY STRING AND IF A TYPE IS CLICKED
 const NavbarIndex = ({ searchValue, onInputChange }) => {
     const [showModal, setShowModal] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [searchStatus, setSearchStatus] = useState(false);
+    const [loader, showLoader, hideLoader] = useLoader();
 
     const handleInputChange = (event) => {
         onInputChange(event.target.value)
@@ -71,11 +73,14 @@ const NavbarIndex = ({ searchValue, onInputChange }) => {
     }
 
     return [
-
+        //TODO: CURRENTLY PLAYING WITH THE LOADER BEING IN THE NAVBAR,
+        // MAY JUST CHANGE THE POSITIONING ON THE GETPOKEMON PAGE IF
+        // THIS IS TOO MUCH DATA PASSING...
         (
         <React.Fragment>
             <nav className={"nav d-flex"}>
                 <h4>Poké Finder</h4>
+                {loader}
                 <div className={"ml-auto mr-3 my-auto drop-icon"}>
                     <div className={""}>
                         {pokeballImg()}

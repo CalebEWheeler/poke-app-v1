@@ -1,5 +1,5 @@
 import React from 'react';
-import loaderGif from './Images/pokeball_loader.gif';
+import loaderGif from './Images/loader_v2.gif';
 
 const Loader = () => {
     return (

@@ -86,10 +86,14 @@ h6, p {
     color: #FEFEFE;
 }
 
+.loader-container {
+    top: 10px;
+    left: 175px;
+    position: absolute;
+}
+
 .loader-container>img{
-    width: 360px;
-    border-radius: 10px;
-    border: 2px solid #4b453e;
+    width: 50px;
 }
 
 .grid-container {

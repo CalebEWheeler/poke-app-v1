@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import CreatePokeCards from "./CreatePokeCards";
 import useLoader from "./Hooks/useLoader";
 //TODO: refactor to only have method that gets all pokemon
@@ -19,6 +19,7 @@ function GetPokemon() {
     const [Gen6Pokemon, setGen6Pokemon] = useState([]);
     const [Gen7Pokemon, setGen7Pokemon] = useState([]);
     const [Gen8Pokemon, setGen8Pokemon] = useState([]);
+    const _isMounted = useRef(true);
 
     const getListByGen = async url => {
         return new Promise((resolve, reject) => {
@@ -31,7 +32,7 @@ function GetPokemon() {
     }
 
     const showPokemon = () => {
-        showLoader()
+
         const getData = async () => {
             const pokeUrls = [
                 "https://pokeapi.co/api/v2/pokemon?limit=151",
@@ -43,16 +44,19 @@ function GetPokemon() {
                 "https://pokeapi.co/api/v2/pokemon?offset=721&limit=88",
                 "https://pokeapi.co/api/v2/pokemon?offset=809&limit=89",
             ];
+            showLoader()
             for (let url of pokeUrls) {
                 let response = await getListByGen(url)
                 await renderPokemon(response.results);
-                hideLoader()
             }
+            hideLoader()
         }
         getData();
     }
 
-    useEffect(showPokemon, []);
+    useEffect(() => {
+        showPokemon()
+    }, []);
 
     let byPokeUrl = "https://pokeapi.co/api/v2/pokemon/";
 
@@ -108,46 +112,42 @@ function GetPokemon() {
         return <div>Error: {error.message}</div>;
     } else {
 
+        //Array of all gen's and use a loop to filter through the list and build JSX
+        //for each gen...
+
         return (
             <main>
+                {loader}
                 <h4>Generation 1</h4>
                 <section className={"grid-container"}>
-                    {loader}
                     {CreatePokeCards(Gen1Pokemon)}
                 </section>
                 <h4>Generation 2</h4>
                 <section className={"grid-container"}>
-                    {loader}
                     {CreatePokeCards(Gen2Pokemon)}
                 </section>
                 <h4>Generation 3</h4>
                 <section className={"grid-container"}>
-                    {loader}
                     {CreatePokeCards(Gen3Pokemon)}
                 </section>
                 <h4>Generation 4</h4>
                 <section className={"grid-container"}>
-                    {loader}
                     {CreatePokeCards(Gen4Pokemon)}
                 </section>
                 <h4>Generation 5</h4>
                 <section className={"grid-container"}>
-                    {loader}
                     {CreatePokeCards(Gen5Pokemon)}
                 </section>
                 <h4>Generation 6</h4>
                 <section className={"grid-container"}>
-                    {loader}
                     {CreatePokeCards(Gen6Pokemon)}
                 </section>
                 <h4>Generation 7</h4>
                 <section className={"grid-container"}>
-                    {loader}
                     {CreatePokeCards(Gen7Pokemon)}
                 </section>
                 <h4>Generation 8</h4>
                 <section className={"grid-container"}>
-                    {loader}
                     {CreatePokeCards(Gen8Pokemon)}
                 </section>
             </main>
