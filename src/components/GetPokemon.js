@@ -8,7 +8,7 @@ import useLoader from "./Hooks/useLoader";
 //Create favorite functionality
 //deploy with AWS
 
-function GetPokemon() {
+function GetPokemon({signal}) {
     const [error, setError] = useState(null);
     const [loader, showLoader, hideLoader] = useLoader();
     const [Gen1Pokemon, setGen1Pokemon] = useState([]);
@@ -19,7 +19,8 @@ function GetPokemon() {
     const [Gen6Pokemon, setGen6Pokemon] = useState([]);
     const [Gen7Pokemon, setGen7Pokemon] = useState([]);
     const [Gen8Pokemon, setGen8Pokemon] = useState([]);
-    const _isMounted = useRef(true);
+
+    let passedSignal = signal;
 
     const getListByGen = async url => {
         return new Promise((resolve, reject) => {
@@ -27,11 +28,11 @@ function GetPokemon() {
                 .then(response => response.json())
                 .then(data => {
                     resolve(data)
-                })
+                }).catch(e => {
+                console.warn(`Fetch 1 error: ${e.message}`);
+            });
         });
     }
-
-    const showPokemon = () => {
 
         const getData = async () => {
             const pokeUrls = [
@@ -46,19 +47,18 @@ function GetPokemon() {
             ];
             showLoader()
             for (let url of pokeUrls) {
-                let response = await getListByGen(url)
-                await renderPokemon(response.results);
+                    let response = await getListByGen(url, passedSignal)
+                    await renderPokemon(response.results);
             }
             hideLoader()
         }
-        getData();
-    }
 
     useEffect(() => {
-        showPokemon()
+        getData()
+
     }, []);
 
-    let byPokeUrl = "https://pokeapi.co/api/v2/pokemon/";
+        let byPokeUrl = "https://pokeapi.co/api/v2/pokemon/";
 
     const getEachPokemon = url => {
         return new Promise((resolve, reject) => {

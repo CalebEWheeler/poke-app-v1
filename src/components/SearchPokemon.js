@@ -2,35 +2,40 @@ import React, {useEffect, useState} from 'react';
 import CreatePokeCards from "./CreatePokeCards";
 import useLoader from "./Hooks/useLoader";
 
-const SearchPokemon = ({searchValue}) => {
+const SearchPokemon = ({signal, searchValue}) => {
     const [error, setError] = useState(null);
     const [searchResults, setSearchResults] = useState([]);
     const [loader, showLoader, hideLoader] = useLoader();
 
 
 
-    const getPokemon = async () => {
+    const getPokemon = async (url) => {
         return new Promise((resolve, reject) => {
-            fetch("https://pokeapi.co/api/v2/pokemon?limit=897")
+            fetch(url)
                 .then(response => response.json())
                 .then(data => {
                     let filteredData = data.results.filter(pokemon => pokemon.name.includes(searchValue.toLowerCase()))
                     resolve(filteredData);
-                })
+                }).catch(e => {
+                console.warn(`Fetch 1 error: ${e.message}`);
+            });
         });
     }
 
     const queryPokemon = () => {
         const getData = async () => {
-            let response = await getPokemon()
+            // showLoader()
+            let url = "https://pokeapi.co/api/v2/pokemon?limit=897";
+            let response = await getPokemon(url, { signal })
             await renderPokemon(response);
+            // hideLoader()
         }
         getData()
     }
 
-    useEffect(() => {
-        showLoader()
-    }, []);
+    // useEffect(() => {
+    //     showLoader()
+    // }, []);
 
     let byPokeUrl = "https://pokeapi.co/api/v2/pokemon/";
 
@@ -55,19 +60,18 @@ const SearchPokemon = ({searchValue}) => {
     if (error) {
         return <div>Error: {error.message}</div>;
     } else {
-        // if (searchValue) {
-        //     showLoader()
-            // queryPokemon()
+        if (searchValue) {
+            queryPokemon()
             return (
                 <main>
+                    {loader}
                     <h4>Search Results</h4>
                     <section className={"grid-container"}>
-                        {/*{loader}*/}
                         {CreatePokeCards(searchResults)}
                     </section>
                 </main>
             )
-        // }
+        }
     }
 }
 

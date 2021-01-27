@@ -9,19 +9,22 @@ import useLoader from "./Hooks/useLoader";
 
 const App = () => {
     const [searchValue, setSearchValue] = useState("");
+    const controller = new AbortController();
+    const { signal } = controller;
 
     const inputValue = (searchValue) => {
         setSearchValue(searchValue);
     }
 
-    // const [loader, showLoader, hideLoader] = useLoader();
-
     const getOrSearchPokeBlock = () => {
         if(searchValue === "") {
-            // let mounted = true;
+            controller.abort();
             return (<GetPokemon/>);
         }
-        else return (<SearchPokemon searchValue={searchValue}/>);
+        else {
+            controller.abort();
+            return (<SearchPokemon signal={signal} searchValue={searchValue}/>);
+        }
     }
 
     return (
