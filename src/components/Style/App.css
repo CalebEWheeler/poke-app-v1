@@ -117,6 +117,14 @@ h6, p {
     transform: scale(1.1);
 }
 
+.false {
+    display: none;
+}
+
+.true {
+    display: flex;
+}
+
 .gen-header {
     display: flex;
 

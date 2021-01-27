@@ -1,6 +1,6 @@
 import React from "react";
 
-const CreatePokeCards = passedPokemon => {
+const CreatePokeCards = (passedPokemon, toggle) => {
 
     return (
         passedPokemon.map((pokemon, index) => {
@@ -9,9 +9,8 @@ const CreatePokeCards = passedPokemon => {
                 type2 = <div className={pokemon.types[1].type.name}>
                     {pokemon.types[1].type.name.charAt(0).toUpperCase() + pokemon.types[1].type.name.substr(1)}
                 </div>
-            } else {
             }
-            return <div className={"grid-item"} key={index}>
+            return <div className={"grid-item " + toggle} key={index}>
                 <div className={"left-card"}>
                     <div className={"image-radius"}>
                         <img src={pokemon.sprites.front_default} alt="pokeImg"/>
