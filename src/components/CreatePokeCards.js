@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import {faStar} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const CreatePokeCards = (passedPokemon, toggle) => {
-    const saveFavoritePokemon = () => {
 
+    const favoritePokemonState = (pokemon) => {
+        localStorage.setItem(pokemon.id, JSON.stringify(pokemon))
     }
 
     return (
@@ -19,12 +20,7 @@ const CreatePokeCards = (passedPokemon, toggle) => {
                 <div className={"left-card"}>
                     <div className={"image-radius"}>
                         <FontAwesomeIcon icon={faStar} size={"2x"}
-                                         onClick={() => {
-
-                                             //take in the default state value
-                                             //change color if favorited
-                                             //pass "this" pokemon to be stored in the Favorite state
-                                         }} />
+                                         onClick={() => {favoritePokemonState(pokemon)}} />
                         <img src={pokemon.sprites.front_default} alt="pokeImg"/>
                     </div>
                     <p>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.substr(1)}</p>

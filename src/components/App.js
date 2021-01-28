@@ -146,16 +146,7 @@ const App = () => {
             />);
         }
         else if(showFavoritePokemon === true) {
-            return (<FavoritePokemon
-                Gen1Pokemon={Gen1Pokemon}
-                Gen2Pokemon={Gen2Pokemon}
-                Gen3Pokemon={Gen3Pokemon}
-                Gen4Pokemon={Gen4Pokemon}
-                Gen5Pokemon={Gen5Pokemon}
-                Gen6Pokemon={Gen6Pokemon}
-                Gen7Pokemon={Gen7Pokemon}
-                Gen8Pokemon={Gen8Pokemon}
-            />)
+            return (<FavoritePokemon/>)
         }
         else {
             return (<SearchPokemon
