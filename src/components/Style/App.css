@@ -7,45 +7,7 @@
     url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.ttf") format("truetype"),
     url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.svg#Pokemon") format("svg");
 }
-/*
-COLOR PALETTE FROM DISCORD:
-    (outside-to-inside)
 
-    * side bar/search bar background-color : #202225
-        - search bar placeholder text color/icon color: #72767E
-        - icon background-color: #36393F
-        - icon content color: #36393F
-
-    * channel/member bars background-color : #2F3136
-        - text/icon color: #36393F
-        - demarcation line color: #232527
-        * (active) channel background color: #393C43
-            - text color: #FFF
-            - icon color: #B9BBBE
-            - # color: #72767E
-        * user block background-color: #292B2F
-            - username text color: #FFF
-            - secondary font/icon color: #B9BBBE
-
-    * chat background-color: #36393F
-        - primary demarcation line color: #2C2E32
-        - primary text color: #FAFAFA
-        - secondary text color: #72767E
-        - tertiary text color: #41A3DF
-        - profile icon color: #FFF
-        - primary icon color: #B9BBBE
-        - special icon color: #5AB682
-        - secondary demarcation line and text color: #72767E
-        * card background-color: #2F3136
-            - primary text color: #DCDDDE
-            - secondary text color: #44AAEA
-        * user chatbox background-color: #2E3339
-            - chatbox placeholder text color: #72767E
-            - icon color: #B9BBBE
-        * scroll bar
-            - primary color: #202225
-            - secondary color: #2E3339
-*/
 body {
     background-color: #DFD5A5 !important;
 }
@@ -84,14 +46,6 @@ h6, p {
     color: #72767E;
 }
 
-/*card styling*/
-.card {
-    background-color: #2F3136 !important;
-}
-.card h2 {
-    color: #FEFEFE;
-}
-
 .loader-container {
     top: 10px;
     left: 175px;
@@ -100,6 +54,18 @@ h6, p {
 
 .loader-container>img{
     width: 50px;
+}
+
+.favorite {
+    border: 2px solid #3c3731;
+    background-color: #3c3731;
+    color: #61BC58;
+}
+
+.not-favorite {
+    border: 2px solid #3c3731;
+    background-color: #3c3731;
+    color: #CF995F;
 }
 
 .grid-container {
