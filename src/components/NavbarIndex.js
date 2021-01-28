@@ -12,12 +12,16 @@ const NavbarIndex = ({ showFavoritePokemon, onFavoritesClick, searchValue, onInp
     const [isOpen, setIsOpen] = useState(false);
     const [searchStatus, setSearchStatus] = useState(false);
 
+    const handleHomeBtnClick = () => {
+        onFavoritesClick(false);
+        onInputChange("")
+    }
+
     const handleInputChange = (event) => {
         onInputChange(event.target.value)
     }
 
     const handleFavoritesClick = () => {
-        // console.log(showFavoritePokemon)
         onFavoritesClick(!showFavoritePokemon)
     }
 
@@ -56,7 +60,7 @@ const NavbarIndex = ({ showFavoritePokemon, onFavoritesClick, searchValue, onInp
                             />
                         </div>
                     </div>
-                    <FontAwesomeIcon icon={faStar} size={"2x"} onClick={handleFavoritesClick} className={"dropdown-link center-icon"}/>
+                    <FontAwesomeIcon icon={faStar} size={"2x"} onClick={handleFavoritesClick} className={"dropdown-link hover center-icon"}/>
                     <div className={"dropdown-link align-self-center"}>
                         <img className={(!showModal ? "all-types" : "all-types-active") + " p-1"}
                              onClick={() => setShowModal(!showModal)
@@ -86,7 +90,7 @@ const NavbarIndex = ({ showFavoritePokemon, onFavoritesClick, searchValue, onInp
         (
             <React.Fragment>
                 <nav className={"nav d-flex"}>
-                    <h4>Poké Finder</h4>
+                    <h4 className={"home"} onClick={() => {handleHomeBtnClick()}}>Poké Finder</h4>
                     <div className={"ml-auto mr-3 my-auto drop-icon"}>
                         <div className={""}>
                             {pokeballImg()}

@@ -57,6 +57,12 @@ body {
     text-shadow: -1px 0 floralwhite, 0 1px floralwhite, 1px 0 floralwhite, 0 -1px floralwhite;
 }
 
+.nav h4:hover {
+    color: floralwhite !important;
+    text-shadow: -1px 0 #3c3731, 0 1px #3c3731, 1px 0 #3c3731, 0 -1px #3c3731;
+    cursor: pointer;
+}
+
 main {
     padding: 10px;
 }
