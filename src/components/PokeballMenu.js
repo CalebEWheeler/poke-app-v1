@@ -14,6 +14,7 @@ const PokeballMenu = () => {
                 <li className={"dropdown-link"}>
                     <button className={"nav-links"}>Search</button>
                 </li>
+
                 <li className={"dropdown-link"}>
                     <button onClick={() => setShow(true)
                     }>Filter Type</button>

@@ -6,9 +6,12 @@ import "./Style/App.css"
 import "./Style/NavbarIndex.css"
 import SearchPokemon from "./SearchPokemon";
 import useLoader from "./Hooks/useLoader";
+import FavoritePokemon from "./FavoritePokemon";
+
 
 const App = () => {
     const [searchValue, setSearchValue] = useState("");
+
     const [Gen1Pokemon, setGen1Pokemon] = useState([]);
     const [Gen2Pokemon, setGen2Pokemon] = useState([]);
     const [Gen3Pokemon, setGen3Pokemon] = useState([]);
@@ -18,6 +21,15 @@ const App = () => {
     const [Gen7Pokemon, setGen7Pokemon] = useState([]);
     const [Gen8Pokemon, setGen8Pokemon] = useState([]);
     const [loader, showLoader, hideLoader] = useLoader();
+//state that will store favorited pokemon
+    const [favoritePokemon, setFavoritePokemon] = useState([]);
+    //need a state that will apply a class to a component based on the states value
+    const [showGetPokemon, setShowGetPokemon] = useState(true);
+    const [showSearchPokemon, setShowSearchPokemon] = useState(false);
+    const [showFavoritePokemon, setShowFavoritePokemon] = useState(false);
+    //pass the above states to the navbar so the state change can
+    // occur there then be passed back to App.js
+
 
     const getListByGen = async url => {
         return new Promise((resolve, reject) => {
@@ -112,9 +124,17 @@ const App = () => {
         setSearchValue(searchValue);
     }
 
+    const toggleFavorites = (showFavoritePokemon) => {
+        setShowFavoritePokemon(showFavoritePokemon);
+        // console.log(showFavoritePokemon)
+    }
+
+    //may be able to change the way each hides and shows by applying
+    // attributes that will hide or show each component
+
     const getOrSearchPokeBlock = () => {
-        if(searchValue === "") {
-            return (<GetPokemon
+        if(showFavoritePokemon === false && searchValue === "") {
+            return (<GetPokemon className={showGetPokemon}
                 Gen1Pokemon={Gen1Pokemon}
                 Gen2Pokemon={Gen2Pokemon}
                 Gen3Pokemon={Gen3Pokemon}
@@ -124,6 +144,18 @@ const App = () => {
                 Gen7Pokemon={Gen7Pokemon}
                 Gen8Pokemon={Gen8Pokemon}
             />);
+        }
+        else if(showFavoritePokemon === true) {
+            return (<FavoritePokemon
+                Gen1Pokemon={Gen1Pokemon}
+                Gen2Pokemon={Gen2Pokemon}
+                Gen3Pokemon={Gen3Pokemon}
+                Gen4Pokemon={Gen4Pokemon}
+                Gen5Pokemon={Gen5Pokemon}
+                Gen6Pokemon={Gen6Pokemon}
+                Gen7Pokemon={Gen7Pokemon}
+                Gen8Pokemon={Gen8Pokemon}
+            />)
         }
         else {
             return (<SearchPokemon
@@ -143,7 +175,7 @@ const App = () => {
 
     return (
         <div>
-           <NavbarIndex searchValue={searchValue} onInputChange={inputValue}/>
+           <NavbarIndex showFavoritePokemon={showFavoritePokemon} onFavoritesClick={toggleFavorites} searchValue={searchValue} onInputChange={inputValue}/>
             {loader}
            {getOrSearchPokeBlock()}
         </div>

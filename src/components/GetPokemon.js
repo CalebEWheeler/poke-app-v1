@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import CreatePokeCards from "./CreatePokeCards";
 import {faPlusSquare} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faMinusSquare} from "@fortawesome/free-solid-svg-icons";
+
 
 //Create favorite functionality
 //deploy with AWS
