@@ -3,8 +3,7 @@ import {faStar} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const CreatePokeCards = (passedPokemon, toggle) => {
-    //maybe I need to pull from local storage on all pages that display pokemon and have
-    // a conditional that will apply a class to pokemon if they are in localStorage
+    const [favorites, setFavorites] = useState([]);
 
     const toggleFavorite = (pokemon) => {
         if(localStorage.getItem(pokemon.id) === null) {
@@ -13,6 +12,10 @@ const CreatePokeCards = (passedPokemon, toggle) => {
         else {
             localStorage.removeItem(pokemon.id)
         }
+
+        Object.keys(localStorage).forEach((key) => {
+            setFavorites([...favorites, JSON.parse(localStorage.getItem(key))])
+        })
 
     }
 
@@ -26,12 +29,24 @@ const CreatePokeCards = (passedPokemon, toggle) => {
                 </div>
             }
 
-            return <div className={"grid-item " + toggle} key={index}>
+
+
+            return (
+                <div className={"grid-item " + toggle} key={index}>
                 <div className={"left-card"}>
                     <div className={"image-radius"}>
-                        <FontAwesomeIcon icon={faStar} size={"2x"} id={pokemon.id}
-                                         onClick={() => {
-                                             toggleFavorite(pokemon)}} />
+{/*TODO: condition needs to be fixed to properly apply the right class*/}
+                        {favorites.includes(pokemon.name) ?  (
+                            <FontAwesomeIcon icon={faStar} size={"2x"} className={"favorite"} id={pokemon.id}
+                                             onClick={() => {
+                                                 toggleFavorite(pokemon)
+                                             }}/>
+                        ) : (
+                            <FontAwesomeIcon icon={faStar} size={"2x"} className={"not-favorite"} id={pokemon.id}
+                                             onClick={() => {
+                                                 toggleFavorite(pokemon)
+                                             }}/>
+                        )}
                         <img src={pokemon.sprites.front_default} alt="pokeImg"/>
                     </div>
                     <p>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.substr(1)}</p>
@@ -51,6 +66,7 @@ const CreatePokeCards = (passedPokemon, toggle) => {
                     </div>
                 </div>
             </div>
+            )
         })
     )
 }

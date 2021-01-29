@@ -9,9 +9,6 @@ const FavoritePokemon = () => {
         return <div>Error: {error.message}</div>;
     } else {
         let favoritePokemon = [];
-        // console.log(localStorage.length)
-        console.log(favoritePokemon)
-
         for(let i = 0; i <= 898; i++) {
             if(localStorage.getItem(i) === null) {
                 continue;
