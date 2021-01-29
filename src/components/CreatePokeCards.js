@@ -6,18 +6,17 @@ const CreatePokeCards = (passedPokemon, toggle) => {
     const [favorites, setFavorites] = useState([]);
 
     const toggleFavorite = (pokemon) => {
-        if(localStorage.getItem(pokemon.id) === null) {
-            localStorage.setItem(pokemon.id, JSON.stringify(pokemon));
-        }
-        else {
-            localStorage.removeItem(pokemon.id)
-        }
-
+        setFavorites([]);
+            if(localStorage.getItem(pokemon.id) === null) {
+                localStorage.setItem(pokemon.id, JSON.stringify(pokemon));
+            }
+            else {
+                localStorage.removeItem(pokemon.id)
+            }
         Object.keys(localStorage).forEach((key) => {
             setFavorites([...favorites, JSON.parse(localStorage.getItem(key))])
         })
-
-    }
+        }
 
     return (
         passedPokemon.map((pokemon, index) => {
@@ -29,14 +28,11 @@ const CreatePokeCards = (passedPokemon, toggle) => {
                 </div>
             }
 
-
-
             return (
                 <div className={"grid-item " + toggle} key={index}>
                 <div className={"left-card"}>
                     <div className={"image-radius"}>
-{/*TODO: condition needs to be fixed to properly apply the right class*/}
-                        {favorites.includes(pokemon.name) ?  (
+                        {localStorage.getItem(pokemon.id) !== null ?  (
                             <FontAwesomeIcon icon={faStar} size={"2x"} className={"favorite"} id={pokemon.id}
                                              onClick={() => {
                                                  toggleFavorite(pokemon)

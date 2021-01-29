@@ -18,8 +18,6 @@ function GetPokemon({Gen1Pokemon, Gen2Pokemon, Gen3Pokemon, Gen4Pokemon, Gen5Pok
     const [toggleGen7, setToggleGen7] = useState(true);
     const [toggleGen8, setToggleGen8] = useState(true);
 
-
-
     return (
         <main>
             <section>

@@ -22,7 +22,7 @@ const App = () => {
     const [Gen8Pokemon, setGen8Pokemon] = useState([]);
     const [loader, showLoader, hideLoader] = useLoader();
 //state that will store favorited pokemon
-    const [favoritePokemon, setFavoritePokemon] = useState([]);
+    const [favorites, setFavorites] = useState([]);
     //need a state that will apply a class to a component based on the states value
     const [showGetPokemon, setShowGetPokemon] = useState(true);
     const [showSearchPokemon, setShowSearchPokemon] = useState(false);
@@ -126,7 +126,6 @@ const App = () => {
 
     const toggleFavorites = (showFavoritePokemon) => {
         setShowFavoritePokemon(showFavoritePokemon);
-        // console.log(showFavoritePokemon)
     }
 
     //may be able to change the way each hides and shows by applying
@@ -135,6 +134,7 @@ const App = () => {
     const getOrSearchPokeBlock = () => {
         if(showFavoritePokemon === false && searchValue === "") {
             return (<GetPokemon className={showGetPokemon}
+
                 Gen1Pokemon={Gen1Pokemon}
                 Gen2Pokemon={Gen2Pokemon}
                 Gen3Pokemon={Gen3Pokemon}
