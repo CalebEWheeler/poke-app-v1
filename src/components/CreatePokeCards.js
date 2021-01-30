@@ -5,7 +5,7 @@ import CardInfo from "./CardInfo";
 
 const CreatePokeCards = (passedPokemon, toggle) => {
     const [favorites, setFavorites] = useState([]);
-    const [showCard, setShowCard] = useState(false);
+    const [showCard, setShowCard] = useState(0);
 
     const toggleFavorite = (pokemon) => {
         setFavorites([]);
@@ -20,9 +20,16 @@ const CreatePokeCards = (passedPokemon, toggle) => {
         })
     }
 
-    const handleClick = () => {
-        setShowCard(!showCard)
+    const  handleClick = (passingId) => {
+        if(showCard === passingId) {
+            setShowCard(0)
+        }
+        else setShowCard(passingId)
     }
+
+    useEffect(() => {
+        console.log(showCard)
+    }, [showCard])
 
     return (
         passedPokemon.map((pokemon, index) => {
@@ -33,11 +40,12 @@ const CreatePokeCards = (passedPokemon, toggle) => {
             const makeType2 = () => {
                 return pokemon.types[1].type.name;
             }
+            let passingId = id;
 
             return (
                 <div className={"grid-item " + toggle} key={index}>
                 <div className={"left-card"}>
-                    <div className={"image-radius"} onClick={handleClick}>
+                    <div className={"image-radius"} onClick={() => {handleClick(passingId)}}>
                         {localStorage.getItem(pokemon.id) !== null ?  (
                             <FontAwesomeIcon icon={faStar} size={"2x"} className={"favorite"} id={pokemon.id}
                                              onClick={() => {
@@ -53,8 +61,16 @@ const CreatePokeCards = (passedPokemon, toggle) => {
                     </div>
                     <p>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.substr(1)}</p>
                 </div>
-                {pokemon.types[1] !== undefined ? (CardInfo(id, height, weight, type1, makeType2())) : (CardInfo(id, height, weight, type1, ""))}
-            </div>
+
+                {showCard === id ?
+                    (
+                        pokemon.types[1] !== undefined ? (<CardInfo id={id} height={height} weight={weight} type1={type1} type2={makeType2()}/>) : (<CardInfo  id={id} height={height} weight={weight} type1={type1} type2={""}/>)
+                    ) : (
+                        <div>
+                        </div>
+                    )}
+
+                </div>
             )
         })
     )
