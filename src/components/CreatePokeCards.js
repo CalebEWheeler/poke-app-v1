@@ -1,9 +1,11 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {faStar} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import CardInfo from "./CardInfo";
 
 const CreatePokeCards = (passedPokemon, toggle) => {
     const [favorites, setFavorites] = useState([]);
+    const [showCard, setShowCard] = useState(false);
 
     const toggleFavorite = (pokemon) => {
         setFavorites([]);
@@ -16,22 +18,26 @@ const CreatePokeCards = (passedPokemon, toggle) => {
         Object.keys(localStorage).forEach((key) => {
             setFavorites([...favorites, JSON.parse(localStorage.getItem(key))])
         })
-        }
+    }
+
+    const handleClick = () => {
+        setShowCard(!showCard)
+    }
 
     return (
         passedPokemon.map((pokemon, index) => {
-
-            let type2;
-            if (pokemon.types[1] !== undefined) {
-                type2 = <div className={pokemon.types[1].type.name}>
-                    {pokemon.types[1].type.name.charAt(0).toUpperCase() + pokemon.types[1].type.name.substr(1)}
-                </div>
+            let id = pokemon.id;
+            let height = pokemon.height;
+            let weight = pokemon.weight;
+            let type1 = pokemon.types[0].type.name;
+            const makeType2 = () => {
+                return pokemon.types[1].type.name;
             }
 
             return (
                 <div className={"grid-item " + toggle} key={index}>
                 <div className={"left-card"}>
-                    <div className={"image-radius"}>
+                    <div className={"image-radius"} onClick={handleClick}>
                         {localStorage.getItem(pokemon.id) !== null ?  (
                             <FontAwesomeIcon icon={faStar} size={"2x"} className={"favorite"} id={pokemon.id}
                                              onClick={() => {
@@ -47,20 +53,7 @@ const CreatePokeCards = (passedPokemon, toggle) => {
                     </div>
                     <p>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.substr(1)}</p>
                 </div>
-                <div className={"right-card"}>
-                    <p>Dex Entry: {pokemon.id}</p>
-                    <p>Height: {pokemon.height}"</p>
-                    <p>Weight: {pokemon.weight}lbs</p>
-                    <div>
-                        <p>Type:</p>
-                        <div>
-                            <div className={pokemon.types[0].type.name}>
-                                {pokemon.types[0].type.name.charAt(0).toUpperCase() + pokemon.types[0].type.name.substr(1)}
-                            </div>
-                            {type2}
-                        </div>
-                    </div>
-                </div>
+                {pokemon.types[1] !== undefined ? (CardInfo(id, height, weight, type1, makeType2())) : (CardInfo(id, height, weight, type1, ""))}
             </div>
             )
         })
