@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React from 'react';
 
 const CardInfo = ({id, height, weight, type1, type2}) => {
     const capType = (type) => { return type.charAt(0).toUpperCase() + type.substr(1)}

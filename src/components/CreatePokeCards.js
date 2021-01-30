@@ -41,30 +41,39 @@ const CreatePokeCards = (passedPokemon, toggle) => {
                 return pokemon.types[1].type.name;
             }
             let passingId = id;
+            const modifyName = (name) => {
+                let capName = name.charAt(0).toUpperCase() + name.substr(1);
+                if(capName.includes("-m")) return capName.replace("-m ", " ♂")
+                else if(capName.includes("-f")) return capName.replace("-f ", " ♀")
+                else if(capName.includes("-")) return capName.split("-", 1);
+                else return capName;
+            }
 
             return (
                 <div className={"grid-item " + toggle} key={index}>
                 <div className={"left-card"}>
                     <div className={"image-radius"} onClick={() => {handleClick(passingId)}}>
+
+                        <img src={pokemon.sprites.front_default} alt="pokeImg"/>
+                    </div>
+                    <div className={"true name-block"}>
                         {localStorage.getItem(pokemon.id) !== null ?  (
-                            <FontAwesomeIcon icon={faStar} size={"2x"} className={"favorite"} id={pokemon.id}
+                            <FontAwesomeIcon icon={faStar} className={"favorite"} id={pokemon.id}
                                              onClick={() => {
                                                  toggleFavorite(pokemon)
                                              }}/>
                         ) : (
-                            <FontAwesomeIcon icon={faStar} size={"2x"} className={"not-favorite"} id={pokemon.id}
+                            <FontAwesomeIcon icon={faStar} className={"not-favorite"} id={pokemon.id}
                                              onClick={() => {
                                                  toggleFavorite(pokemon)
                                              }}/>
                         )}
-                        <img src={pokemon.sprites.front_default} alt="pokeImg"/>
+                        <p>{modifyName(pokemon.name)}</p>
                     </div>
-                    <p>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.substr(1)}</p>
                 </div>
-
                 {showCard === id ?
                     (
-                        pokemon.types[1] !== undefined ? (<CardInfo id={id} height={height} weight={weight} type1={type1} type2={makeType2()}/>) : (<CardInfo  id={id} height={height} weight={weight} type1={type1} type2={""}/>)
+                        pokemon.types[1] !== undefined ? (<CardInfo id={id} height={height} weight={weight} type1={type1} type2={makeType2()}/>) : (<CardInfo id={id} height={height} weight={weight} type1={type1} type2={""}/>)
                     ) : (
                         <div>
                         </div>
