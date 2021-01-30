@@ -43,8 +43,23 @@ const CreatePokeCards = (passedPokemon, toggle) => {
             let passingId = id;
             const modifyName = (name) => {
                 let capName = name.charAt(0).toUpperCase() + name.substr(1);
-                if(capName.includes("-m")) return capName.replace("-m ", " ♂")
-                else if(capName.includes("-f")) return capName.replace("-f ", " ♀")
+                if(capName.match(/\bNidoran-\b/)) {
+                    if(capName.includes("-m")) return capName.replace("-m", " ♂");
+                    else return capName.replace("-f", " ♀");
+                }
+                else if(capName.match(/\bMr-\b/)) {
+                    let mimeName = capName.substr(0, 3) + capName.charAt(3).toUpperCase() + capName.substr(4);
+                    return mimeName.replace("-", ". ");
+                }
+                else if(capName.match(/\bTapu-\b/)) return capName;
+                else if(capName.includes("-o")) {
+                    if(capName.endsWith("-o") || capName.endsWith("-oh")) return capName;
+                    else return capName.split("-", 1);
+                }
+                else if(capName.endsWith("-z") || capName.endsWith("null") || capName.endsWith("-jr")) {
+                    if(capName.endsWith("-jr")) return capName.replace("-", " ") + ".";
+                    else return capName;
+                }
                 else if(capName.includes("-")) return capName.split("-", 1);
                 else return capName;
             }
