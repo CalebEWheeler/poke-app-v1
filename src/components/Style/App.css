@@ -8,6 +8,12 @@
     url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.svg#Pokemon") format("svg");
 }
 
+/* Modal Override */
+
+.modal-dialog {
+    height: 100% !important;
+}
+
 body {
     background-color: #DFD5A5 !important;
 }
@@ -92,6 +98,8 @@ h6, p {
 
 .grid-container {
     display: grid;
+    grid-template-columns: 172px;
+    grid-template-rows: 186px;
     justify-content: center;
     grid-gap: 30px;
     border: 2px solid #4b453e;
@@ -155,16 +163,46 @@ h6, p {
     background-image: radial-gradient(circle, #DFD5A5, #699562);
 }
 
+.typeIcon1>div>img {
+    position: relative;
+    bottom: 115px;
+    left: 68px;
+    width: 30px;
+    border: 2px solid #22252a;
+    border-radius: 100%;
+}
+
+.typeIcon2>div>img {
+    position: relative;
+    bottom: 178px;
+    left: 64px;
+    width: 30px;
+    border: 2px solid #22252a;
+    border-radius: 100%;
+}
+
+/* applied to fix positioning issues if 2nd type is not available */
+.typeIcon2 {
+    height: 30px;
+}
+
+.typeIcon2>div {
+    height: 100%;
+}
+
 .left-card {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    height: 100%;
     margin: 0 auto;
 }
 
 .left-card p {
     margin: 2px 0 2px 0!important;
+    width: 140px;
+    text-align: center;
     color: #181613 !important;
     border-top: 2px solid #877b6f;
     border-right: 2px solid #877b6f;
@@ -174,66 +212,55 @@ h6, p {
     background-color: #c9c095;
 }
 
+.dex-entry {
+    position: relative;
+    top: 125px;
+    left: 65px;
+    font-size: 12px;
+    border: 2px solid;
+    border-radius: 4px;
+    background-color: floralwhite;
+    padding: 0 3px;
+}
+
 .name-block {
     position: relative;
     bottom: 25px;
 }
 
-.right-card {
+.right-card1 {
     display: flex;
+    align-self: center;
+    position: relative;
+    bottom: 57px;
     flex-direction: column;
-    width: 100%;
+    width: 160px;
     border: 2px solid #c9c095;
     border-left: none;
-    border-radius: 0 10px 10px 0;
-    padding: 10px;
+    border-radius: 10px;
     background-color: #DFD5A5;
 }
 
-.right-card>p {
-    margin: 7px 0 !important;
+.right-card2 {
+    display: flex;
+    align-self: center;
+    position: relative;
+    bottom: 87px;
+    flex-direction: column;
+    width: 160px;
+    border: 2px solid #c9c095;
+    border-left: none;
+    border-radius: 10px;
+    background-color: #DFD5A5;
+}
+
+.right-card-p {
+    margin: 1px 0 !important;
     color: #181613 !important;
     border: 2px solid #e5ddb7;
     border-radius: 10px;
     padding: 6px;
     background-color: #c9c095;
-}
-
-.right-card>div {
-    display: flex;
-    width: 190px;
-    margin: 7px 0 !important;
-    color: #181613 !important;
-    border: 2px solid #e5ddb7;
-    border-radius: 10px;
-    padding: 6px;
-    background-color: #c9c095;
-}
-
-.right-card>div>div {
-    display: flex;
-    margin-left: 3px;
-}
-
-.right-card div p {
-    margin: auto 0 !important;
-    color: #181613 !important;
-}
-
-.right-card>div>div>div {
-    display: flex;
-    justify-content: center;
-    color: #302c25;
-    text-shadow: -1px 0 floralwhite, 0 1px floralwhite, 1px 0 floralwhite, 0 -1px floralwhite;
-    width: 63px;
-    border: 2px solid #696056;
-    border-radius: 10px;
-    padding: 2px;
-    margin: 2px;
-}
-
-.right-card>div>div>.noSecondaryType {
-    display: none;
 }
 
 .grid-item:nth-child(odd) {
@@ -341,7 +368,8 @@ h6, p {
 
 @media (min-width: 1440px) {
     .grid-container {
-        grid-template-columns: auto auto auto auto auto auto auto;
+        grid-template-columns: auto;
+        grid-template-rows: 186px;
     }
 
     .grid-item:nth-child(7n+1) {

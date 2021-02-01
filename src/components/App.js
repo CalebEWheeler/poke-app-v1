@@ -8,7 +8,6 @@ import SearchPokemon from "./SearchPokemon";
 import useLoader from "./Hooks/useLoader";
 import FavoritePokemon from "./FavoritePokemon";
 
-
 const App = () => {
     const [searchValue, setSearchValue] = useState("");
     const [Gen1Pokemon, setGen1Pokemon] = useState([]);
@@ -119,7 +118,6 @@ const App = () => {
     const getOrSearchPokeBlock = () => {
         if(showFavoritePokemon === false && searchValue === "") {
             return (<GetPokemon className={showGetPokemon}
-
                 Gen1Pokemon={Gen1Pokemon}
                 Gen2Pokemon={Gen2Pokemon}
                 Gen3Pokemon={Gen3Pokemon}
@@ -128,7 +126,8 @@ const App = () => {
                 Gen6Pokemon={Gen6Pokemon}
                 Gen7Pokemon={Gen7Pokemon}
                 Gen8Pokemon={Gen8Pokemon}
-            />);
+
+            />)
         }
         else if(showFavoritePokemon === true) {
             return (<FavoritePokemon/>)
