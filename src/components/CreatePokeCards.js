@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {faStar} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import CardInfo from "./CardInfo";
 import Types from "./Types";
 import Modal from "react-bootstrap/Modal";
 
@@ -46,7 +45,6 @@ const CreatePokeCards = (passedPokemon, toggle) => {
 
     return (
         passedPokemon.map((pokemon, index) => {
-            // console.log(pokemon);
             let id = pokemon.id;
             let height = pokemon.height;
             let weight = pokemon.weight;
@@ -62,31 +60,33 @@ const CreatePokeCards = (passedPokemon, toggle) => {
                     else if(statName.includes("-")) stats.push([((statName.charAt(0).toUpperCase() + statName.substr(1, 7)) + statName.charAt(8).toUpperCase() + statName.substr(9, statName.length)).replace("-", " "), (stat.base_stat)]);
                     else stats.push([(statName.charAt(0).toUpperCase() + statName.substr(1, statName.length)), (stat.base_stat)]);
                 }
-                console.log(stats)
+
                 return (
-                    <div>
-                        {stats.map(stat => {
-                            return (
-                                <div className={""}>
-                                    <p className={""}>{stat[0]}</p>
-                                    <p className={""}>{stat[1]}</p>
-                                </div>
-
-                            )
-                        })}
-                    </div>
-                )
-                    // stats;
-                // stats.forEach(stat => {
-                //     return    (
-                //         <div>
-                //             <p>{stat[0]}</p>
-                //             <p>{stat[1]}</p>
-                //         </div>
-                //     )
-                // })
+                    <div className={"cont-flex right-card-info"}>
+                        <div>
+                            {stats.slice(0, 3).map(stat => {
+                                return (
+                                    <div className={"cont-flex"}>
+                                        <h6 className={""}>{stat[0]}</h6>
+                                        <h6 className={""}>{stat[1]}</h6>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                        <div>
+                            {stats.slice(3, stats.length).map(stat => {
+                                return (
+                                    <div className={"cont-flex"}>
+                                        <h6 className={""}>{stat[0]}</h6>
+                                        <h6 className={""}>{stat[1]}</h6>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                        </div>
+                    )
+                // }
             }
-
 
             let passingId = id;
 
@@ -155,22 +155,8 @@ const CreatePokeCards = (passedPokemon, toggle) => {
                         {pokemon.types[1] !== undefined ? (Types(pokemon.types[1].type.name)) : (<div></div>)}
                     </div>
                 </div>
-
-
-                    {/*{showCard === id ?*/}
-                    {/*(*/}
-                    {/*    pokemon.types[1] !== undefined ? (<CardInfo id={id} height={height} weight={weight} type1={type1} type2={makeType2()}/>) : (<CardInfo id={id} height={height} weight={weight} type1={type1} type2={""}/>)*/}
-                    {/*) : (*/}
-                    {/*    <div>*/}
-                    {/*    </div>*/}
-                    {/*)}*/}
-
-                    {/*TODO: test if modal will generate faster if it is in App.js
-                            if so, pass pokemon attributes up to
-                            App.js to have them be in the modal*/}
                     {showCard === id ? (
                         <Modal
-                            // className={props.showCardModal === true ? "true" : "false"}
                             show={showCardModal}
                             onHide={() => {
                                 setShowCardModal(!showCardModal)
@@ -179,36 +165,40 @@ const CreatePokeCards = (passedPokemon, toggle) => {
                             // dialogClassName="modal-90w"
                             aria-labelledby="example-custom-modal-styling-title"
                         >
-                            <div>
-                                <div>
-                                    <div className={"image-radius"}>
+                            <div className={"pokemon-card"}>
+                                <div className={"left-poke-card"}>
+                                    <div className={"cont-flex"}>
+                                        <h6>{modifyId(id)}</h6>
+                                        <h6>{modifyName(pokemon.name)}</h6>
+                                    </div>
+                                    <div className={""}>
                                         <img src={pokemon.sprites.front_default} alt="pokemon-img"/>
                                     </div>
-                                    <div>
+                                    <div className={"cont-flex left-card-info"}>
                                        <div>
-                                           <p>Type</p>
-                                           <p>Height</p>
-                                           <p>Weight</p>
+                                           <h6>Type</h6>
+                                           <h6>Height</h6>
+                                           <h6>Weight</h6>
                                        </div>
                                        <div>
-                                           <div>
-                                               <div className={"typeIcon1"}>
+                                           <div className={"cont-flex"}>
+                                               <div className={"typeIconModal"}>
                                                    {Types(type1)}
-                                                   <p>{type1}</p>
+                                                   <h6>{type1}</h6>
                                                </div>
                                                {pokemon.types[1] !== undefined ?
-                                                   (<div className={"typeIcon2"}>
+                                                   (<div className={"typeIconModal"}>
                                                        {Types(makeType2())}
-                                                       <p>{makeType2()}</p>
+                                                       <h6>{makeType2()}</h6>
                                                    </div>) : (<div className={"typeIcon2"}><div></div></div>)
                                                }
                                            </div>
                                        </div>
                                     </div>
                                 </div>
-                                <div>
+                                <div className={"right-poke-card"}>
                                     <h6>Stats</h6>
-                                    <div>{getStats()}</div>
+                                    <div className={"right-card-info-cont"}>{getStats()}</div>
                                 </div>
                                 <div>
 

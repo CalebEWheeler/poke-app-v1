@@ -4,6 +4,7 @@ import NavbarIndex from "./NavbarIndex";
 import GetPokemon from "./GetPokemon";
 import "./Style/App.css"
 import "./Style/NavbarIndex.css"
+import "./Style/PokemonModal.css"
 import SearchPokemon from "./SearchPokemon";
 import useLoader from "./Hooks/useLoader";
 import FavoritePokemon from "./FavoritePokemon";

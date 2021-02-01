@@ -1,4 +1,72 @@
-.card-body {
-
+.modal-content {
+    width: 300px !important;
+    margin: 0 auto;
 }
 
+.pokemon-card {
+    /*background-color: ;*/
+}
+
+h6 {
+    margin: 0 !important;
+}
+
+.left-poke-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.left-poke-card>div>img {
+    height: 140px;
+}
+
+.left-card-info {
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.right-poke-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto auto 0 auto;
+}
+
+.right-card-info-cont {
+    width: 100%;
+}
+
+.right-card-info {
+    justify-content: space-evenly;
+}
+
+.cont-flex {
+    display: flex;
+}
+
+.typeIconModal {
+    display: flex;
+}
+
+.typeIconModal>div>img {
+    width: 30px;
+    border: 2px solid #22252a;
+    border-radius: 100%;
+}
+
+@media (min-width: 768px) {
+    .modal-dialog {
+        max-width: 700px !important;
+    }
+
+    .modal-content {
+        max-width: 100% !important;
+        width: 700px !important;
+    }
+
+    .pokemon-card {
+        display: flex;
+    }
+}

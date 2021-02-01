@@ -181,6 +181,12 @@ h6, p {
     border-radius: 100%;
 }
 
+/*.typeIcon2Modal>div>img {*/
+/*    width: 30px;*/
+/*    border: 2px solid #22252a;*/
+/*    border-radius: 100%;*/
+/*}*/
+
 /* applied to fix positioning issues if 2nd type is not available */
 .typeIcon2 {
     height: 30px;
