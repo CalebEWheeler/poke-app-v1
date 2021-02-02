@@ -171,13 +171,16 @@ const CreatePokeCards = (passedPokemon, toggle) => {
                                     <div className={""}>
                                         <img src={pokemon.sprites.front_default} alt="pokemon-img"/>
                                     </div>
-                                    <div className={"cont-flex left-card-info"}>
+                                    <div className={"left-card-info-cont"}>
+                                        <div className={"cont-flex left-card-info"}>
                                        <div className={"cont-flex left-card-attr"}>
-                                           <h6 className={""}>Type</h6>
-                                           <div className={"cont-flex"}>
+                                           <div>
+                                               <h6 className={""}>Type</h6>
+                                           </div>
+                                           <div className={"cont-flex types-cont"}>
                                                <div className={"left-card-attr typeIconModal"}>
                                                    {Types(type1)}
-                                                   <h6 className={""}>{type1.charAt(0).toUpperCase() + type1.substr(1)}</h6>
+                                                   <h6>{type1.charAt(0).toUpperCase() + type1.substr(1)}</h6>
                                                </div>
                                                {pokemon.types[1] !== undefined ?
                                                    (<div className={"left-card-attr typeIconModal"}>
@@ -188,13 +191,22 @@ const CreatePokeCards = (passedPokemon, toggle) => {
                                            </div>
                                        </div>
                                         <div className={"cont-flex left-card-attr"}>
-                                           <h6 className={""}>Height</h6>
-                                           <h6></h6>
+                                           <div>
+                                               <h6 className={""}>Height</h6>
+                                           </div>
+                                            <div>
+                                                <h6></h6>
+                                            </div>
                                         </div>
                                         <div className={"cont-flex left-card-attr"}>
-                                           <h6 className={""}>Weight</h6>
-                                           <h6></h6>
+                                            <div>
+                                                <h6 className={""}>Weight</h6>
+                                            </div>
+                                            <div>
+                                                <h6></h6>
+                                            </div>
                                         </div>
+                                    </div>
                                     </div>
                                 </div>
                                 <div className={"right-poke-card"}>

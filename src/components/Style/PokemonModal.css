@@ -4,7 +4,7 @@
 }
 
 .pokemon-card {
-    /*background-color: ;*/
+    background-image: radial-gradient(circle, #ffc2b1, #F8724C);
 }
 
 h6 {
@@ -20,46 +20,42 @@ h6 {
 }
 
 .left-poke-card>div>img {
-    height: 140px;
+    height: 160px;
 }
 
 .poke-name-block {
-    width: 353px;
+    width: 321px;
     border: 1px solid;
+    border-radius: 4px;
     justify-content: space-evenly;
     margin: 0 0 auto 0;
 }
 
-.left-card-info {
+.left-card-info-cont {
     width: 100%;
-    flex-direction: column;
-    justify-content: space-evenly;
-    border: 1px solid;
     margin: auto 0 0 0;
 }
 
-/*.left-card-info:after {*/
-/*    content:"";*/
-/*    position:absolute;*/
-/*    top: 255px;*/
-/*    left: 122px;*/
-/*    border-top:1px solid;*/
-/*    width:140px;*/
-/*    transform: rotate(90deg);*/
-/*    transform-origin: 0% 0%;*/
-/*}*/
+.left-card-info {
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-image: linear-gradient(to right, #DBD9DB 25%, #d0ced2 26%, #FFFDFF 25%);
+    border-radius: 4px;
+    margin: 20px 15px;
+}
+
 
 .left-card-info>div {
     align-items: center;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid #d0ced2;
 }
 
 .left-card-info>div:nth-child(3) {
     border-bottom: none;
 }
 
-.left-card-attr>h6:nth-child(1) {
-    width: 65px;
+.left-card-attr>div:nth-child(1) {
+    width: 25%;
     text-align: center;
 }
 
@@ -67,22 +63,19 @@ h6 {
     height: 32px;
 }
 
-.left-card-attr>h6 {
+.left-card-attr>h6, .left-card-attr>div>h6 {
     padding: 3px;
 }
 
 .card-info-space {
     width: 50%;
-    margin-right: 5px !important;
-    padding: 10px !important;
+    text-align: center;
 }
 
 .right-poke-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid;
-    /* border-radius: 10px; */
     margin: 30px 10px 30px 10px;
 }
 
@@ -91,47 +84,64 @@ h6 {
 }
 
 .right-card-info {
-    justify-content: space-evenly;
-    margin: 0 20px 20px 20px;
+    margin: 0 15px 20px 15px;
 }
 
-.right-card-inner {
+.right-card-inner:nth-child(1) {
     width: 50%;
+    border-radius: 4px 0 0 4px;
+    background-image: linear-gradient(to right, #DBD9DB 49%, #d0ced2 50%, #FFFDFF 51%, #FFFDFF 99%,#d0ced2 100%);
+}
+
+.right-card-inner:nth-child(2) {
+    width: 50%;
+    border-radius: 0 4px 4px 0;
+    background-image: linear-gradient(to right, #DBD9DB 49%, #d0ced2 50%, #FFFDFF 51%, #FFFDFF 99%,#d0ced2 100%);
 }
 
 .stat-block {
+    align-items: center;
     width: 100%;
-    /*margin: 10px;*/
+    height: 32px;
+    border-bottom: 1px solid #d0ced2;
 }
 
 .cont-flex {
     display: flex;
 }
 
+.types-cont {
+    width: 75%;
+    justify-content: flex-end;
+    text-align: center;
+}
+
 .typeIconModal {
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 49%;
 }
 
 .typeIconModal>div {
     display: flex;
-    height: 27px;
-    width: 27px;
-    border: 1px solid #585555;
-    border-right: none;
+    height: 24px;
+    border: 1px solid #4B5448;
     border-radius: 14px 0 0 14px;
-    background-color: #585555;
+    background-color: #4B5448;
 }
 
 .typeIconModal>div>img {
-
+    position: relative;
 }
 
 .typeIconModal>h6 {
-    border: 1px solid;
-    border-left: none;
+    position: relative;
+    right: 1px;
+    color: #FCFFFF;
+    background-color: #4B5448;
     border-radius: 0 4px 4px 0;
-    width: 85px;
+    height: 24px;
 }
 
 .radar-cont {
@@ -139,8 +149,8 @@ h6 {
     height: 186px;
     padding: 10px;
     border: 1px solid;
-    border-radius: 10px;
-    margin: 20px;
+    border-radius: 4px;
+    margin: 20px 15px;
 }
 
 
@@ -155,12 +165,17 @@ h6 {
     }
 
     .left-poke-card {
-        width: 275px;
+        width: 300px;
         margin: 30px 10px 30px 20px;
     }
 
+    .left-card-info {
+        border-radius: 4px;
+        margin: 20px 15px;
+    }
+
     .poke-name-block {
-        width: 275px;
+        width: 300px;
         border: 1px solid;
         justify-content: space-evenly;
         margin: 0 0 auto 0;

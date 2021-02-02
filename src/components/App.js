@@ -69,7 +69,6 @@ const App = () => {
     let counter = 0;
     const renderPokemon = async data => {
         let pokeList = await Promise.all(data.map(async pokemon => {
-            // console.log(pokemon)
             let getPokemon = await getEachPokemon(pokemon.url)
             return getPokemon;
         }))
