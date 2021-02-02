@@ -1,5 +1,5 @@
 .modal-content {
-    width: 300px !important;
+    width: 375px !important;
     margin: 0 auto;
 }
 
@@ -13,25 +13,77 @@ h6 {
 
 .left-poke-card {
     display: flex;
+    width: 353px;
     flex-direction: column;
     align-items: center;
-    margin: 0 auto;
+    margin: 30px 10px;
 }
 
 .left-poke-card>div>img {
     height: 140px;
 }
 
+.poke-name-block {
+    width: 353px;
+    border: 1px solid;
+    justify-content: space-evenly;
+    margin: 0 0 auto 0;
+}
+
 .left-card-info {
     width: 100%;
+    flex-direction: column;
     justify-content: space-evenly;
+    border: 1px solid;
+    margin: auto 0 0 0;
+}
+
+/*.left-card-info:after {*/
+/*    content:"";*/
+/*    position:absolute;*/
+/*    top: 255px;*/
+/*    left: 122px;*/
+/*    border-top:1px solid;*/
+/*    width:140px;*/
+/*    transform: rotate(90deg);*/
+/*    transform-origin: 0% 0%;*/
+/*}*/
+
+.left-card-info>div {
+    align-items: center;
+    border-bottom: 1px solid;
+}
+
+.left-card-info>div:nth-child(3) {
+    border-bottom: none;
+}
+
+.left-card-attr>h6:nth-child(1) {
+    width: 65px;
+    text-align: center;
+}
+
+.left-card-attr {
+    height: 32px;
+}
+
+.left-card-attr>h6 {
+    padding: 3px;
+}
+
+.card-info-space {
+    width: 50%;
+    margin-right: 5px !important;
+    padding: 10px !important;
 }
 
 .right-poke-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: auto auto 0 auto;
+    border: 1px solid;
+    /* border-radius: 10px; */
+    margin: 30px 10px 30px 10px;
 }
 
 .right-card-info-cont {
@@ -40,6 +92,16 @@ h6 {
 
 .right-card-info {
     justify-content: space-evenly;
+    margin: 0 20px 20px 20px;
+}
+
+.right-card-inner {
+    width: 50%;
+}
+
+.stat-block {
+    width: 100%;
+    /*margin: 10px;*/
 }
 
 .cont-flex {
@@ -48,22 +110,68 @@ h6 {
 
 .typeIconModal {
     display: flex;
+    align-items: center;
+}
+
+.typeIconModal>div {
+    display: flex;
+    height: 27px;
+    width: 27px;
+    border: 1px solid #585555;
+    border-right: none;
+    border-radius: 14px 0 0 14px;
+    background-color: #585555;
 }
 
 .typeIconModal>div>img {
-    width: 30px;
-    border: 2px solid #22252a;
-    border-radius: 100%;
+
 }
+
+.typeIconModal>h6 {
+    border: 1px solid;
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+    width: 85px;
+}
+
+.radar-cont {
+    width: 325px;
+    height: 186px;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 10px;
+    margin: 20px;
+}
+
 
 @media (min-width: 768px) {
     .modal-dialog {
-        max-width: 700px !important;
+        max-width: 750px !important;
     }
 
     .modal-content {
         max-width: 100% !important;
-        width: 700px !important;
+        width: 750px !important;
+    }
+
+    .left-poke-card {
+        width: 275px;
+        margin: 30px 10px 30px 20px;
+    }
+
+    .poke-name-block {
+        width: 275px;
+        border: 1px solid;
+        justify-content: space-evenly;
+        margin: 0 0 auto 0;
+    }
+
+    .right-poke-card {
+        margin: 30px 20px 30px 20px;
+    }
+
+    .radar-cont {
+        width: 350px;
     }
 
     .pokemon-card {

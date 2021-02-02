@@ -3,6 +3,7 @@ import {faStar} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import Types from "./Types";
 import Modal from "react-bootstrap/Modal";
+import StatChart from "./StatChart";
 
 const CreatePokeCards = (passedPokemon, toggle) => {
     const [favorites, setFavorites] = useState([]);
@@ -21,14 +22,6 @@ const CreatePokeCards = (passedPokemon, toggle) => {
             setFavorites([...favorites, JSON.parse(localStorage.getItem(key))])
         })
     }
-
-    // const callback = (showCardModal) => {
-    //     setShowCardModal(!showCardModal);
-    // }
-
-    // const handleModal = (id, showCardModal) => {
-    //     setShowCardModal(!showCardModal);
-    // }
 
     const  handleClick = (passingId) => {
         if(showCard === passingId) {
@@ -56,36 +49,40 @@ const CreatePokeCards = (passedPokemon, toggle) => {
                 let stats = [];
                 for (let stat of pokemon.stats) {
                     let statName = stat.stat.name;
-                    if(statName === "hp") stats.push([(statName.toUpperCase()), (stat.base_stat)]);
-                    else if(statName.includes("-")) stats.push([((statName.charAt(0).toUpperCase() + statName.substr(1, 7)) + statName.charAt(8).toUpperCase() + statName.substr(9, statName.length)).replace("-", " "), (stat.base_stat)]);
-                    else stats.push([(statName.charAt(0).toUpperCase() + statName.substr(1, statName.length)), (stat.base_stat)]);
+                    if (statName === "hp") stats.push([(statName.toUpperCase()), (stat.base_stat)]);
+                    else if (statName.includes("-")) {
+                        if (statName.includes("t")) stats.push([((statName.charAt(0).toUpperCase() + statName.substr(1, 1)) + ". " + statName.charAt(8).toUpperCase() + statName.charAt(9) + statName.charAt(statName.length - 1)).replace("-", " "), (stat.base_stat)]);
+                        else stats.push([((statName.charAt(0).toUpperCase() + statName.substr(1, 1)) + ". " + statName.charAt(8).toUpperCase() + statName.charAt(9) + statName.charAt(10)).replace("-", " "), (stat.base_stat)]);
+                    } else stats.push([(statName.charAt(0).toUpperCase() + statName.substr(1, statName.length)), (stat.base_stat)]);
                 }
+                return stats;
+            }
 
+            const statsJSX = (stats) => {
                 return (
                     <div className={"cont-flex right-card-info"}>
-                        <div>
+                        <div className={"right-card-inner"}>
                             {stats.slice(0, 3).map(stat => {
                                 return (
-                                    <div className={"cont-flex"}>
-                                        <h6 className={""}>{stat[0]}</h6>
-                                        <h6 className={""}>{stat[1]}</h6>
+                                    <div className={"cont-flex stat-block"}>
+                                        <h6 className={"card-info-space"}>{stat[0]}</h6>
+                                        <h6 className={"card-info-space"}>{stat[1]}</h6>
                                     </div>
                                 )
                             })}
                         </div>
-                        <div>
+                        <div className={"right-card-inner"}>
                             {stats.slice(3, stats.length).map(stat => {
                                 return (
-                                    <div className={"cont-flex"}>
-                                        <h6 className={""}>{stat[0]}</h6>
-                                        <h6 className={""}>{stat[1]}</h6>
+                                    <div className={"cont-flex stat-block"}>
+                                        <h6 className={"card-info-space"}>{stat[0]}</h6>
+                                        <h6 className={"card-info-space"}>{stat[1]}</h6>
                                     </div>
                                 )
                             })}
                         </div>
-                        </div>
+                    </div>
                     )
-                // }
             }
 
             let passingId = id;
@@ -167,7 +164,7 @@ const CreatePokeCards = (passedPokemon, toggle) => {
                         >
                             <div className={"pokemon-card"}>
                                 <div className={"left-poke-card"}>
-                                    <div className={"cont-flex"}>
+                                    <div className={"cont-flex poke-name-block"}>
                                         <h6>{modifyId(id)}</h6>
                                         <h6>{modifyName(pokemon.name)}</h6>
                                     </div>
@@ -175,30 +172,34 @@ const CreatePokeCards = (passedPokemon, toggle) => {
                                         <img src={pokemon.sprites.front_default} alt="pokemon-img"/>
                                     </div>
                                     <div className={"cont-flex left-card-info"}>
-                                       <div>
-                                           <h6>Type</h6>
-                                           <h6>Height</h6>
-                                           <h6>Weight</h6>
-                                       </div>
-                                       <div>
+                                       <div className={"cont-flex left-card-attr"}>
+                                           <h6 className={""}>Type</h6>
                                            <div className={"cont-flex"}>
-                                               <div className={"typeIconModal"}>
+                                               <div className={"left-card-attr typeIconModal"}>
                                                    {Types(type1)}
-                                                   <h6>{type1}</h6>
+                                                   <h6 className={""}>{type1.charAt(0).toUpperCase() + type1.substr(1)}</h6>
                                                </div>
                                                {pokemon.types[1] !== undefined ?
-                                                   (<div className={"typeIconModal"}>
+                                                   (<div className={"left-card-attr typeIconModal"}>
                                                        {Types(makeType2())}
-                                                       <h6>{makeType2()}</h6>
+                                                       <h6 className={""}>{makeType2().charAt(0).toUpperCase() + makeType2().substr(1)}</h6>
                                                    </div>) : (<div className={"typeIcon2"}><div></div></div>)
                                                }
                                            </div>
                                        </div>
+                                        <div className={"cont-flex left-card-attr"}>
+                                           <h6 className={""}>Height</h6>
+                                           <h6></h6>
+                                        </div>
+                                        <div className={"cont-flex left-card-attr"}>
+                                           <h6 className={""}>Weight</h6>
+                                           <h6></h6>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className={"right-poke-card"}>
-                                    <h6>Stats</h6>
-                                    <div className={"right-card-info-cont"}>{getStats()}</div>
+                                    <StatChart name={modifyName(pokemon.name)} data={getStats()}/>
+                                    <div className={"right-card-info-cont"}>{statsJSX(getStats())}</div>
                                 </div>
                                 <div>
 
