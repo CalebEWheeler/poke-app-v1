@@ -4,6 +4,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import Types from "./Types";
 import Modal from "react-bootstrap/Modal";
 import StatChart from "./StatChart";
+import modalPokeball from "./Images/pokeball_modal.png"
 
 const CreatePokeCards = (passedPokemon, toggle) => {
     const [favorites, setFavorites] = useState([]);
@@ -159,17 +160,19 @@ const CreatePokeCards = (passedPokemon, toggle) => {
                                 setShowCardModal(!showCardModal)
                                 setShowCard(0)
                             }}
-                            // dialogClassName="modal-90w"
                             aria-labelledby="example-custom-modal-styling-title"
                         >
                             <div className={"pokemon-card"}>
                                 <div className={"left-poke-card"}>
                                     <div className={"cont-flex poke-name-block"}>
-                                        <h6>{modifyId(id)}</h6>
-                                        <h6>{modifyName(pokemon.name)}</h6>
+                                        <h6>{"No. " + (modifyId(id).substr(1, 3))}</h6>
+                                        <div className={"cont-flex"}>
+                                            <h5>{modifyName(pokemon.name)}</h5>
+                                            <img className={"pokeball-modal"} src={modalPokeball} alt="pokeball"/>
+                                        </div>
                                     </div>
-                                    <div className={""}>
-                                        <img src={pokemon.sprites.front_default} alt="pokemon-img"/>
+                                    <div className={"img-cont"}>
+                                        <img className={"pokemon-img"} src={pokemon.sprites.front_default} alt="pokemon-img"/>
                                     </div>
                                     <div className={"left-card-info-cont"}>
                                         <div className={"cont-flex left-card-info"}>

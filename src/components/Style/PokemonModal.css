@@ -7,6 +7,11 @@
     background-image: radial-gradient(circle, #ffc2b1, #F8724C);
 }
 
+h5 {
+    margin: 0 !important;
+    color: #FBFAFA;
+}
+
 h6 {
     margin: 0 !important;
 }
@@ -16,19 +21,43 @@ h6 {
     width: 353px;
     flex-direction: column;
     align-items: center;
-    margin: 30px 10px;
+    margin: 30px 10px 0 10px;
 }
 
-.left-poke-card>div>img {
+.img-cont {
+    margin: 25px 0 0 0;
+}
+
+.pokemon-img {
     height: 160px;
 }
 
 .poke-name-block {
     width: 321px;
-    border: 1px solid;
     border-radius: 4px;
+    background-color: #F2503C;
     justify-content: space-evenly;
     margin: 0 0 auto 0;
+}
+
+.poke-name-block>h6 {
+    color: #FBFAFA;
+    align-self: center;
+    text-align: center;
+    width: 30%;
+}
+
+.poke-name-block>div {
+    background-color: #030001;
+    border-radius: 0 4px 4px 0;
+    justify-content: space-evenly;
+    width: 70%;
+}
+
+.pokeball-modal {
+    align-self: center;
+    width: 22px;
+    height: 22px;
 }
 
 .left-card-info-cont {
@@ -41,9 +70,12 @@ h6 {
     justify-content: space-evenly;
     background-image: linear-gradient(to right, #DBD9DB 25%, #d0ced2 26%, #FFFDFF 25%);
     border-radius: 4px;
-    margin: 20px 15px;
+    margin: 0 15px 20px 15px;
 }
 
+.left-card-info>h6 {
+
+}
 
 .left-card-info>div {
     align-items: center;
@@ -76,7 +108,7 @@ h6 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 30px 10px 30px 10px;
+    margin: 0 10px 30px 10px;
 }
 
 .right-card-info-cont {
@@ -112,7 +144,6 @@ h6 {
 
 .types-cont {
     width: 75%;
-    justify-content: flex-end;
     text-align: center;
 }
 
@@ -166,7 +197,7 @@ h6 {
 
     .left-poke-card {
         width: 300px;
-        margin: 30px 10px 30px 20px;
+        margin: 30px 10px;
     }
 
     .left-card-info {
@@ -174,19 +205,21 @@ h6 {
         margin: 20px 15px;
     }
 
+    .img-cont {
+        margin: 0;
+    }
+
     .poke-name-block {
-        width: 300px;
-        border: 1px solid;
-        justify-content: space-evenly;
-        margin: 0 0 auto 0;
+        width: 270px;
     }
 
     .right-poke-card {
-        margin: 30px 20px 30px 20px;
+        margin: 30px 10px;
     }
 
     .radar-cont {
         width: 350px;
+        margin: 0 15px 30px 15px;
     }
 
     .pokemon-card {
