@@ -18,23 +18,24 @@ body {
     background-color: #F2503C;
 }
 
-.nav>div>h4 {
+.home {
     margin: auto;
     background-color: #F2503C;
     color: floralwhite;
     font-family: "Pokemon";
     letter-spacing: 2px;
     text-shadow: -1px 0 #212121, 0 1px #212121, 1px 0 #212121, 0 -1px #212121;
+    transition: transform .2s;
 }
 
-.nav h4:hover {
+.home:hover {
     color: floralwhite !important;
     text-shadow: -1px 0 #3c3731, 0 1px #3c3731, 1px 0 #3c3731, 0 -1px #3c3731;
     cursor: pointer;
+    transform: scale(1.1);
 }
 
 main {
-    /*padding: 10px;*/
     position: absolute;
     top: 60px;
 }

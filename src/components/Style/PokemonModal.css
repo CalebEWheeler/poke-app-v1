@@ -37,6 +37,7 @@ h6 {
 
 .pokemon-img {
     height: 160px;
+    transition: transform .2s;
 }
 
 .poke-name-block {
@@ -45,7 +46,10 @@ h6 {
     background-color: #F2503C;
     justify-content: space-evenly;
     margin: 0 0 auto 0;
+    transition: transform .2s;
 }
+
+
 
 .poke-name-block>h6 {
     color: #FBFAFA;
@@ -108,6 +112,7 @@ h6 {
 
 .hgt-wgt-margin {
     margin: 0 auto !important;
+    transition: transform .2s;
 }
 
 .card-info-space {
@@ -124,6 +129,7 @@ h6 {
 
 .right-card-info-cont {
     width: 100%;
+    transition: transform .2s;
 }
 
 .right-card-info {
@@ -156,6 +162,7 @@ h6 {
 .types-cont {
     width: 75%;
     text-align: center;
+    transition: transform .2s;
 }
 
 .typeIconModal {
@@ -163,6 +170,7 @@ h6 {
     align-items: center;
     justify-content: center;
     width: 49%;
+    transition: transform .2s;
 }
 
 .typeIconModal>div {
@@ -194,8 +202,19 @@ h6 {
     border: 1px solid #DBD9DB;
     border-radius: 4px;
     margin: 20px 15px;
+    transition: transform .2s;
 }
 
+/*HOVER*/
+.poke-name-block:hover,
+.typeIconModal:hover,
+.hgt-wgt-margin:hover,
+.types-cont:hover,
+.radar-cont:hover,
+.right-card-info-cont:hover,
+.pokemon-img:hover {
+    transform: scale(1.1);
+}
 
 @media (min-width: 768px) {
     .modal-dialog {
