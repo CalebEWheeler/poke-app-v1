@@ -16,16 +16,24 @@ const StatChart = (statData) => {
         labels: statLabels,
         datasets: [
             {
-                label: statData.name + "'s Stats",
-                backgroundColor: 'rgba(179,181,198,0.2)',
-                borderColor: 'rgba(179,181,198,1)',
-                pointBackgroundColor: 'rgba(179,181,198,1)',
-                pointBorderColor: '#fff',
-                // pointHoverBackgroundColor: '#fff',
-                // pointHoverBorderColor: 'rgba(179,181,198,1)',
+                label: "",
+                backgroundColor: 'rgba(160,149,217,0.4)',
+                borderColor: 'rgba(160,149,217,1)',
+                circular: true,
                 data: statValues
             }
-        ]
+        ],
+        options: {
+
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+
     };
 
     return (

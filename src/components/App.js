@@ -127,7 +127,8 @@ const App = () => {
                 Gen6Pokemon={Gen6Pokemon}
                 Gen7Pokemon={Gen7Pokemon}
                 Gen8Pokemon={Gen8Pokemon}
-
+                showFavoritePokemon={showFavoritePokemon}
+                searchValue={searchValue}
             />)
         }
         else if(showFavoritePokemon === true) {

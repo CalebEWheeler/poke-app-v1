@@ -61,11 +61,11 @@ const NavbarIndex = ({ showFavoritePokemon, onFavoritesClick, searchValue, onInp
                         </div>
                     </div>
                     <FontAwesomeIcon icon={faStar} size={"2x"} onClick={handleFavoritesClick} className={"dropdown-link hover center-icon"}/>
-                    <div className={"dropdown-link align-self-center"}>
-                        <img className={(!showModal ? "all-types" : "all-types-active") + " p-1"}
-                             onClick={() => setShowModal(!showModal)
-                             } src={allTypes} alt="Filter by types"/>
-                    </div>
+                    {/*<div className={"dropdown-link align-self-center"}>*/}
+                    {/*    <img className={(!showModal ? "all-types" : "all-types-active") + " p-1"}*/}
+                    {/*         onClick={() => setShowModal(!showModal)*/}
+                    {/*         } src={allTypes} alt="Filter by types"/>*/}
+                    {/*</div>*/}
                 </div>
             )
         }
@@ -90,7 +90,9 @@ const NavbarIndex = ({ showFavoritePokemon, onFavoritesClick, searchValue, onInp
         (
             <React.Fragment>
                 <nav className={"nav d-flex"}>
-                    <h4 className={"home"} onClick={() => {handleHomeBtnClick()}}>Poké Finder</h4>
+                    <div className={"title-cont"}>
+                        <h4 className={"home"} onClick={() => {handleHomeBtnClick()}}>Poké Finder</h4>
+                    </div>
                     <div className={"ml-auto mr-3 my-auto drop-icon"}>
                         <div className={""}>
                             {pokeballImg()}
@@ -99,21 +101,21 @@ const NavbarIndex = ({ showFavoritePokemon, onFavoritesClick, searchValue, onInp
                     </div>
                 </nav>
 
-                <Modal
-                    show={showModal}
-                    onHide={() => setShowModal(!showModal)}
-                    dialogClassName="modal-90w"
-                    aria-labelledby="example-custom-modal-styling-title"
-                >
-                    <Modal.Header closeButton>
-                        <Modal.Title id="example-custom-modal-styling-title">
-                            Custom Modal Styling
-                        </Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <TypeModal parentCallback={callback}/>
-                    </Modal.Body>
-                </Modal>
+                {/*<Modal*/}
+                {/*    show={showModal}*/}
+                {/*    onHide={() => setShowModal(!showModal)}*/}
+                {/*    dialogClassName="modal-90w"*/}
+                {/*    aria-labelledby="example-custom-modal-styling-title"*/}
+                {/*>*/}
+                {/*    <Modal.Header closeButton>*/}
+                {/*        <Modal.Title id="example-custom-modal-styling-title">*/}
+                {/*            Custom Modal Styling*/}
+                {/*        </Modal.Title>*/}
+                {/*    </Modal.Header>*/}
+                {/*    <Modal.Body>*/}
+                {/*        <TypeModal parentCallback={callback}/>*/}
+                {/*    </Modal.Body>*/}
+                {/*</Modal>*/}
             </React.Fragment>
         )]
 }

@@ -6,10 +6,12 @@ import Modal from "react-bootstrap/Modal";
 import StatChart from "./StatChart";
 import modalPokeball from "./Images/pokeball_modal.png"
 
-const CreatePokeCards = (passedPokemon, toggle) => {
+const CreatePokeCards = (passedPokemon, toggle, showFavoritePokemon, searchValue) => {
     const [favorites, setFavorites] = useState([]);
     const [showCardModal, setShowCardModal] = useState(false);
     const [showCard, setShowCard] = useState(0);
+    let favPokeValue = showFavoritePokemon;
+    let searchVal = searchValue;
 
     const toggleFavorite = (pokemon) => {
         setFavorites([]);
@@ -119,9 +121,21 @@ const CreatePokeCards = (passedPokemon, toggle) => {
                 else return "#" + id;
             }
 
+            const modifyWeight = (weight) => {
+                let weightKg = weight * .1;
+                return (Math.round(weightKg * 2.20462) + "lbs");
+            }
+
+            const modifyHeight = (height) => {
+                let heightMeters = height * .1;
+                let heightFeet = heightMeters * 3.28084
+                let decimal = (heightFeet - Math.trunc(heightFeet))
+                return ((Math.trunc(heightFeet) + "' ") + (Math.round(decimal * 10) + "\""));
+            }
+
             return (
                 <React.Fragment>
-                <div className={"grid-item " + toggle} key={index}>
+                <div className={(favPokeValue === false && searchVal === "" ? "get-grid-item " : "grid-item ") + toggle} key={index}>
                 <div className={"left-card"}>
                     <div className={"dex-entry"}>
                         {modifyId(id)}
@@ -197,16 +211,16 @@ const CreatePokeCards = (passedPokemon, toggle) => {
                                            <div>
                                                <h6 className={""}>Height</h6>
                                            </div>
-                                            <div>
-                                                <h6></h6>
+                                            <div className={"cont-flex types-cont"}>
+                                                <h6 className={"hgt-wgt-margin"}>{modifyHeight(height)}</h6>
                                             </div>
                                         </div>
                                         <div className={"cont-flex left-card-attr"}>
                                             <div>
                                                 <h6 className={""}>Weight</h6>
                                             </div>
-                                            <div>
-                                                <h6></h6>
+                                            <div className={"cont-flex types-cont"}>
+                                                <h6 className={"hgt-wgt-margin"}>{modifyWeight(weight)}</h6>
                                             </div>
                                         </div>
                                     </div>

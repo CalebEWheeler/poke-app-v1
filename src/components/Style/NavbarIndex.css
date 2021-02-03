@@ -1,13 +1,14 @@
 .nav {
-    background: #96897b;
+    display: flex;
+    position: fixed;
+    z-index: 1500;
+    width: 100%;
+    background: #212121;
     border-top: 2px solid #4b453e;
     border-bottom: 2px solid #4b453e;
     height: 70px;
 }
-/*.nav h4 {*/
-/*    color: #3c3731 !important;*/
-/*    margin: auto 0 auto 15px;*/
-/*}*/
+
 .nav .pokeball:focus {
     outline: none;
 }
@@ -60,8 +61,17 @@
 .dropdown-link {
     display: block;
     text-decoration: none;
-    color: #fff;
     margin-top: 20px;
+    filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+    transition: transform .2s;
+}
+
+.dropdown-link:nth-child(1) {
+    color: #d0ced2;
+}
+
+.dropdown-link:nth-child(2) {
+    color: gold;
 }
 
 .search-hide {
@@ -112,7 +122,8 @@
 }
 
 .hover:hover {
-    color: darkorange;
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 .all-types-active {

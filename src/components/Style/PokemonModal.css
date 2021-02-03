@@ -1,4 +1,11 @@
+/* Modal Override */
+.modal-dialog {
+    display: flex;
+    justify-content: center;
+}
+
 .modal-content {
+    top: 150px;
     width: 375px !important;
     margin: 0 auto;
 }
@@ -99,6 +106,10 @@ h6 {
     padding: 3px;
 }
 
+.hgt-wgt-margin {
+    margin: 0 auto !important;
+}
+
 .card-info-space {
     width: 50%;
     text-align: center;
@@ -179,7 +190,8 @@ h6 {
     width: 325px;
     height: 186px;
     padding: 10px;
-    border: 1px solid;
+    background-color: #FCFFFF;
+    border: 1px solid #DBD9DB;
     border-radius: 4px;
     margin: 20px 15px;
 }

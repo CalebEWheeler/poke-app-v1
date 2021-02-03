@@ -8,21 +8,23 @@
     url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.svg#Pokemon") format("svg");
 }
 
-/* Modal Override */
-
-.modal-dialog {
-    height: 100% !important;
-}
-
 body {
-    background-color: #DFD5A5 !important;
+    background-color: #f1f1f1;
 }
-.nav h4 {
-    color: #3c3731 !important;
-    margin: auto 0 auto 15px;
+
+.title-cont {
+    display: flex;
+    width: 45%;
+    background-color: #F2503C;
+}
+
+.nav>div>h4 {
+    margin: auto;
+    background-color: #F2503C;
+    color: floralwhite;
     font-family: "Pokemon";
     letter-spacing: 2px;
-    text-shadow: -1px 0 floralwhite, 0 1px floralwhite, 1px 0 floralwhite, 0 -1px floralwhite;
+    text-shadow: -1px 0 #212121, 0 1px #212121, 1px 0 #212121, 0 -1px #212121;
 }
 
 .nav h4:hover {
@@ -32,10 +34,12 @@ body {
 }
 
 main {
-    padding: 10px;
+    /*padding: 10px;*/
+    position: absolute;
+    top: 60px;
 }
 
-main>h4, .gen-header>h4 {
+main>h4 {
     color: #3c3731 !important;
     font-family: "Pokemon";
     letter-spacing: 2px;
@@ -54,7 +58,7 @@ h6, p {
 
 .loader-container {
     top: 10px;
-    left: 175px;
+    left: 47%;
     position: absolute;
 }
 
@@ -70,10 +74,10 @@ h6, p {
     width: 32px !important;
     background-color: #3c3731;
     color: #ffc107;
-    border-top: 2px solid #877b6f;
-    border-left: 2px solid #877b6f;
-    border-bottom: 2px solid #877b6f;
-    border-right: 2px solid #877b6f;
+    border-top: 2px solid #dadada;
+    border-left: 2px solid #dadada;
+    border-bottom: 2px solid #dadada;
+    border-right: 2px solid #d5d3cd;
     border-radius: 14px 0 0 4px;
     padding: 4px;
     margin: 2px 0 2px 0!important;
@@ -86,11 +90,11 @@ h6, p {
     height: 32px !important;
     width: 32px !important;
     background-color: #3c3731;
-    color: #dee2e6;
-    border-top: 2px solid #877b6f;
-    border-left: 2px solid #877b6f;
-    border-bottom: 2px solid #877b6f;
-    border-right: 2px solid #877b6f;
+    color: #ffffff;
+    border-top: 2px solid #dadada;
+    border-left: 2px solid #d2d2d2;
+    border-bottom: 2px solid #d2d2d2;
+    border-right: 2px solid #d2d2d2;
     border-radius: 14px 0 0 4px;
     padding: 4px;
     margin: 2px 0 2px 0!important;
@@ -102,10 +106,8 @@ h6, p {
     grid-template-rows: 186px;
     justify-content: center;
     grid-gap: 30px;
-    border: 2px solid #4b453e;
-    background-color: #628395;
     border-radius: 10px;
-    padding: 40px 0;
+    padding: 50px 20px;
 }
 
 .grid-item {
@@ -126,12 +128,65 @@ h6, p {
     display: flex;
 }
 
-.gen-header {
-    display: flex;
-
+.hide-gen-section {
+    display:none;
+    transform: translateX(0);
+    transition: transform ease-in 0.5s;
 }
 
-.gen-header>div {
+.show-gen-section {
+    display: flex;
+    border-bottom: 6px dashed #f2503c;
+    margin: 10px;
+    justify-content: center;
+    transform: translateX(0%);
+    transition: transform ease-out 0.5s;
+}
+
+.gen-header-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: fixed;
+    margin-top: 105px;
+    width: 100%;
+    filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+}
+
+.gen-header {
+    display: flex;
+    width: 105px;
+    margin: 10px 0;
+    background-color: #f2503c;
+    border: 2px solid;
+    border-radius: 20px 0 0 20px;
+    transition: transform .2s;
+}
+
+.gen-header-hide {
+    display: flex;
+    width: 105px;
+    margin: 10px 0;
+    background-color: #d0ced2;
+    border: 2px solid;
+    border-radius: 20px 0 0 20px;
+    transition: transform .2s;
+}
+
+.gen-header:hover, .gen-header-hide:hover  {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.gen-header>h4, .gen-header-hide>h4 {
+    color: #3c3731 !important;
+    font-family: "Pokemon";
+    letter-spacing: 2px;
+    text-shadow: -1px 0 floralwhite, 0 1px floralwhite, 1px 0 floralwhite, 0 -1px floralwhite;
+    margin: 10px 0 10px 15px;
+}
+
+.gen-header>div, .gen-header-hide>div {
     background-color: floralwhite;
     border-radius: 4px;
     width: 25px;
@@ -143,7 +198,7 @@ h6, p {
     background-color: lightskyblue;
 }
 
-.gen-header>div>.toggle-gen {
+.gen-header>div>.toggle-gen, .gen-header-hide>div>.toggle-gen {
     color: #3c3731 !important;
     width: 100%;
     height: 100%;
@@ -157,10 +212,10 @@ h6, p {
 .image-radius img {
     height: 140px;
     border-radius: 100%;
-    border: 2px solid #d8cedd;
-    box-shadow: 5px 10px 18px #173238;
+    border: 2px solid #f4fbeb;
+    box-shadow: 5px 10px 40px #000000;
     padding: 10px;
-    background-image: radial-gradient(circle, #DFD5A5, #699562);
+    background-image: radial-gradient(circle, #fcffff, #b9a67f);
 }
 
 .typeIcon1>div>img {
@@ -181,12 +236,6 @@ h6, p {
     border-radius: 100%;
 }
 
-/*.typeIcon2Modal>div>img {*/
-/*    width: 30px;*/
-/*    border: 2px solid #22252a;*/
-/*    border-radius: 100%;*/
-/*}*/
-
 /* applied to fix positioning issues if 2nd type is not available */
 .typeIcon2 {
     height: 30px;
@@ -200,6 +249,7 @@ h6, p {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-bottom: 1px solid #212121;
     justify-content: space-evenly;
     height: 100%;
     margin: 0 auto;
@@ -209,13 +259,14 @@ h6, p {
     margin: 2px 0 2px 0!important;
     width: 140px;
     text-align: center;
-    color: #181613 !important;
-    border-top: 2px solid #877b6f;
-    border-right: 2px solid #877b6f;
-    border-bottom: 2px solid #877b6f;
+    color: #212121 !important;
+    text-shadow: -1px 0 #dedede, 0 1px #dedede, 1px 0 #dedede, 0 -1px #dedede;
+    border-top: 2px solid #212528;
+    border-right: 2px solid #212528;
+    border-bottom: 2px solid #212528;
     border-radius: 0 4px 14px 0;
     padding: 2px 16px;
-    background-color: #c9c095;
+    background-color: #fffaf0;
 }
 
 .dex-entry {
@@ -269,6 +320,11 @@ h6, p {
     background-color: #c9c095;
 }
 
+.get-grid-item {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
 .grid-item:nth-child(odd) {
     grid-column-start: 1;
     grid-column-end: 2;
@@ -280,207 +336,213 @@ h6, p {
 }
 
 @media only screen and (min-width : 768px) {
-    .grid-container {
-        grid-template-columns: auto auto auto auto;
+    .title-cont {
+        width: 30%;
     }
 
-    .grid-item:nth-child(4n+1) {
+    .loader-container {
+        left: 32%;
+    }
+
+    .gen-header, .gen-header-hide {
+        width: 120px;
+        padding: 0 20px 0 0;
+    }
+
+    .show-gen-section {
+        position: relative;
+        left: 0;
+    }
+
+    .grid-container {
+        grid-template-columns: auto auto auto;
+    }
+
+    .grid-item:nth-child(3n+1), .get-grid-item:nth-child(3n+1) {
         grid-column-start: 1;
         grid-column-end: 2;
     }
 
-    .grid-item:nth-child(4n+2) {
+    .grid-item:nth-child(3n+2), .get-grid-item:nth-child(3n+2) {
         grid-column-start: 2;
         grid-column-end: 3;
     }
 
-    .grid-item:nth-child(4n+3) {
+    .grid-item:nth-child(3n+3), .get-grid-item:nth-child(3n+3) {
         grid-column-start: 3;
         grid-column-end: 4;
-    }
-
-    .grid-item:nth-child(4n+4) {
-        grid-column-start: 4;
-        grid-column-end: 5;
     }
 }
 
 @media (min-width: 1024px) {
+    .title-cont {
+        width: 25%;
+    }
+
+    .loader-container {
+        left: 27%;
+    }
+
+    .grid-container {
+        grid-template-columns: auto auto auto auto;
+    }
+
+    .grid-item:nth-child(4n+1), .get-grid-item:nth-child(4n+1) {
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+
+    .grid-item:nth-child(4n+2), .get-grid-item:nth-child(4n+2) {
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+
+    .grid-item:nth-child(4n+3), .get-grid-item:nth-child(4n+3) {
+        grid-column-start: 3;
+        grid-column-end: 4;
+    }
+
+    .grid-item:nth-child(4n+4), .get-grid-item:nth-child(4n+4) {
+        grid-column-start: 4;
+        grid-column-end: 5;
+    }
+}
+
+@media (min-width: 1150px) {
     .grid-container {
         grid-template-columns: auto auto auto auto auto;
     }
 
-    .grid-item:nth-child(5n+1) {
+    .grid-item:nth-child(5n+1), .get-grid-item:nth-child(5n+1) {
         grid-column-start: 1;
         grid-column-end: 2;
     }
 
-    .grid-item:nth-child(5n+2) {
+    .grid-item:nth-child(5n+2), .get-grid-item:nth-child(5n+2) {
         grid-column-start: 2;
         grid-column-end: 3;
     }
 
-    .grid-item:nth-child(5n+3) {
+    .grid-item:nth-child(5n+3), .get-grid-item:nth-child(5n+3) {
         grid-column-start: 3;
         grid-column-end: 4;
     }
 
-    .grid-item:nth-child(5n+4) {
+    .grid-item:nth-child(5n+4), .get-grid-item:nth-child(5n+4) {
         grid-column-start: 4;
         grid-column-end: 5;
     }
 
-    .grid-item:nth-child(5n+5) {
-        grid-column-start: 5;
-        grid-column-end: 6;
-    }
-}
-
-@media (min-width: 1250px) {
-    .grid-container {
-        grid-template-columns: auto auto auto auto auto auto;
-    }
-
-    .grid-item:nth-child(6n+1) {
-        grid-column-start: 1;
-        grid-column-end: 2;
-    }
-
-    .grid-item:nth-child(6n+2) {
-        grid-column-start: 2;
-        grid-column-end: 3;
-    }
-
-    .grid-item:nth-child(6n+3) {
-        grid-column-start: 3;
-        grid-column-end: 4;
-    }
-
-    .grid-item:nth-child(6n+4) {
-        grid-column-start: 4;
-        grid-column-end: 5;
-    }
-
-    .grid-item:nth-child(6n+5) {
+    .grid-item:nth-child(5n+5), .get-grid-item:nth-child(5n+5) {
         grid-column-start: 5;
         grid-column-end: 6;
     }
 
-    .grid-item:nth-child(6n+6) {
-        grid-column-start: 6;
-        grid-column-end: 7;
-    }
+    /*.grid-item:nth-child(6n+6), .get-grid-item:nth-child(6n+6) {*/
+    /*    grid-column-start: 6;*/
+    /*    grid-column-end: 7;*/
+    /*}*/
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1390px) {
     .grid-container {
         grid-template-columns: auto;
         grid-template-rows: 186px;
     }
 
-    .grid-item:nth-child(7n+1) {
+    .grid-item:nth-child(6n+1), .get-grid-item:nth-child(6n+1) {
         grid-column-start: 1;
         grid-column-end: 2;
     }
 
-    .grid-item:nth-child(7n+2) {
+    .grid-item:nth-child(6n+2), .get-grid-item:nth-child(6n+2) {
         grid-column-start: 2;
         grid-column-end: 3;
     }
 
-    .grid-item:nth-child(7n+3) {
+    .grid-item:nth-child(6n+3), .get-grid-item:nth-child(6n+3) {
         grid-column-start: 3;
         grid-column-end: 4;
     }
 
-    .grid-item:nth-child(7n+4) {
+    .grid-item:nth-child(6n+4), .get-grid-item:nth-child(6n+4) {
         grid-column-start: 4;
         grid-column-end: 5;
     }
 
-    .grid-item:nth-child(7n+5) {
+    .grid-item:nth-child(6n+5), .get-grid-item:nth-child(6n+5) {
         grid-column-start: 5;
         grid-column-end: 6;
     }
 
-    .grid-item:nth-child(7n+6) {
+    .grid-item:nth-child(6n+6), .get-grid-item:nth-child(6n+6) {
         grid-column-start: 6;
         grid-column-end: 7;
-    }
-
-    .grid-item:nth-child(7n+7) {
-        grid-column-start: 7;
-        grid-column-end: 8;
     }
 }
 
 @media (min-width: 2560px) {
     .grid-container {
-        grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto;
+        grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto;
     }
 
-    .grid-item:nth-child(13n+1) {
+    .grid-item:nth-child(12n+1), .get-grid-item:nth-child(12n+1) {
         grid-column-start: 1;
         grid-column-end: 2;
     }
 
-    .grid-item:nth-child(13n+2) {
+    .grid-item:nth-child(12n+2), .get-grid-item:nth-child(12n+2) {
         grid-column-start: 2;
         grid-column-end: 3;
     }
 
-    .grid-item:nth-child(13n+3) {
+    .grid-item:nth-child(12n+3), .get-grid-item:nth-child(12n+3) {
         grid-column-start: 3;
         grid-column-end: 4;
     }
 
-    .grid-item:nth-child(13n+4) {
+    .grid-item:nth-child(12n+4), .get-grid-item:nth-child(12n+4) {
         grid-column-start: 4;
         grid-column-end: 5;
     }
 
-    .grid-item:nth-child(13n+5) {
+    .grid-item:nth-child(12n+5), .get-grid-item:nth-child(12n+5) {
         grid-column-start: 5;
         grid-column-end: 6;
     }
 
-    .grid-item:nth-child(13n+6) {
+    .grid-item:nth-child(12n+6), .get-grid-item:nth-child(12n+6) {
         grid-column-start: 6;
         grid-column-end: 7;
     }
 
-    .grid-item:nth-child(13n+7) {
+    .grid-item:nth-child(12n+7), .get-grid-item:nth-child(12n+7) {
         grid-column-start: 7;
         grid-column-end: 8;
     }
 
-    .grid-item:nth-child(13n+8) {
+    .grid-item:nth-child(12n+8), .get-grid-item:nth-child(12n+8) {
         grid-column-start: 8;
         grid-column-end: 9;
     }
 
-    .grid-item:nth-child(13n+9) {
+    .grid-item:nth-child(12n+9), .get-grid-item:nth-child(12n+9) {
         grid-column-start: 9;
         grid-column-end: 10;
     }
 
-    .grid-item:nth-child(13n+10) {
+    .grid-item:nth-child(12n+10), .get-grid-item:nth-child(12n+10) {
         grid-column-start: 10;
         grid-column-end: 11;
     }
 
-    .grid-item:nth-child(13n+11) {
+    .grid-item:nth-child(12n+11), .get-grid-item:nth-child(12n+11) {
         grid-column-start: 11;
         grid-column-end: 12;
     }
 
-    .grid-item:nth-child(13n+12) {
+    .grid-item:nth-child(12n+12), .get-grid-item:nth-child(12n+12) {
         grid-column-start: 12;
         grid-column-end: 13;
-    }
-
-    .grid-item:nth-child(13n+13) {
-        grid-column-start: 13;
-        grid-column-end: 14;
     }
 }
