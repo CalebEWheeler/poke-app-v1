@@ -115,7 +115,7 @@ h6, p {
     transition: transform .2s;
 }
 
-.grid-item:hover {
+.grid-item:hover, .get-grid-item:hover {
     cursor: pointer;
     transform: scale(1.1);
 }
