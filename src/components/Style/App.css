@@ -385,9 +385,6 @@ h6, p {
 }
 
 .oh-no-cont {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     border: 4px solid black;
     position: relative;
     bottom: 10px;

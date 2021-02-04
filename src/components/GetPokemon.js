@@ -134,7 +134,7 @@ function GetPokemon({Gen1Pokemon, Gen2Pokemon, Gen3Pokemon, Gen4Pokemon, Gen5Pok
             toggleGen7 === false &&
             toggleGen8 === false ?
                 "dissapointed-pika-section" : "hide-gen-section"}>
-                <div>
+                <div className={"oh-no-msg-cont"}>
                     <img className={"pika-img"} src={pikaGif} alt="dissapointedPikachu"/>
                     <div className={"oh-no-cont"}>
                         <p className={"oh-no-text"}>Oh no,<br/>it appears<br/>you've hidden<br/>the pokemon...</p>
