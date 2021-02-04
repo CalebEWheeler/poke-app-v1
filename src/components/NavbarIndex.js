@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import pokeball from './Images/pokeball3.png';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faSearch, faStar} from '@fortawesome/free-solid-svg-icons'
@@ -38,56 +38,20 @@ const NavbarIndex = ({ showFavoritePokemon, onFavoritesClick, searchValue, onInp
         }
     }
 
-    // const RenderDropdown = () => {
-    //     if (isOpen === true) {
-    //         return (
-    //             <div className={'pokeball-menu'}>
-    //                 <div className={"dropdown-link d-flex" + (searchStatus ? "" : " ")}>
-    //                     <div className={"icon-cont"}>
-    //                         <FontAwesomeIcon icon={faSearch} size="2x" onClick={() => {searchTransition(searchStatus);}}
-    //                         className={"nav-links circular align-self-center hover" + (searchStatus ? " search-hide" : " search-show")}></FontAwesomeIcon>
-    //                     </div>
-    //                     <div className={"search-container d-flex align-self-center" + (!searchStatus ? " search-hide" : " search-show")}>
-    //                         <FontAwesomeIcon icon={faCaretRight} size="2x"
-    //                         className={"align-self-center mr-1 hover " + (!searchStatus ? "search-hide" : "search-show")}
-    //                         onClick={() => {
-    //                             setSearchStatus(false)
-    //                         }}></FontAwesomeIcon>
-    //                         <input autoFocus
-    //                                className={"nav-links round-input" + (!searchStatus ? " search-hide" : " search-show")}
-    //                                placeholder={"Search..."} type={"text"}
-    //                                onChange={handleInputChange}
-    //                                value={searchValue}
-    //                         />
-    //                     </div>
-    //                 </div>
-    //                 <div className={"dropdown-link icon-cont"}>
-    //                     <FontAwesomeIcon icon={faStar} size={"2x"} onClick={handleFavoritesClick} className={"dropdown-link hover center-icon"}/>
-    //                 </div>
-    //                 {/*<div className={"dropdown-link align-self-center"}>*/}
-    //                 {/*    <img className={(!showModal ? "all-types" : "all-types-active") + " p-1"}*/}
-    //                 {/*         onClick={() => setShowModal(!showModal)*/}
-    //                 {/*         } src={allTypes} alt="Filter by types"/>*/}
-    //                 {/*</div>*/}
-    //             </div>
-    //         )
-    //     }
-    //     return null;
-    // }
+    let searchBarRef = useRef();
 
-    // const pokeballImg = () => {
-    //     return (
-    //         <button className={"buttonInner" + (!isOpen ? " closedPokeball" : " openPokeball")}
-    //                 type={'button'} onClick={() => {
-    //             setIsOpen(!isOpen)
-    //             if (isOpen != true) {
-    //                 setSearchStatus(false)
-    //             }
-    //         }}>
-    //             <img className={"pokeball"} src={pokeball} alt="pokeball"/>
-    //         </button>
-    //     )
-    // }
+    useEffect(() => {
+        let handler = (event) => {
+            if (!searchBarRef.current.contains(event.target)) {
+                setSearchStatus(false);
+            }
+        }
+        document.addEventListener("mousedown", handler);
+
+        return () => {
+            document.removeEventListener("mousedown", handler);
+        };
+    })
 
     return [
         (
@@ -103,15 +67,11 @@ const NavbarIndex = ({ showFavoritePokemon, onFavoritesClick, searchValue, onInp
                                                  className={"search-icon hover" + (searchStatus ? " search-hide" : " search-show")}></FontAwesomeIcon>
                             </div>
                             <div className={"search-container d-flex align-self-center" + (!searchStatus ? " search-hide" : " search-show")}>
-                                <FontAwesomeIcon icon={faCaretRight} size="3x"
-                                                 className={"right-caret hover " + (!searchStatus ? "search-hide" : "search-show")}
-                                                 onClick={() => {
-                                                     setSearchStatus(false)
-                                                 }}></FontAwesomeIcon>
                                 <input autoFocus
                                        className={"nav-links round-input hover" + (!searchStatus ? " search-hide" : " search-show")}
                                        placeholder={"Search..."} type={"text"}
                                        onChange={handleInputChange}
+                                       ref={searchBarRef}
                                        value={searchValue}
                                 />
                             </div>
@@ -119,29 +79,8 @@ const NavbarIndex = ({ showFavoritePokemon, onFavoritesClick, searchValue, onInp
                                 <img src={pokeball} alt={"favoritePokemon"} onClick={handleFavoritesClick}/>
                             </div>
                         </div>
-
-                        {/*<div className={""}>*/}
-                        {/*    {pokeballImg()}*/}
-                        {/*</div>*/}
-                        {/*<RenderDropdown/>*/}
                     </div>
                 </nav>
-
-                {/*<Modal*/}
-                {/*    show={showModal}*/}
-                {/*    onHide={() => setShowModal(!showModal)}*/}
-                {/*    dialogClassName="modal-90w"*/}
-                {/*    aria-labelledby="example-custom-modal-styling-title"*/}
-                {/*>*/}
-                {/*    <Modal.Header closeButton>*/}
-                {/*        <Modal.Title id="example-custom-modal-styling-title">*/}
-                {/*            Custom Modal Styling*/}
-                {/*        </Modal.Title>*/}
-                {/*    </Modal.Header>*/}
-                {/*    <Modal.Body>*/}
-                {/*        <TypeModal parentCallback={callback}/>*/}
-                {/*    </Modal.Body>*/}
-                {/*</Modal>*/}
             </React.Fragment>
         )]
 }
