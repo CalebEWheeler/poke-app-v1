@@ -3,7 +3,9 @@
     position: fixed;
     z-index: 1500;
     width: 100%;
-    background: #212121;
+    background-image: linear-gradient(
+            -65deg
+            , black 55%, #ea4e3a 45%);
     border-top: 2px solid #4b453e;
     border-bottom: 2px solid #4b453e;
     height: 70px;
@@ -149,5 +151,21 @@
 
 .profile-link:hover {
     color: darkorange;
+}
+
+@media only screen and (min-width : 768px) {
+    .nav {
+        background-image: linear-gradient(
+                -65deg
+                , black 70%, #ea4e3a 30%);
+    }
+}
+
+@media (min-width: 1024px) {
+    .nav {
+        background-image: linear-gradient(
+                -65deg
+                , black 75%, #ea4e3a 25%);
+    }
 }
 

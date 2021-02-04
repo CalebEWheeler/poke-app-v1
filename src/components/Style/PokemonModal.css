@@ -213,6 +213,7 @@ h6 {
 .radar-cont:hover,
 .right-card-info-cont:hover,
 .pokemon-img:hover {
+    cursor: pointer;
     transform: scale(1.1);
 }
 

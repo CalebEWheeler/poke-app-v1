@@ -15,7 +15,6 @@ body {
 .title-cont {
     display: flex;
     width: 45%;
-    background-color: #F2503C;
 }
 
 .home {
@@ -61,6 +60,7 @@ h6, p {
     top: 10px;
     left: 47%;
     position: absolute;
+    z-index: 1500;
 }
 
 .loader-container>img{
@@ -438,14 +438,13 @@ h6, p {
         grid-column-start: 5;
         grid-column-end: 6;
     }
-
-    /*.grid-item:nth-child(6n+6), .get-grid-item:nth-child(6n+6) {*/
-    /*    grid-column-start: 6;*/
-    /*    grid-column-end: 7;*/
-    /*}*/
 }
 
 @media (min-width: 1390px) {
+    .home {
+        margin: auto auto auto 50px;
+    }
+
     .grid-container {
         grid-template-columns: auto;
         grid-template-rows: 186px;
