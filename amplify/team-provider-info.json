@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-pokeappv1-dev-181755-authRole",
+      "UnauthRoleArn": "arn:aws:iam::155468525748:role/amplify-pokeappv1-dev-181755-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::155468525748:role/amplify-pokeappv1-dev-181755-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-pokeappv1-dev-181755-deployment",
+      "UnauthRoleName": "amplify-pokeappv1-dev-181755-unauthRole",
+      "StackName": "amplify-pokeappv1-dev-181755",
+      "StackId": "arn:aws:cloudformation:us-east-1:155468525748:stack/amplify-pokeappv1-dev-181755/6efa6c30-667e-11eb-a6f0-126c97cb5bc1",
+      "AmplifyAppId": "d19zpd58lvznwu"
+    }
+  }
+}
