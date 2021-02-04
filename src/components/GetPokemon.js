@@ -71,20 +71,6 @@ function GetPokemon({Gen1Pokemon, Gen2Pokemon, Gen3Pokemon, Gen4Pokemon, Gen5Pok
                     }} icon={faCaretSquareUp} size={"4x"}></FontAwesomeIcon>
                 </div>
             </div>
-            {/*{toggleGen1 === false &&*/}
-            {/*toggleGen2 === false &&*/}
-            {/*toggleGen3 === false &&*/}
-            {/*toggleGen4 === false &&*/}
-            {/*toggleGen5 === false &&*/}
-            {/*toggleGen6 === false &&*/}
-            {/*toggleGen7 === false &&*/}
-            {/*toggleGen8 === false ?*/}
-            {/*    (<section>*/}
-            {/*            <div>*/}
-            {/*                <img src={pikaGif} alt="dissapointedPikachu"/>*/}
-            {/*            </div>*/}
-            {/*        </section>*/}
-            {/*    ) : (*/}
             <section className={toggleGen1 === true ? "show-gen-section" : "hide-gen-section"}>
                 <div className={"grid-container"}>
                     {CreatePokeCards(Gen1Pokemon, toggleGen1, showFavoritePokemon, searchValue)}

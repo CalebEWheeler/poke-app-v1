@@ -79,6 +79,8 @@
 
 .icon-cont>img {
     height: 70px;
+    background-color: #fcffff;
+    border-radius: 100px;
 }
 
 .search-container {
