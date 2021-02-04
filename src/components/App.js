@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-
 import NavbarIndex from "./NavbarIndex";
 import GetPokemon from "./GetPokemon";
 import "./Style/App.css"
