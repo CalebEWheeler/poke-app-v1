@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import CreatePokeCards from "./CreatePokeCards";
-import {faPlusSquare} from '@fortawesome/free-solid-svg-icons';
+import {faCaretSquareUp, faPlusSquare} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faMinusSquare} from "@fortawesome/free-solid-svg-icons";
 
@@ -52,6 +52,9 @@ function GetPokemon({Gen1Pokemon, Gen2Pokemon, Gen3Pokemon, Gen4Pokemon, Gen5Pok
                 </div>
                 <div className={toggleGen8 === true ? "gen-header" : "gen-header-hide"} onClick={() => {setToggleGen8(!toggleGen8)}}>
                     <h4>Gen 8</h4>
+                </div>
+                <div className={"to-top-cont"}>
+                    <FontAwesomeIcon className={"to-top-icon"} onClick={() => {window.scrollTo({top:0,behavior:'smooth'})}} icon={faCaretSquareUp} size={"4x"}></FontAwesomeIcon>
                 </div>
             </div>
             <section className={toggleGen1 === true ? "show-gen-section" : "hide-gen-section"}>

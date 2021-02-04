@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import pokeball from './Images/pokeball1.png';
-import allTypes from './Images/all_types.png';
+import pokeball from './Images/pokeball3.png';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faSearch, faStar} from '@fortawesome/free-solid-svg-icons'
 import {faCaretRight} from '@fortawesome/free-solid-svg-icons'
@@ -39,65 +38,92 @@ const NavbarIndex = ({ showFavoritePokemon, onFavoritesClick, searchValue, onInp
         }
     }
 
-    const RenderDropdown = () => {
-        if (isOpen === true) {
-            return (
-                <div className={'pokeball-menu'}>
-                    <div className={"dropdown-link d-flex" + (searchStatus ? "" : " center-icon")}>
-                        <FontAwesomeIcon icon={faSearch} size="2x" onClick={() => {searchTransition(searchStatus);}}
-                        className={"nav-links circular align-self-center hover" + (searchStatus ? " search-hide" : " search-show")}></FontAwesomeIcon>
-                        <div className={"search-container d-flex align-self-center" + (!searchStatus ? " search-hide" : " search-show")}>
-                            <FontAwesomeIcon icon={faCaretRight} size="2x"
-                            className={"align-self-center mr-1 hover " + (!searchStatus ? "search-hide" : "search-show")}
-                            onClick={() => {
-                                setSearchStatus(false)
-                            }}></FontAwesomeIcon>
-                            <input autoFocus
-                                   className={"nav-links round-input" + (!searchStatus ? " search-hide" : " search-show")}
-                                   placeholder={"Search..."} type={"text"}
-                                   onChange={handleInputChange}
-                                   value={searchValue}
-                            />
-                        </div>
-                    </div>
-                    <FontAwesomeIcon icon={faStar} size={"2x"} onClick={handleFavoritesClick} className={"dropdown-link hover center-icon"}/>
-                    {/*<div className={"dropdown-link align-self-center"}>*/}
-                    {/*    <img className={(!showModal ? "all-types" : "all-types-active") + " p-1"}*/}
-                    {/*         onClick={() => setShowModal(!showModal)*/}
-                    {/*         } src={allTypes} alt="Filter by types"/>*/}
-                    {/*</div>*/}
-                </div>
-            )
-        }
-        return null;
-    }
+    // const RenderDropdown = () => {
+    //     if (isOpen === true) {
+    //         return (
+    //             <div className={'pokeball-menu'}>
+    //                 <div className={"dropdown-link d-flex" + (searchStatus ? "" : " ")}>
+    //                     <div className={"icon-cont"}>
+    //                         <FontAwesomeIcon icon={faSearch} size="2x" onClick={() => {searchTransition(searchStatus);}}
+    //                         className={"nav-links circular align-self-center hover" + (searchStatus ? " search-hide" : " search-show")}></FontAwesomeIcon>
+    //                     </div>
+    //                     <div className={"search-container d-flex align-self-center" + (!searchStatus ? " search-hide" : " search-show")}>
+    //                         <FontAwesomeIcon icon={faCaretRight} size="2x"
+    //                         className={"align-self-center mr-1 hover " + (!searchStatus ? "search-hide" : "search-show")}
+    //                         onClick={() => {
+    //                             setSearchStatus(false)
+    //                         }}></FontAwesomeIcon>
+    //                         <input autoFocus
+    //                                className={"nav-links round-input" + (!searchStatus ? " search-hide" : " search-show")}
+    //                                placeholder={"Search..."} type={"text"}
+    //                                onChange={handleInputChange}
+    //                                value={searchValue}
+    //                         />
+    //                     </div>
+    //                 </div>
+    //                 <div className={"dropdown-link icon-cont"}>
+    //                     <FontAwesomeIcon icon={faStar} size={"2x"} onClick={handleFavoritesClick} className={"dropdown-link hover center-icon"}/>
+    //                 </div>
+    //                 {/*<div className={"dropdown-link align-self-center"}>*/}
+    //                 {/*    <img className={(!showModal ? "all-types" : "all-types-active") + " p-1"}*/}
+    //                 {/*         onClick={() => setShowModal(!showModal)*/}
+    //                 {/*         } src={allTypes} alt="Filter by types"/>*/}
+    //                 {/*</div>*/}
+    //             </div>
+    //         )
+    //     }
+    //     return null;
+    // }
 
-    const pokeballImg = () => {
-        return (
-            <button className={"buttonInner" + (!isOpen ? " closedPokeball" : " openPokeball")}
-                    type={'button'} onClick={() => {
-                setIsOpen(!isOpen)
-                if (isOpen != true) {
-                    setSearchStatus(false)
-                }
-            }}>
-                <img className={"pokeball"} src={pokeball} alt="pokeball"/>
-            </button>
-        )
-    }
+    // const pokeballImg = () => {
+    //     return (
+    //         <button className={"buttonInner" + (!isOpen ? " closedPokeball" : " openPokeball")}
+    //                 type={'button'} onClick={() => {
+    //             setIsOpen(!isOpen)
+    //             if (isOpen != true) {
+    //                 setSearchStatus(false)
+    //             }
+    //         }}>
+    //             <img className={"pokeball"} src={pokeball} alt="pokeball"/>
+    //         </button>
+    //     )
+    // }
 
     return [
         (
             <React.Fragment>
-                <nav className={"nav d-flex"}>
+                <nav className={"nav"}>
                     <div className={"title-cont"}>
                         <h4 className={"home"} onClick={() => {handleHomeBtnClick()}}>Poké Finder</h4>
                     </div>
-                    <div className={"ml-auto mr-3 my-auto drop-icon"}>
-                        <div className={""}>
-                            {pokeballImg()}
+                    <div className={"icons-block"}>
+                        <div className={"dropdown-link" + (searchStatus ? "" : " ")}>
+                            <div className={"search-container"}>
+                                <FontAwesomeIcon icon={faSearch} size="3x" onClick={() => {searchTransition(searchStatus);}}
+                                                 className={"search-icon hover" + (searchStatus ? " search-hide" : " search-show")}></FontAwesomeIcon>
+                            </div>
+                            <div className={"search-container d-flex align-self-center" + (!searchStatus ? " search-hide" : " search-show")}>
+                                <FontAwesomeIcon icon={faCaretRight} size="3x"
+                                                 className={"right-caret hover " + (!searchStatus ? "search-hide" : "search-show")}
+                                                 onClick={() => {
+                                                     setSearchStatus(false)
+                                                 }}></FontAwesomeIcon>
+                                <input autoFocus
+                                       className={"nav-links round-input hover" + (!searchStatus ? " search-hide" : " search-show")}
+                                       placeholder={"Search..."} type={"text"}
+                                       onChange={handleInputChange}
+                                       value={searchValue}
+                                />
+                            </div>
+                            <div className={"dropdown-link icon-cont hover"}>
+                                <img src={pokeball} alt={"favoritePokemon"} onClick={handleFavoritesClick}/>
+                            </div>
                         </div>
-                        <RenderDropdown/>
+
+                        {/*<div className={""}>*/}
+                        {/*    {pokeballImg()}*/}
+                        {/*</div>*/}
+                        {/*<RenderDropdown/>*/}
                     </div>
                 </nav>
 

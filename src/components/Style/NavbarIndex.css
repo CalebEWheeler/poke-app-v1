@@ -8,7 +8,6 @@
             , black 55%, #ea4e3a 45%);
     border-top: 2px solid #4b453e;
     border-bottom: 2px solid #4b453e;
-    height: 70px;
 }
 
 .nav .pokeball:focus {
@@ -44,9 +43,10 @@
     display: none !important;
 }
 
-.drop-icon {
+.icons-block {
     display: inline-block;
     position: relative;
+    margin-left: auto;
 }
 .pokeball-menu {
     position: absolute;
@@ -61,19 +61,53 @@
 }
 
 .dropdown-link {
-    display: block;
+    display: flex;
     text-decoration: none;
-    margin-top: 20px;
-    filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+    height: 68px;
+}
+
+.icon-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 85px;
+    right: 10px;
+    border-radius: 100px;
     transition: transform .2s;
 }
 
-.dropdown-link:nth-child(1) {
-    color: #d0ced2;
+.icon-cont>img {
+    height: 70px;
 }
 
-.dropdown-link:nth-child(2) {
-    color: gold;
+.search-container {
+    display: flex;
+    position: relative;
+    left: 46px;
+    transition: transform .2s;
+}
+
+.search-container:nth-child(2) {
+    display: flex;
+    align-self: center;
+    height: 35px;
+    position: relative;
+    left: 60px;
+    transition: transform .2s;
+}
+
+.search-icon {
+    align-self: center;
+    color: #FCFFFF;
+    transition: transform .2s;
+}
+
+.right-caret {
+    align-self: center;
+    margin-right: 6px;
+    color: #FCFFFF;
+    transition: transform .2s;
 }
 
 .search-hide {
@@ -88,7 +122,9 @@
     border-radius: 16px;
     width: 140px;
     padding-left: 8px;
+    background-color: #FCFFFF;
     border: 3px solid lightskyblue;
+    transition: transform .2s;
 }
 
 .round-input:hover {

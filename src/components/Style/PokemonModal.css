@@ -5,7 +5,7 @@
 }
 
 .modal-content {
-    top: 150px;
+    top: 166px;
     width: 375px !important;
     margin: 0 auto;
 }
@@ -43,7 +43,9 @@ h6 {
 .poke-name-block {
     width: 321px;
     border-radius: 4px;
-    background-color: #F2503C;
+    background-image: linear-gradient(
+            -65deg
+            , black 70%, #ea4e3a 30%);
     justify-content: space-evenly;
     margin: 0 0 auto 0;
     transition: transform .2s;
@@ -59,7 +61,6 @@ h6 {
 }
 
 .poke-name-block>div {
-    background-color: #030001;
     border-radius: 0 4px 4px 0;
     justify-content: space-evenly;
     width: 70%;

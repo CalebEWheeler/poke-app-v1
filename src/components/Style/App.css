@@ -14,12 +14,19 @@ body {
 
 .title-cont {
     display: flex;
-    width: 45%;
+    justify-content: center;
+    align-items: center;
+    height: 68px;
+    width: 42%;
 }
 
 .home {
-    margin: auto;
-    background-color: #F2503C;
+    /*margin: auto;*/
+    /*color: floralwhite;*/
+    /*font-family: "Pokemon";*/
+    /*letter-spacing: 2px;*/
+    /*text-shadow: -1px 0 #212121, 0 1px #212121, 1px 0 #212121, 0 -1px #212121;*/
+    /*transition: transform .2s;*/
     color: floralwhite;
     font-family: "Pokemon";
     letter-spacing: 2px;
@@ -51,6 +58,9 @@ h1 {
     color: #FAFAFA;
 }
 
+h4 {
+    margin-bottom: 0 !important;
+}
 
 h6, p {
     color: #72767E;
@@ -104,11 +114,10 @@ h6, p {
 .grid-container {
     display: grid;
     grid-template-columns: 172px;
-    grid-template-rows: 186px;
     justify-content: center;
     grid-gap: 30px;
     border-radius: 10px;
-    padding: 50px 20px;
+    padding: 20px 30px;
 }
 
 .grid-item {
@@ -162,6 +171,7 @@ h6, p {
     border: 2px solid;
     border-radius: 20px 0 0 20px;
     transition: transform .2s;
+    /*filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));*/
 }
 
 .gen-header-hide {
@@ -172,6 +182,7 @@ h6, p {
     border: 2px solid;
     border-radius: 20px 0 0 20px;
     transition: transform .2s;
+    /*filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));*/
 }
 
 .gen-header:hover, .gen-header-hide:hover  {
@@ -180,11 +191,12 @@ h6, p {
 }
 
 .gen-header>h4, .gen-header-hide>h4 {
-    color: #3c3731 !important;
+    color: #030001 !important;
     font-family: "Pokemon";
     letter-spacing: 2px;
     text-shadow: -1px 0 floralwhite, 0 1px floralwhite, 1px 0 floralwhite, 0 -1px floralwhite;
-    margin: 10px 0 10px 15px;
+    margin: auto 0 auto 15px;
+    padding: 3px 0;
 }
 
 .gen-header>div, .gen-header-hide>div {
@@ -336,6 +348,31 @@ h6, p {
     grid-column-end: 3;
 }
 
+.to-top-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #030001;
+    border: 5px solid #343a40;
+    border-radius: 10px;
+    position: relative;
+    top: 50px;
+    right: 20px;
+    height: 64px;
+    width: 64px;
+    transition: transform .2s;
+    /*filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));*/
+}
+
+.to-top-icon {
+    color: #fffaf0;
+}
+
+.to-top-cont:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
 @media only screen and (min-width : 768px) {
     .title-cont {
         width: 30%;
@@ -357,6 +394,7 @@ h6, p {
 
     .grid-container {
         grid-template-columns: auto auto auto;
+        padding: 20px 20px;
     }
 
     .grid-item:nth-child(3n+1), .get-grid-item:nth-child(3n+1) {
@@ -385,7 +423,8 @@ h6, p {
     }
 
     .grid-container {
-        grid-template-columns: auto auto auto auto;
+        grid-template-columns: auto auto auto;
+        padding: 20px 30px;
     }
 
     .grid-item:nth-child(4n+1), .get-grid-item:nth-child(4n+1) {
@@ -442,12 +481,11 @@ h6, p {
 
 @media (min-width: 1390px) {
     .home {
-        margin: auto auto auto 50px;
+        margin-right: 70px;
     }
 
     .grid-container {
         grid-template-columns: auto;
-        grid-template-rows: 186px;
     }
 
     .grid-item:nth-child(6n+1), .get-grid-item:nth-child(6n+1) {
@@ -482,8 +520,13 @@ h6, p {
 }
 
 @media (min-width: 2560px) {
+    .home {
+        margin-right: 250px;
+    }
+
     .grid-container {
         grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto;
+        padding: 20px 5px;
     }
 
     .grid-item:nth-child(12n+1), .get-grid-item:nth-child(12n+1) {
