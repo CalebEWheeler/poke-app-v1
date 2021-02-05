@@ -218,6 +218,29 @@ h6 {
     transform: scale(1.1);
 }
 
+@media (max-width: 363px) and (max-height: 811px) {
+    .modal-dialog {
+        width: 300px;
+    }
+
+    .modal-content {
+        width: 300px !important;
+        top: 100px;
+    }
+
+    .left-poke-card {
+        width: 275px;
+    }
+
+    .poke-name-block {
+        width: 275px;
+    }
+
+    .radar-cont {
+        width: 246px;
+    }
+}
+
 @media (min-width: 768px) {
     .modal-dialog {
         max-width: 750px !important;

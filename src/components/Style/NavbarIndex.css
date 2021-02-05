@@ -191,6 +191,34 @@
     color: darkorange;
 }
 
+@media (max-width: 363px) and (max-height: 811px) {
+    .nav {
+        height: 50px;
+    }
+
+    .dropdown-link {
+        height: 50px;
+    }
+
+    .search-container {
+        left: 40px;
+    }
+
+    .search-icon {
+        width: .75em !important;
+    }
+
+    .icon-cont {
+        top: 58px;
+        right: 12px;
+    }
+
+    .icon-cont>img {
+        height: 50px;
+    }
+
+}
+
 @media only screen and (min-width : 768px) {
     .nav {
         background-image: linear-gradient(
