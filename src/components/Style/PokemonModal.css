@@ -218,7 +218,7 @@ h6 {
     transform: scale(1.1);
 }
 
-@media (max-width: 363px) and (max-height: 811px) {
+@media (max-width: 375px) and (max-height: 811px) {
     .modal-dialog {
         width: 300px;
     }

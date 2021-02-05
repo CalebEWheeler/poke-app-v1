@@ -191,7 +191,7 @@
     color: darkorange;
 }
 
-@media (max-width: 363px) and (max-height: 811px) {
+@media (max-width: 375px) and (max-height: 811px) {
     .nav {
         height: 50px;
     }
@@ -201,11 +201,17 @@
     }
 
     .search-container {
-        left: 40px;
+        left: 32px;
     }
 
     .search-icon {
         width: .75em !important;
+    }
+
+    .round-input {
+        position: relative;
+        right: 16px;
+        width: 110px;
     }
 
     .icon-cont {

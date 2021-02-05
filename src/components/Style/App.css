@@ -24,6 +24,7 @@ body {
 }
 
 .home {
+    font-size: 1.3em;
     color: floralwhite;
     font-family: "Pokemon";
     letter-spacing: 2px;
@@ -112,9 +113,9 @@ h6, p {
     display: grid;
     grid-template-columns: 172px;
     justify-content: center;
-    grid-gap: 30px;
+    grid-gap: 15px;
     border-radius: 10px;
-    padding: 20px 30px;
+    padding: 20px 5px;
 }
 
 .grid-item {
@@ -402,7 +403,11 @@ h6, p {
     border-bottom: 2px solid black;
 }
 
-@media (max-width: 363px) and (max-height: 811px) {
+@media (max-width: 375px) and (max-height: 811px) {
+    .main>h4 {
+        font-size: 1.4em;
+    }
+
     .loader-container {
         top: 1px;
         left: 47%;
@@ -444,6 +449,16 @@ h6, p {
         padding: 10px 40px 10px 10px;
     }
 
+    .grid-item:nth-child(odd) {
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+
+    .grid-item:nth-child(even) {
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+
     .dissapointed-pika-section {
         left: 25px;
     }
@@ -457,9 +472,11 @@ h6, p {
     }
 }
 
-
-
 @media only screen and (min-width : 768px) {
+    .home {
+        font-size: 1.5em;
+    }
+
     .title-cont {
         width: 30%;
     }
