@@ -42,6 +42,7 @@ body {
 main {
     position: absolute;
     top: 60px;
+    width: 75%;
 }
 
 main>h4 {
@@ -79,14 +80,11 @@ h6, p {
     align-self: center;
     position: relative;
     left: 2px;
-    height: 32px !important;
-    width: 32px !important;
+    height: 41px !important;
+    width: 39px !important;
     background-color: #3c3731;
     color: #ffc107;
-    border-top: 2px solid #dadada;
-    border-left: 2px solid #dadada;
-    border-bottom: 2px solid #dadada;
-    border-right: 2px solid #d5d3cd;
+    border: 2px solid #222529;
     border-radius: 14px 0 0 4px;
     padding: 4px;
     margin: 2px 0 2px 0!important;
@@ -96,14 +94,11 @@ h6, p {
     align-self: center;
     position: relative;
     left: 2px;
-    height: 32px !important;
-    width: 32px !important;
+    height: 41px !important;
+    width: 39px !important;
     background-color: #3c3731;
     color: #ffffff;
-    border-top: 2px solid #dadada;
-    border-left: 2px solid #d2d2d2;
-    border-bottom: 2px solid #d2d2d2;
-    border-right: 2px solid #d2d2d2;
+    border: 2px solid #222529;
     border-radius: 14px 0 0 4px;
     padding: 4px;
     margin: 2px 0 2px 0!important;
@@ -163,7 +158,7 @@ h6, p {
 
 .gen-header {
     display: flex;
-    width: 105px;
+    width: 82px;
     margin: 10px 0;
     background-color: #f2503c;
     border: 2px solid;
@@ -189,6 +184,7 @@ h6, p {
 .gen-header>h4, .gen-header-hide>h4 {
     color: #030001 !important;
     font-family: "Pokemon";
+    font-size: 1em !important;
     letter-spacing: 2px;
     text-shadow: -1px 0 floralwhite, 0 1px floralwhite, 1px 0 floralwhite, 0 -1px floralwhite;
     margin: auto 0 auto 15px;
@@ -221,15 +217,15 @@ h6, p {
 .image-radius img {
     height: 140px;
     border-radius: 100%;
-    border: 2px solid #f4fbeb;
-    box-shadow: 5px 10px 40px #000000;
+    border: 2px solid #222529;
+    box-shadow: 4px 10px 40px #000000;
     padding: 10px;
     background-image: radial-gradient(circle, #fcffff, #b9a67f);
 }
 
 .typeIcon1>div>img {
     position: relative;
-    bottom: 115px;
+    bottom: 126px;
     left: 68px;
     width: 30px;
     border: 2px solid #22252a;
@@ -238,7 +234,7 @@ h6, p {
 
 .typeIcon2>div>img {
     position: relative;
-    bottom: 178px;
+    bottom: 190px;
     left: 64px;
     width: 30px;
     border: 2px solid #22252a;
@@ -266,7 +262,9 @@ h6, p {
 
 .left-card p {
     margin: 2px 0 2px 0!important;
-    width: 140px;
+    width: 142px;
+    font-size: 1.4rem;
+    font-weight: 500 !important;
     text-align: center;
     color: #212121 !important;
     text-shadow: -1px 0 #dedede, 0 1px #dedede, 1px 0 #dedede, 0 -1px #dedede;
@@ -274,7 +272,7 @@ h6, p {
     border-right: 2px solid #212528;
     border-bottom: 2px solid #212528;
     border-radius: 0 4px 14px 0;
-    padding: 2px 16px;
+    padding: 2px 0;
     background-color: #fffaf0;
 }
 
@@ -282,6 +280,7 @@ h6, p {
     position: relative;
     top: 125px;
     left: 65px;
+    font-weight: 600;
     font-size: 12px;
     border: 2px solid;
     border-radius: 4px;
@@ -349,18 +348,19 @@ h6, p {
     justify-content: center;
     align-items: center;
     background-color: #030001;
-    border: 5px solid #343a40;
-    border-radius: 10px;
+    border: 2px solid #343a40;
+    border-radius: 5px;
     position: relative;
     top: 20px;
     right: 20px;
-    height: 64px;
-    width: 64px;
+    height: 38px;
+    width: 38px;
     transition: transform .2s;
 }
 
 .to-top-icon {
     color: #fffaf0;
+    font-size: 2.1rem !important;
 }
 
 .to-top-cont:hover {
@@ -437,8 +437,6 @@ h6, p {
     .to-top-cont {
         top: 5px;
         right: 12px;
-        height: 50px;
-        width: 50px;
     }
 
     .to-top-icon {
@@ -473,6 +471,10 @@ h6, p {
 }
 
 @media only screen and (min-width : 768px) {
+    main {
+        width: 90%;
+    }
+
     .home {
         font-size: 1.5em;
     }
@@ -483,11 +485,6 @@ h6, p {
 
     .loader-container {
         left: 32%;
-    }
-
-    .gen-header, .gen-header-hide {
-        width: 120px;
-        padding: 0 20px 0 0;
     }
 
     .show-gen-section {
