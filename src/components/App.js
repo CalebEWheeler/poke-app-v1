@@ -168,6 +168,10 @@ const App = () => {
            <NavbarIndex showFavoritePokemon={showFavoritePokemon} onFavoritesClick={toggleFavorites} searchValue={searchValue} onInputChange={inputValue}/>
             {loader}
            {getOrSearchPokeBlock()}
+           <div>
+               hi
+               <a href="https://github.com/CalebEWheeler/poke-app-v1">Github</a>
+           </div>
         </div>
     )
 }
