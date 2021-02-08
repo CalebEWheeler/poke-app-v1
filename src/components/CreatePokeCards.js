@@ -154,7 +154,7 @@ const CreatePokeCards = (passedPokemon, toggle, showFavoritePokemon, searchValue
                                              onClick={() => {
                                                  toggleFavorite(pokemon)
                                              }}/>
-                            <div className="favorite-tooltip">Click here to favorite this Pokemon!</div>
+                            <div className="favorite-tooltip">Click here to unfavorite this Pokemon!</div>
                             </div>
                         ) : (
                             <div className={"not-favorite-cont"}>
@@ -162,7 +162,7 @@ const CreatePokeCards = (passedPokemon, toggle, showFavoritePokemon, searchValue
                                              onClick={() => {
                                                  toggleFavorite(pokemon)
                                              }}/>
-                            <div className="favorite-tooltip">Click here to unfavorite this Pokemon!</div>
+                            <div className="favorite-tooltip">Click here to favorite this Pokemon!</div>
                             </div>
                         )}
                         <p>{modifyName(pokemon.name)}</p>
