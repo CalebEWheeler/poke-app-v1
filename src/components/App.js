@@ -9,6 +9,8 @@ import "./Style/PokemonModal.css"
 import SearchPokemon from "./SearchPokemon";
 import useLoader from "./Hooks/useLoader";
 import FavoritePokemon from "./FavoritePokemon";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faGithub} from "@fortawesome/free-brands-svg-icons";
 
 const App = () => {
     const [searchValue, setSearchValue] = useState("");
@@ -171,7 +173,9 @@ const App = () => {
             {loader}
            {getOrSearchPokeBlock()}
            <footer>
-               hi
+               <FontAwesomeIcon icon={faGithub} size={"2x"}>
+
+               </FontAwesomeIcon>
                {/*<Link href="https://github.com/CalebEWheeler/poke-app-v1">Github</Link>*/}
            </footer>
         </div>
