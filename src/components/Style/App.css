@@ -711,6 +711,10 @@ footer {
         left: 0;
     }
 
+    .gen-header-cont {
+        width: 15%;
+    }
+
     .dissapointed-pika-section {
         display: flex;
         justify-content: center;
@@ -840,6 +844,10 @@ footer {
         margin-right: 70px;
     }
 
+    .gen-header-cont {
+        width: 10%;
+    }
+
     .dissapointed-pika-section {
         padding: 0 120px 0 200px;
     }
@@ -882,6 +890,10 @@ footer {
 @media (min-width: 2560px) {
     .home {
         margin-right: 250px;
+    }
+
+    .gen-header-cont {
+        width: 5%;
     }
 
     .dissapointed-pika-section {
