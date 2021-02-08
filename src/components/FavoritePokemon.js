@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import CreatePokeCards from "./CreatePokeCards";
-import {faMinusSquare} from "@fortawesome/free-solid-svg-icons";
 import pikaGif from "./Images/dissapointedpika.gif";
 
 const FavoritePokemon = () => {
@@ -18,7 +17,7 @@ const FavoritePokemon = () => {
         }
 
         return (
-            <main>
+            <main className={"main-override"}>
                 <h4>Favorite Pokemon</h4>
                 <section className={"grid-container"}>
                     {CreatePokeCards(favoritePokemon)}
