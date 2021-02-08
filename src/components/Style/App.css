@@ -142,7 +142,6 @@ h6, p {
     display: flex;
     border-bottom: 6px dashed #f2503c;
     margin: 10px;
-    /*justify-content: center;*/
     transform: translateX(0%);
     transition: transform ease-out 0.5s;
 }

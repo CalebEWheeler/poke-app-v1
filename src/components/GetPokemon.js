@@ -24,6 +24,7 @@ function GetPokemon({Gen1Pokemon, Gen2Pokemon, Gen3Pokemon, Gen4Pokemon, Gen5Pok
 
     return (
         <main>
+            <h4>All Pokemon</h4>
             <div className={"gen-header-cont"}>
                 <div className={toggleGen1 === true ? "gen-header" : "gen-header-hide"} onClick={() => {
                     setToggleGen1(!toggleGen1)
