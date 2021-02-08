@@ -42,7 +42,7 @@ body {
 main {
     position: absolute;
     top: 60px;
-    width: 75%;
+    width: 100%;
 }
 
 main>h4 {
@@ -106,6 +106,7 @@ h6, p {
 
 .grid-container {
     display: grid;
+    width: 75%;
     justify-content: center;
     align-items: center;
     grid-gap: 15px;
@@ -141,7 +142,7 @@ h6, p {
     display: flex;
     border-bottom: 6px dashed #f2503c;
     margin: 10px;
-    justify-content: center;
+    /*justify-content: center;*/
     transform: translateX(0%);
     transition: transform ease-out 0.5s;
 }
@@ -370,7 +371,6 @@ h6, p {
 .dissapointed-pika-section {
     display: flex;
     position: relative;
-    top: 60px;
     left: 25px;
 }
 
@@ -508,12 +508,14 @@ footer {
 
     .dissapointed-pika-section {
         display: flex;
-        top: 52px;
-        padding: 0 120px 0 48px;
+        justify-content: center;
+        top: 0px;
+        left: 38px;
+        padding: 0 120px 70px 48px;
     }
 
     .pika-img {
-        width: 470px;
+        width: 290px;
     }
 
     .oh-no-cont {
@@ -521,10 +523,11 @@ footer {
     }
 
     .oh-no-text {
-        font-size: 26px;
+        font-size: 18px;
     }
 
     .grid-container {
+        width: 100%;
         grid-template-columns: auto auto auto;
         padding: 20px 20px;
     }
@@ -621,7 +624,7 @@ footer {
     }
 
     .dissapointed-pika-section {
-        padding: 0 120px 0 300px;
+        padding: 0 120px 0 200px;
     }
 
     .grid-container {
@@ -665,7 +668,7 @@ footer {
     }
 
     .dissapointed-pika-section {
-        padding: 0 120px 0 800px;
+        padding: 0 120px 0 300px;
     }
 
     .grid-container {

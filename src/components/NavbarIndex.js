@@ -21,6 +21,7 @@ const NavbarIndex = ({ showFavoritePokemon, onFavoritesClick, searchValue, onInp
 
     const handleFavoritesClick = () => {
         onAboutClick(false);
+        onInputChange("");
         onFavoritesClick(!showFavoritePokemon)
     }
 
