@@ -106,8 +106,8 @@ h6, p {
 
 .grid-container {
     display: grid;
-    grid-template-columns: 172px;
     justify-content: center;
+    align-items: center;
     grid-gap: 15px;
     border-radius: 10px;
     padding: 20px 5px;
@@ -254,7 +254,6 @@ h6, p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-bottom: 1px solid #212121;
     justify-content: space-evenly;
     height: 100%;
     margin: 0 auto;
@@ -404,11 +403,18 @@ h6, p {
 }
 
 footer {
-    height: 50px;
+    display: flex !important;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 55px;
     width: 100%;
     position: fixed;
     bottom: 0;
     background-color: black;
+}
+
+.footer-icon {
+    color: #fcffff;
 }
 
 @media (max-width: 375px) and (max-height: 811px) {

@@ -214,6 +214,10 @@
         width: 110px;
     }
 
+    .round-input:hover {
+        width: 120px;
+    }
+
     .icon-cont {
         top: 58px;
         right: 12px;

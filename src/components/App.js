@@ -10,7 +10,8 @@ import SearchPokemon from "./SearchPokemon";
 import useLoader from "./Hooks/useLoader";
 import FavoritePokemon from "./FavoritePokemon";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faGithub} from "@fortawesome/free-brands-svg-icons";
+import {faGithub, faGithubAlt} from "@fortawesome/free-brands-svg-icons";
+import {faInfoCircle} from "@fortawesome/free-solid-svg-icons";
 
 const App = () => {
     const [searchValue, setSearchValue] = useState("");
@@ -173,10 +174,8 @@ const App = () => {
             {loader}
            {getOrSearchPokeBlock()}
            <footer>
-               <FontAwesomeIcon icon={faGithub} size={"2x"}>
-
-               </FontAwesomeIcon>
-               {/*<Link href="https://github.com/CalebEWheeler/poke-app-v1">Github</Link>*/}
+               <FontAwesomeIcon className={"footer-icon"} icon={faGithubAlt} size={"3x"} onClick={() => {window.location.href="https://github.com/CalebEWheeler/poke-app-v1"}}></FontAwesomeIcon>
+               <FontAwesomeIcon className={"footer-icon"} icon={faInfoCircle} size={"3x"}></FontAwesomeIcon>
            </footer>
         </div>
     )
