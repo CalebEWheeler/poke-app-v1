@@ -1,19 +1,21 @@
 import React, {useEffect, useRef, useState} from 'react';
 import pokeball from './Images/pokeball3.png';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faSearch, faStar} from '@fortawesome/free-solid-svg-icons'
-import {faCaretRight} from '@fortawesome/free-solid-svg-icons'
-import Modal from "react-bootstrap/Modal";
-import TypeModal from "./TypeModal";
+import {faSearch} from '@fortawesome/free-solid-svg-icons'
 
-const NavbarIndex = ({ showFavoritePokemon, onFavoritesClick, searchValue, onInputChange }) => {
+const NavbarIndex = ({ showFavoritePokemon, onFavoritesClick, searchValue, onInputChange, aboutPage, onAboutClick }) => {
     const [showModal, setShowModal] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [searchStatus, setSearchStatus] = useState(false);
 
     const handleHomeBtnClick = () => {
+        onAboutClick(false);
         onFavoritesClick(false);
         onInputChange("")
+    }
+
+    const handleAboutChange = () => {
+        onAboutClick(!aboutPage)
     }
 
     const handleInputChange = (event) => {

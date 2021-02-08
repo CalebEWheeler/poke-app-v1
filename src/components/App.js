@@ -1,6 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import Router from 'react-router';
-import Route from 'react-router';
 import NavbarIndex from "./NavbarIndex";
 import GetPokemon from "./GetPokemon";
 import "./Style/App.css"
@@ -9,12 +7,12 @@ import "./Style/PokemonModal.css"
 import SearchPokemon from "./SearchPokemon";
 import useLoader from "./Hooks/useLoader";
 import FavoritePokemon from "./FavoritePokemon";
+import About from "./About";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faGithub, faGithubAlt} from "@fortawesome/free-brands-svg-icons";
+import {faGithubAlt} from "@fortawesome/free-brands-svg-icons";
 import {faInfoCircle} from "@fortawesome/free-solid-svg-icons";
 
 const App = () => {
-    const [searchValue, setSearchValue] = useState("");
     const [Gen1Pokemon, setGen1Pokemon] = useState([]);
     const [Gen2Pokemon, setGen2Pokemon] = useState([]);
     const [Gen3Pokemon, setGen3Pokemon] = useState([]);
@@ -26,6 +24,8 @@ const App = () => {
     const [loader, showLoader, hideLoader] = useLoader();
     const [showGetPokemon, setShowGetPokemon] = useState(true);
     const [showFavoritePokemon, setShowFavoritePokemon] = useState(false);
+    const [searchValue, setSearchValue] = useState("");
+    const [aboutPage, setAboutPage] = useState(false);
 
     const getListByGen = async url => {
         return new Promise((resolve, reject) => {
@@ -112,6 +112,11 @@ const App = () => {
         }
     }
 
+    const toggleAboutPage = (aboutPage) => {
+        setAboutPage(aboutPage)
+        setShowGetPokemon(true);
+    }
+
     const inputValue = (searchValue) => {
         setSearchValue(searchValue);
     }
@@ -121,7 +126,7 @@ const App = () => {
     }
 
     const getOrSearchPokeBlock = () => {
-        if(showFavoritePokemon === false && searchValue === "") {
+        if(showFavoritePokemon === false && searchValue === "" && showGetPokemon === true) {
             return (<GetPokemon className={showGetPokemon}
                 Gen1Pokemon={Gen1Pokemon}
                 Gen2Pokemon={Gen2Pokemon}
@@ -170,12 +175,15 @@ const App = () => {
 
     return (
         <div>
-           <NavbarIndex showFavoritePokemon={showFavoritePokemon} onFavoritesClick={toggleFavorites} searchValue={searchValue} onInputChange={inputValue}/>
+           <NavbarIndex showFavoritePokemon={showFavoritePokemon} onFavoritesClick={toggleFavorites} searchValue={searchValue} onInputChange={inputValue} aboutPage={aboutPage} onAboutClick={toggleAboutPage}/>
             {loader}
-           {getOrSearchPokeBlock()}
+           {aboutPage === false ? (getOrSearchPokeBlock()) : ( <About /> )}
            <footer>
                <FontAwesomeIcon className={"footer-icon"} icon={faGithubAlt} size={"3x"} onClick={() => {window.location.href="https://github.com/CalebEWheeler/poke-app-v1"}}></FontAwesomeIcon>
-               <FontAwesomeIcon className={"footer-icon"} icon={faInfoCircle} size={"3x"}></FontAwesomeIcon>
+               <FontAwesomeIcon className={"footer-icon"} icon={faInfoCircle} size={"3x"} onClick={() => {
+                   setShowGetPokemon(!showGetPokemon);
+                   setAboutPage(!aboutPage);
+               }}></FontAwesomeIcon>
            </footer>
         </div>
     )
