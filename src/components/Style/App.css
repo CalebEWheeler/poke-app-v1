@@ -888,6 +888,10 @@ footer {
 }
 
 @media (min-width: 2560px) {
+    main {
+        width: 96%;
+    }
+
     .home {
         margin-right: 250px;
     }
