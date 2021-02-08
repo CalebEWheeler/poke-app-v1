@@ -14,15 +14,13 @@ const NavbarIndex = ({ showFavoritePokemon, onFavoritesClick, searchValue, onInp
         onInputChange("")
     }
 
-    const handleAboutChange = () => {
-        onAboutClick(!aboutPage)
-    }
-
     const handleInputChange = (event) => {
+        onAboutClick(false);
         onInputChange(event.target.value)
     }
 
     const handleFavoritesClick = () => {
+        onAboutClick(false);
         onFavoritesClick(!showFavoritePokemon)
     }
 
