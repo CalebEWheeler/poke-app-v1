@@ -6,14 +6,14 @@ const About = () => {
         <main>
             <section className={"about-section"}>
                     <h6 className={"about-header"}>About the App</h6>
-                    <p className={"about-intro"}>
+                    <p className={"about-text"}>
                         Welcome to Poke Finder App, Poke Finder is an application built to allow users to see and favorite all pokemon ranging from the original 151 to the latest generation from the Galar region!
                         <br/><br/><span className={"about-question"}>Trying to favorite a specific pokemon?</span><br/>Click on the star beside the pokemon's name to favorite it.
                         <br/><br/><span className={"about-question"}>Want to see the pokemon you've favorited?</span><br/>Click on the Pokeball to navigate to your Favorite Pokemon page.
                         <br/><br/><span className={"about-question"}>Want to quickly find a pokemon by their name?</span><br/>Click on the magnifying glass icon and search for your desired pokemon!
                     </p>
                     <h6 className={"about-header"}>Developer Info</h6>
-                    <p className={"about-intro"}>
+                    <p className={"about-text"}>
                         Hi my name is Caleb Wheeler, I am the developer that made Poke Finder come to life!
                         <br/><br/><span className={"about-question"}>Why?</span><br/><br/>This project was a personal challenge I took on in order to push myself to learn the JavaScript Framework, ReactJS, as well as learn how to deploy a React project via Amplify AWS.
                         <br/><br/><span className={"about-question"}>What Did I Like?</span><br/><br/>What I really enjoyed about utilizing ReactJS, is the framework's implementation of components. The usage of React components reminds me a lot of Java classes in structure and allowing an Object Oriented Programming approach to Front end development. I thought it was really cool to have the ability to pass and make data available to components as properties.
