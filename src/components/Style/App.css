@@ -403,6 +403,14 @@ h6, p {
     border-bottom: 2px solid black;
 }
 
+footer {
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: black;
+}
+
 @media (max-width: 375px) and (max-height: 811px) {
     .main>h4 {
         font-size: 1.4em;

@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from 'react';
+import Router from 'react-router';
+import Route from 'react-router';
 import NavbarIndex from "./NavbarIndex";
 import GetPokemon from "./GetPokemon";
 import "./Style/App.css"
@@ -168,10 +170,10 @@ const App = () => {
            <NavbarIndex showFavoritePokemon={showFavoritePokemon} onFavoritesClick={toggleFavorites} searchValue={searchValue} onInputChange={inputValue}/>
             {loader}
            {getOrSearchPokeBlock()}
-           <div>
+           <footer>
                hi
-               <a href="https://github.com/CalebEWheeler/poke-app-v1">Github</a>
-           </div>
+               {/*<Link href="https://github.com/CalebEWheeler/poke-app-v1">Github</Link>*/}
+           </footer>
         </div>
     )
 }
