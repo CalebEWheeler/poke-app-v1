@@ -145,18 +145,25 @@ const CreatePokeCards = (passedPokemon, toggle, showFavoritePokemon, searchValue
                         setShowCardModal(!showCardModal)
                     }}>
                         <img src={pokemon.sprites.front_default} alt="pokeImg"/>
+                        <div className="poke-info-tooltip">Click here to see more info!</div>
                     </div>
                     <div className={"true name-block"}>
                         {localStorage.getItem(pokemon.id) !== null ?  (
+                            <div className={"favorite-cont"}>
                             <FontAwesomeIcon icon={faStar} className={"favorite"} id={pokemon.id}
                                              onClick={() => {
                                                  toggleFavorite(pokemon)
                                              }}/>
+                            <div className="favorite-tooltip">Click here to favorite this Pokemon!</div>
+                            </div>
                         ) : (
+                            <div className={"not-favorite-cont"}>
                             <FontAwesomeIcon icon={faStar} className={"not-favorite"} id={pokemon.id}
                                              onClick={() => {
                                                  toggleFavorite(pokemon)
                                              }}/>
+                            <div className="favorite-tooltip">Click here to unfavorite this Pokemon!</div>
+                            </div>
                         )}
                         <p>{modifyName(pokemon.name)}</p>
                     </div>

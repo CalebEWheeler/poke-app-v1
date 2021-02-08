@@ -56,7 +56,9 @@ const App = () => {
         hideLoader()
     }
 
-    useEffect(() => {getData()}, []);
+    useEffect(() => {
+        getData()
+    }, []);
 
     let byPokeUrl = "https://pokeapi.co/api/v2/pokemon/";
 
@@ -78,7 +80,7 @@ const App = () => {
         }))
         counter++;
         let listOfPokemon = {
-            allPokemon: []
+                allPokemon: []
             }
         ;
         switch (counter) {
@@ -126,25 +128,23 @@ const App = () => {
     }
 
     const getOrSearchPokeBlock = () => {
-        if(showFavoritePokemon === false && searchValue === "" && showGetPokemon === true) {
+        if (showFavoritePokemon === false && searchValue === "" && showGetPokemon === true) {
             return (<GetPokemon className={showGetPokemon}
-                Gen1Pokemon={Gen1Pokemon}
-                Gen2Pokemon={Gen2Pokemon}
-                Gen3Pokemon={Gen3Pokemon}
-                Gen4Pokemon={Gen4Pokemon}
-                Gen5Pokemon={Gen5Pokemon}
-                Gen6Pokemon={Gen6Pokemon}
-                Gen7Pokemon={Gen7Pokemon}
-                Gen8Pokemon={Gen8Pokemon}
-                showFavoritePokemon={showFavoritePokemon}
-                searchValue={searchValue}
+                                Gen1Pokemon={Gen1Pokemon}
+                                Gen2Pokemon={Gen2Pokemon}
+                                Gen3Pokemon={Gen3Pokemon}
+                                Gen4Pokemon={Gen4Pokemon}
+                                Gen5Pokemon={Gen5Pokemon}
+                                Gen6Pokemon={Gen6Pokemon}
+                                Gen7Pokemon={Gen7Pokemon}
+                                Gen8Pokemon={Gen8Pokemon}
+                                showFavoritePokemon={showFavoritePokemon}
+                                searchValue={searchValue}
             />)
-        }
-        else if(showFavoritePokemon === true) {
-            if(searchValue === "" && showFavoritePokemon === true) {
+        } else if (showFavoritePokemon === true) {
+            if (searchValue === "" && showFavoritePokemon === true) {
                 return (<FavoritePokemon/>)
-            }
-            else if(searchValue !== "") {
+            } else if (searchValue !== "") {
                 return (<SearchPokemon
                     Gen1Pokemon={Gen1Pokemon}
                     Gen2Pokemon={Gen2Pokemon}
@@ -156,8 +156,7 @@ const App = () => {
                     Gen8Pokemon={Gen8Pokemon}
                     searchValue={searchValue}/>);
             }
-        }
-        else {
+        } else {
             return (<SearchPokemon
                 Gen1Pokemon={Gen1Pokemon}
                 Gen2Pokemon={Gen2Pokemon}
@@ -172,19 +171,28 @@ const App = () => {
     }
 
 
-
     return (
         <div>
-           <NavbarIndex showFavoritePokemon={showFavoritePokemon} onFavoritesClick={toggleFavorites} searchValue={searchValue} onInputChange={inputValue} aboutPage={aboutPage} onAboutClick={toggleAboutPage}/>
+            <NavbarIndex showFavoritePokemon={showFavoritePokemon} onFavoritesClick={toggleFavorites}
+                         searchValue={searchValue} onInputChange={inputValue} aboutPage={aboutPage}
+                         onAboutClick={toggleAboutPage}/>
             {loader}
-           {aboutPage === false ? (getOrSearchPokeBlock()) : ( <About /> )}
-           <footer>
-               <FontAwesomeIcon className={"footer-icon"} icon={faGithubAlt} size={"3x"} onClick={() => {window.location.href="https://github.com/CalebEWheeler/poke-app-v1"}}></FontAwesomeIcon>
-               <FontAwesomeIcon className={"footer-icon"} icon={faInfoCircle} size={"3x"} onClick={() => {
-                   setShowGetPokemon(!showGetPokemon);
-                   setAboutPage(!aboutPage);
-               }}></FontAwesomeIcon>
-           </footer>
+            {aboutPage === false ? (getOrSearchPokeBlock()) : (<About/>)}
+            <footer>
+                <div className={"github-tooltip"}>
+                    <FontAwesomeIcon className={"footer-icon"} icon={faGithubAlt} size={"3x"} onClick={() => {
+                        window.location.href = "https://github.com/CalebEWheeler/poke-app-v1"
+                    }}></FontAwesomeIcon>
+                    <p className="footer-tooltip">To Github</p>
+                </div>
+                <div className={"about-tooltip"}>
+                    <FontAwesomeIcon className={"footer-icon"} icon={faInfoCircle} size={"3x"} onClick={() => {
+                        setShowGetPokemon(!showGetPokemon);
+                        setAboutPage(!aboutPage);
+                    }}></FontAwesomeIcon>
+                    <p className="footer-tooltip">To About Page</p>
+                </div>
+            </footer>
         </div>
     )
 }

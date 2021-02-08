@@ -30,46 +30,55 @@ function GetPokemon({Gen1Pokemon, Gen2Pokemon, Gen3Pokemon, Gen4Pokemon, Gen5Pok
                     setToggleGen1(!toggleGen1)
                 }}>
                     <h4>Gen 1</h4>
+                    <p className="gen-tab-tooltip">Toggle Gen1</p>
                 </div>
                 <div className={toggleGen2 === true ? "gen-header" : "gen-header-hide"} onClick={() => {
                     setToggleGen2(!toggleGen2)
                 }}>
                     <h4>Gen 2</h4>
+                    <p className="gen-tab-tooltip">Toggle Gen2</p>
                 </div>
                 <div className={toggleGen3 === true ? "gen-header" : "gen-header-hide"} onClick={() => {
                     setToggleGen3(!toggleGen3)
                 }}>
                     <h4>Gen 3</h4>
+                    <p className="gen-tab-tooltip">Toggle Gen3</p>
                 </div>
                 <div className={toggleGen4 === true ? "gen-header" : "gen-header-hide"} onClick={() => {
                     setToggleGen4(!toggleGen4)
                 }}>
                     <h4>Gen 4</h4>
+                    <p className="gen-tab-tooltip">Toggle Gen4</p>
                 </div>
                 <div className={toggleGen5 === true ? "gen-header" : "gen-header-hide"} onClick={() => {
                     setToggleGen5(!toggleGen5)
                 }}>
                     <h4>Gen 5</h4>
+                    <p className="gen-tab-tooltip">Toggle Gen5</p>
                 </div>
                 <div className={toggleGen6 === true ? "gen-header" : "gen-header-hide"} onClick={() => {
                     setToggleGen6(!toggleGen6)
                 }}>
                     <h4>Gen 6</h4>
+                    <p className="gen-tab-tooltip">Toggle Gen6</p>
                 </div>
                 <div className={toggleGen7 === true ? "gen-header" : "gen-header-hide"} onClick={() => {
                     setToggleGen7(!toggleGen7)
                 }}>
                     <h4>Gen 7</h4>
+                    <p className="gen-tab-tooltip">Toggle Gen7</p>
                 </div>
                 <div className={toggleGen8 === true ? "gen-header" : "gen-header-hide"} onClick={() => {
                     setToggleGen8(!toggleGen8)
                 }}>
                     <h4>Gen 8</h4>
+                    <p className="gen-tab-tooltip">Toggle Gen8</p>
                 </div>
                 <div className={"to-top-cont"}>
                     <FontAwesomeIcon className={"to-top-icon"} onClick={() => {
                         window.scrollTo({top: 0, behavior: 'smooth'})
                     }} icon={faCaretSquareUp} size={"4x"}></FontAwesomeIcon>
+                    <p className="to-top-tooltip">To Top of Page</p>
                 </div>
             </div>
             <section className={toggleGen1 === true ? "show-gen-section" : "hide-gen-section"}>

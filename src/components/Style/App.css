@@ -76,6 +76,11 @@ h6, p {
     width: 50px;
 }
 
+.favorite-cont {
+    height: 41px !important;
+    width: 39px !important;
+}
+
 .favorite {
     align-self: center;
     position: relative;
@@ -88,6 +93,11 @@ h6, p {
     border-radius: 14px 0 0 4px;
     padding: 4px;
     margin: 2px 0 2px 0!important;
+}
+
+.not-favorite-cont {
+    height: 41px !important;
+    width: 39px !important;
 }
 
 .not-favorite {
@@ -443,6 +453,172 @@ footer {
 
 .footer-icon {
     color: #fcffff;
+    transition: transform .2s;
+}
+
+.footer-icon:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+
+/* Tooltip container */
+/*.tooltip {*/
+/*    position: relative;*/
+/*    display: inline-block;*/
+/*    border-bottom: 1px dotted black; !* If you want dots under the hoverable text *!*/
+/*}*/
+
+/* Tooltip text */
+.main-menu-tooltip {
+    visibility: hidden;
+    font-weight: 500;
+    font-size: .75em !important;
+    width: 85px;
+    background-color: #fffaf0;
+    border: 2px solid #d8d7d6;
+    color: #212121;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    left: 150px;
+    top: 50px;
+    z-index: 100;
+}
+
+.search-tooltip {
+    visibility: hidden;
+    font-weight: 500;
+    font-size: .75em !important;
+    width: 85px;
+    background-color: #fffaf0;
+    border: 2px solid #d8d7d6;
+    color: #212121;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    right: 60px;
+    top: 45px;
+    z-index: 100;
+}
+
+.poke-info-tooltip {
+    visibility: hidden;
+    font-weight: 500;
+    font-size: .75em !important;
+    width: 85px;
+    background-color: #fffaf0;
+    border: 2px solid #d8d7d6;
+    color: #212121;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    right: 136px;
+    top: 0px;
+    z-index: 100;
+}
+
+.favorite-tooltip {
+    visibility: hidden;
+    font-weight: 500;
+    font-size: .75em !important;
+    width: 85px;
+    background-color: #fffaf0;
+    border: 2px solid #d8d7d6;
+    color: #212121;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    right: 165px;
+    top: 35px;
+    z-index: 100;
+}
+
+.favorites-tooltip {
+    visibility: hidden;
+    font-weight: 500;
+    font-size: .75em !important;
+    width: 85px;
+    background-color: #fffaf0;
+    border: 2px solid #d8d7d6;
+    color: #212121;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    right: 70px;
+    top: 45px;
+    z-index: 100;
+}
+
+.gen-tab-tooltip {
+    visibility: hidden;
+    font-weight: 500;
+    font-size: .75em !important;
+    width: 85px;
+    background-color: #fffaf0;
+    border: 2px solid #d8d7d6;
+    color: #212121;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    right: 90px;
+    top: 20px;
+    z-index: 100;
+}
+
+.to-top-tooltip {
+    visibility: hidden;
+    font-weight: 500;
+    font-size: .75em !important;
+    width: 85px;
+    background-color: #fffaf0;
+    border: 2px solid #d8d7d6;
+    color: #212121;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    right: 45px;
+    top: 20px;
+    z-index: 100;
+}
+
+.footer-tooltip {
+    visibility: hidden;
+    font-weight: 500;
+    font-size: .75em !important;
+    width: 95px;
+    background-color: #fffaf0;
+    border: 2px solid #d8d7d6;
+    color: #212121;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    bottom: 45px;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.about-tooltip:hover .footer-tooltip,
+.github-tooltip:hover .footer-tooltip,
+.gen-header:hover .gen-tab-tooltip,
+.gen-header-hide:hover .gen-tab-tooltip,
+.to-top-cont:hover .to-top-tooltip,
+.search-container:hover .search-tooltip,
+.icon-cont:hover .favorites-tooltip,
+.title-cont:hover .main-menu-tooltip,
+.favorite-cont:hover .favorite-tooltip,
+.not-favorite-cont:hover .favorite-tooltip,
+.image-radius:hover .poke-info-tooltip
+{
+    transition-delay: 750ms;
+    visibility: visible;
 }
 
 @media (max-width: 375px) and (max-height: 811px) {
