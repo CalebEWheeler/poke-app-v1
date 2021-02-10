@@ -27,7 +27,7 @@ const SearchPokemon = ({Gen1Pokemon, Gen2Pokemon, Gen3Pokemon, Gen4Pokemon, Gen5
                         {CreatePokeCards(filteredPokemon)}
                     </section>
                     <section className={filteredPokemon.length === 0 ?
-                        "dissapointed-pika-section" : "hide-gen-section"}>
+                        "dissapointed-pika-search" : "hide-gen-section"}>
                         <div className={"oh-no-msg-cont"}>
                             <img className={"pika-img"} src={pikaGif} alt="dissapointedPikachu"/>
                             <div className={"oh-no-cont"}>

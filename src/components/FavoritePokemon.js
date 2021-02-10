@@ -23,7 +23,7 @@ const FavoritePokemon = () => {
                     {CreatePokeCards(favoritePokemon)}
                 </section>
                 <section className={localStorage.length === 0 ?
-                    "dissapointed-pika-section" : "hide-gen-section"}>
+                    "dissapointed-pika-fav" : "hide-gen-section"}>
                     <div className={"oh-no-msg-cont"}>
                         <img className={"pika-img"} src={pikaGif} alt="dissapointedPikachu"/>
                         <div className={"oh-no-cont"}>
