@@ -32,6 +32,7 @@ const App = () => {
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
+                    console.log(data)
                     resolve(data)
                 })
         });
@@ -62,13 +63,19 @@ const App = () => {
 
     let byPokeUrl = "https://pokeapi.co/api/v2/pokemon/";
 
+    const controller = new AbortController();
+    const signal = controller.signal;
+
     const getEachPokemon = url => {
         return new Promise((resolve, reject) => {
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    resolve(data);
-                })
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        resolve(data);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
         });
     }
 
