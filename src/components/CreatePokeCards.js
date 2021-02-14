@@ -6,7 +6,13 @@ import Modal from "react-bootstrap/Modal";
 import StatChart from "./StatChart";
 import modalPokeball from "./Images/pokeball_modal.png"
 
-const CreatePokeCards = (passedPokemon, toggle, showFavoritePokemon, searchValue) => {
+const CreatePokeCards = (
+    passedPokemon, 
+    toggle, 
+    showFavoritePokemon, 
+    searchValue
+    ) => {
+
     const [favorites, setFavorites] = useState([]);
     const [showCardModal, setShowCardModal] = useState(false);
     const [showCard, setShowCard] = useState(0);
@@ -35,9 +41,7 @@ const CreatePokeCards = (passedPokemon, toggle, showFavoritePokemon, searchValue
         }
     }
 
-    useEffect(() => {
-        console.log(showCard)
-    }, [showCard])
+    useEffect(() => {}, [showCard])
 
     return (
         passedPokemon.map((pokemon, index) => {

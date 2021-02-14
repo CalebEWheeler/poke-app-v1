@@ -1,16 +1,18 @@
 import React, {useEffect, useState} from 'react';
 import NavbarIndex from "./NavbarIndex";
+import useLoader from "./Hooks/useLoader";
 import GetPokemon from "./GetPokemon";
+import FavoritePokemon from "./FavoritePokemon";
+import SearchPokemon from "./SearchPokemon";
+import About from "./About";
+import FooterIndex from "./FooterIndex";
 import "./Style/App.css"
 import "./Style/NavbarIndex.css"
 import "./Style/PokemonModal.css"
-import SearchPokemon from "./SearchPokemon";
-import useLoader from "./Hooks/useLoader";
-import FavoritePokemon from "./FavoritePokemon";
-import About from "./About";
-import FooterIndex from "./FooterIndex";
 
 const App = () => {
+
+    //Declared React Hooks used in this Component
     const [Gen1Pokemon, setGen1Pokemon] = useState([]);
     const [Gen2Pokemon, setGen2Pokemon] = useState([]);
     const [Gen3Pokemon, setGen3Pokemon] = useState([]);
