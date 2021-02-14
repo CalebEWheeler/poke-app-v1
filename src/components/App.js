@@ -32,7 +32,6 @@ const App = () => {
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data)
                     resolve(data)
                 })
         });
@@ -60,11 +59,6 @@ const App = () => {
     useEffect(() => {
         getData()
     }, []);
-
-    let byPokeUrl = "https://pokeapi.co/api/v2/pokemon/";
-
-    const controller = new AbortController();
-    const signal = controller.signal;
 
     const getEachPokemon = url => {
         return new Promise((resolve, reject) => {
@@ -134,7 +128,7 @@ const App = () => {
         setShowFavoritePokemon(showFavoritePokemon);
     }
 
-    const getOrSearchPokeBlock = () => {
+    const getOrFavoriteOrSearchPokeBlock = () => {
         if (showFavoritePokemon === false && searchValue === "" && showGetPokemon === true) {
             return (<GetPokemon className={showGetPokemon}
                                 Gen1Pokemon={Gen1Pokemon}
@@ -184,7 +178,7 @@ const App = () => {
                          searchValue={searchValue} onInputChange={inputValue} aboutPage={aboutPage}
                          onAboutClick={toggleAboutPage}/>
             {loader}
-            {aboutPage === false ? (getOrSearchPokeBlock()) : (<About/>)}
+            {aboutPage === false ? (getOrFavoriteOrSearchPokeBlock()) : (<About/>)}
             <footer>
                 <div className={"github-tooltip"}>
                     <FontAwesomeIcon className={"footer-icon"} icon={faGithubAlt} size={"3x"} onClick={() => {
