@@ -8,9 +8,7 @@ import SearchPokemon from "./SearchPokemon";
 import useLoader from "./Hooks/useLoader";
 import FavoritePokemon from "./FavoritePokemon";
 import About from "./About";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faGithubAlt} from "@fortawesome/free-brands-svg-icons";
-import {faInfoCircle} from "@fortawesome/free-solid-svg-icons";
+import FooterIndex from "./FooterIndex";
 
 const App = () => {
     const [Gen1Pokemon, setGen1Pokemon] = useState([]);
@@ -174,26 +172,21 @@ const App = () => {
 
     return (
         <div>
-            <NavbarIndex showFavoritePokemon={showFavoritePokemon} onFavoritesClick={toggleFavorites}
-                         searchValue={searchValue} onInputChange={inputValue} aboutPage={aboutPage}
-                         onAboutClick={toggleAboutPage}/>
+            <NavbarIndex 
+                showFavoritePokemon={showFavoritePokemon} 
+                onFavoritesClick={toggleFavorites}
+                searchValue={searchValue} 
+                onInputChange={inputValue}
+                //test commenting out aboutPage and removing from NavbarIndex.js
+                aboutPage={aboutPage}
+                onAboutClick={toggleAboutPage}
+            />
             {loader}
             {aboutPage === false ? (getOrFavoriteOrSearchPokeBlock()) : (<About/>)}
-            <footer>
-                <div className={"github-tooltip"}>
-                    <FontAwesomeIcon className={"footer-icon"} icon={faGithubAlt} size={"3x"} onClick={() => {
-                        window.location.href = "https://github.com/CalebEWheeler/poke-app-v1"
-                    }}></FontAwesomeIcon>
-                    <p className="footer-tooltip">To Github</p>
-                </div>
-                <div className={"about-tooltip"}>
-                    <FontAwesomeIcon className={"footer-icon"} icon={faInfoCircle} size={"3x"} onClick={() => {
-                        setShowGetPokemon(!showGetPokemon);
-                        setAboutPage(!aboutPage);
-                    }}></FontAwesomeIcon>
-                    <p className="footer-tooltip">To About Page</p>
-                </div>
-            </footer>
+            <FooterIndex 
+                aboutPage={aboutPage}
+                onAboutClick={toggleAboutPage} 
+            />
         </div>
     )
 }

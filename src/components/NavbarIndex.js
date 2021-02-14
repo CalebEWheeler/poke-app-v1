@@ -3,7 +3,14 @@ import pokeball from './Images/pokeball3.png';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faSearch} from '@fortawesome/free-solid-svg-icons'
 
-const NavbarIndex = ({ showFavoritePokemon, onFavoritesClick, searchValue, onInputChange, aboutPage, onAboutClick }) => {
+const NavbarIndex = ({ 
+    showFavoritePokemon, 
+    onFavoritesClick, 
+    searchValue, 
+    onInputChange, 
+    aboutPage, 
+    onAboutClick 
+}) => {
     const [showModal, setShowModal] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [searchStatus, setSearchStatus] = useState(false);
