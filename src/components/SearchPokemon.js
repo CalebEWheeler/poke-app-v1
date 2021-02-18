@@ -21,7 +21,7 @@ const SearchPokemon = ({Gen1Pokemon, Gen2Pokemon, Gen3Pokemon, Gen4Pokemon, Gen5
                 }
             }
             return (
-                <main>
+                <main className={"main-override"}>
                     <h4>Search Results</h4>
                     <section className={"grid-container"}>
                         {CreatePokeCards(filteredPokemon)}
