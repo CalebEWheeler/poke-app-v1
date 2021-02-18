@@ -11,6 +11,7 @@ const NavbarIndex = ({
     aboutPage, 
     onAboutClick 
 }) => {
+
     const [showModal, setShowModal] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [searchStatus, setSearchStatus] = useState(false);
@@ -63,20 +64,27 @@ const NavbarIndex = ({
 
     return [
         (
-            <React.Fragment>
+            // <React.Fragment>
                 <nav className={"nav"}>
                     <div className={"title-cont"}>
-                        <h4 className={"home"} onClick={() => {handleHomeBtnClick()}}>Poké Finder</h4>
+                        <h4 
+                            className={"home"} 
+                            onClick={() => {handleHomeBtnClick()}}>Poké Finder</h4>
                         <p className="main-menu-tooltip">To All Pokemon</p>
                     </div>
                     <div className={"icons-block"}>
                         <div className={"dropdown-link" + (searchStatus ? "" : " ")}>
                             <div className={"search-container"}>
-                                <FontAwesomeIcon icon={faSearch} size="3x" onClick={() => {searchTransition(searchStatus);}}
-                                                 className={"search-icon hover" + (searchStatus ? " search-hide" : " search-show")}></FontAwesomeIcon>
+                                <FontAwesomeIcon 
+                                    icon={faSearch} 
+                                    size="3x" 
+                                    onClick={() => {searchTransition(searchStatus);}}
+                                    className={"search-icon hover" + (searchStatus ? "  search-hide" : " search-show")}>
+                                </FontAwesomeIcon>
                                 <span className="search-tooltip">Search Pokemon</span>
                             </div>
-                            <div className={"search-container d-flex align-self-center" + (!searchStatus ? " search-hide" : " search-show")}>
+                            <div 
+                            className={"search-container d-flex align-self-center" + (!searchStatus ? " search-hide" : " search-show")}>
                                 <input autoFocus
                                        className={"nav-links round-input hover" + (!searchStatus ? " search-hide" : " search-show")}
                                        placeholder={"Search..."} type={"text"}
@@ -86,13 +94,16 @@ const NavbarIndex = ({
                                 />
                             </div>
                             <div className={"dropdown-link icon-cont hover"}>
-                                <img src={pokeball} alt={"favoritePokemon"} onClick={handleFavoritesClick}/>
+                                <img 
+                                    src={pokeball} 
+                                    alt={"favoritePokemon"} 
+                                    onClick={handleFavoritesClick}/>
                                 <p className="favorites-tooltip">To Favorites</p>
                             </div>
                         </div>
                     </div>
                 </nav>
-            </React.Fragment>
+            // </React.Fragment>
         )]
 }
 

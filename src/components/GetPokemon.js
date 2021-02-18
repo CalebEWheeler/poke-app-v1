@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import CreatePokeCards from "./CreatePokeCards";
 import {faCaretSquareUp} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import pikaGif from "./Images/dissapointedpika.gif";
 
-function GetPokemon({Gen1Pokemon, Gen2Pokemon, Gen3Pokemon, Gen4Pokemon, Gen5Pokemon, Gen6Pokemon, Gen7Pokemon, Gen8Pokemon, showFavoritePokemon, searchValue}) {
+const GetPokemon = ({Gen1Pokemon, Gen2Pokemon, Gen3Pokemon, Gen4Pokemon, Gen5Pokemon, Gen6Pokemon, Gen7Pokemon, Gen8Pokemon, showFavoritePokemon, searchValue}) => {
     const [toggleGen1, setToggleGen1] = useState(true);
     const [toggleGen2, setToggleGen2] = useState(true);
     const [toggleGen3, setToggleGen3] = useState(true);
@@ -13,14 +13,6 @@ function GetPokemon({Gen1Pokemon, Gen2Pokemon, Gen3Pokemon, Gen4Pokemon, Gen5Pok
     const [toggleGen6, setToggleGen6] = useState(true);
     const [toggleGen7, setToggleGen7] = useState(true);
     const [toggleGen8, setToggleGen8] = useState(true);
-
-    let allGens = [Gen1Pokemon, Gen2Pokemon, Gen3Pokemon, Gen4Pokemon, Gen5Pokemon, Gen6Pokemon, Gen7Pokemon, Gen8Pokemon];
-    let allPokemon = [];
-    for (let gen of allGens) {
-        for (let pokemon of gen) {
-            allPokemon.push(pokemon);
-        }
-    }
 
     return (
         <main>
