@@ -130,9 +130,7 @@ const App = () => {
 
     const getOrFavoriteOrSearchPokeBlock = () => {
         if (showFavoritePokemon === false && searchValue === "" && showGetPokemon === true) {
-            return (<GetPokemon 
-                key={0}
-                className={showGetPokemon}
+            return (<GetPokemon className={showGetPokemon}
                                 Gen1Pokemon={Gen1Pokemon}
                                 Gen2Pokemon={Gen2Pokemon}
                                 Gen3Pokemon={Gen3Pokemon}
@@ -146,10 +144,9 @@ const App = () => {
             />)
         } else if (showFavoritePokemon === true) {
             if (searchValue === "" && showFavoritePokemon === true) {
-                return (<FavoritePokemon key={1}/>)
+                return (<FavoritePokemon/>)
             } else if (searchValue !== "") {
                 return (<SearchPokemon
-                    key={2}
                     Gen1Pokemon={Gen1Pokemon}
                     Gen2Pokemon={Gen2Pokemon}
                     Gen3Pokemon={Gen3Pokemon}
@@ -162,7 +159,6 @@ const App = () => {
             }
         } else {
             return (<SearchPokemon
-                key={3}
                 Gen1Pokemon={Gen1Pokemon}
                 Gen2Pokemon={Gen2Pokemon}
                 Gen3Pokemon={Gen3Pokemon}

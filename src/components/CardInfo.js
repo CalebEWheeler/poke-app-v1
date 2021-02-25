@@ -1,7 +1,12 @@
 import React from 'react';
 
-const CardInfo = ({id, height, weight, type1, type2}) => {
-    const capType = (type) => { return type.charAt(0).toUpperCase() + type.substr(1)}
+const CardInfo = ({
+    id, 
+    height, 
+    weight, 
+    type1, 
+    type2
+}) => {
 
     return (
             <div className={type2 === "" ? "right-card1" : "right-card2"}>

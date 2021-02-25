@@ -7,8 +7,7 @@ const FooterIndex = ({
   aboutPage,
   onAboutClick   
 }) => {
-  //TODO: need to pass from App.js showGetPokemon.val and setAboutPage.val and provide methods to handle the state change
-
+  
   const handleAboutClick = () => {
     onAboutClick(!aboutPage);
   }
